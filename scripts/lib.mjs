@@ -159,7 +159,19 @@ export function validateDeck(data) {
 }
 export function sanitizeDeck(deck, assets=[], {includePrivateAssets=false}={}) {
   const safeAssets=assets.filter(a=>includePrivateAssets||a.publicAllowed).map(({id,path,alt,caption,kind,width,height,sha256})=>({id,path,alt,caption,kind,width,height,sha256}));
-  return {...deck, assets:safeAssets, slides:deck.slides.map(({speakerNotes,...s})=>s)};
+  const safeAssetIds=new Set(safeAssets.map(a=>a.id));
+  const slides=deck.slides.map(({speakerNotes,...s})=>({...s,blocks:(s.blocks||[]).map(block=>{
+    if(block.type!=='video-list')return block;
+    let omitted=false;
+    const items=(block.items||[]).map(item=>{
+      if(!item.assetId||safeAssetIds.has(item.assetId))return item;
+      omitted=true;
+      const {assetId,alt,thumbnailCaption,...publicItem}=item;
+      return publicItem;
+    });
+    return omitted?{...block,items,caption:'공개 권리가 확인되지 않은 썸네일은 공개하지 않고, 영상 제목과 링크만 제공합니다.'}:{...block,items};
+  })}));
+  return {...deck, assets:safeAssets, slides};
 }
 
 export function validateSources(registry, today=new Date().toISOString().slice(0,10)) {

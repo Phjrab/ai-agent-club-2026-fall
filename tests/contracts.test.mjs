@@ -28,7 +28,12 @@ test('승인된 공개 빌드는 슬라이드만 포함하고 비공개 썸네�
  assert.equal(fs.existsSync(deckPath),true);
  const deckText=fs.readFileSync(deckPath,'utf8');
  assert.equal(deckText.includes('speakerNotes'),false);
- assert.equal(JSON.parse(deckText).assets.some(a=>a.id.startsWith('thumb-v')),false);
+ const publicDeck=JSON.parse(deckText);
+ assert.equal(publicDeck.assets.some(a=>a.id.startsWith('thumb-v')),false);
+ const videoList=publicDeck.slides.flatMap(s=>s.blocks||[]).find(b=>b.type==='video-list');
+ assert.ok(videoList);
+ assert.equal(videoList.items.some(item=>item.assetId||item.thumbnailCaption),false);
+ assert.match(videoList.caption,/공개 권리가 확인되지 않은 썸네일은 공개하지 않고/);
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'assets','user')),false);
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter.html')),false);
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter-deck.json')),false);
