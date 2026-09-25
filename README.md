@@ -7,6 +7,7 @@
 - Pretendard를 로컬에서 불러오는 1920×1080 HTML 발표 엔진. 키보드 이동, 목차, deep link, 전체화면, 발표자 화면을 지원한다.
 - 반응형 학기 포트폴리오. 예정 일정과 실제 실시·공개 상태를 구분한다.
 - 새 `brief.md`를 반영한 본편 30장과 질의응답 1장, 한국어 발표 대본, 출처 목록.
+- 직접 만든 설명용 SVG 18개와 세 YouTube 영상의 썸네일을 연결한 비공개 검토용 화면.
 - HTML 패키지, 슬라이드 PDF, 16:9 시각 호환 PPTX, 발표 대본 DOCX 내보내기.
 - 검증·브라우저 QA와 승인 범위를 확인하는 GitHub Pages workflow.
 
@@ -27,19 +28,19 @@ npm run serve -- --dir dist/private
 
 마지막 명령이 표시하는 로컬 주소에서 포트폴리오를 열고, 1회차 카드로 발표자료에 들어간다. 발표자 화면은 `dist/private/lectures/01-agent-ai-intro/presenter.html`이다. `--help`로 각 명령의 인자를 확인할 수 있다. 설치 후 HTML 발표 자체는 오프라인으로 재생되지만, YouTube 원본 영상을 여는 데에는 인터넷과 소리가 필요하다.
 
-내보낸 파일은 `exports/2026-fall/01-agent-ai-intro/0.2.0/`에 생성된다. PDF와 PPTX는 화면을 이미지로 보존하는 방식이므로 PowerPoint의 개별 텍스트·도형 편집을 지원하지 않는다. DOCX는 Pretendard가 설치된 환경에서 정상 표시된다. 폰트가 없는 Linux/LibreOffice 렌더러는 한글을 누락할 수 있어, 렌더링 QA에서는 패키지의 Pretendard 폰트를 fontconfig에 등록했다.
+내보낸 파일은 현재 로컬 개정 `0.5.0` 기준 `exports/2026-fall/01-agent-ai-intro/0.5.0/`에 생성된다. PDF와 PPTX는 화면을 이미지로 보존하는 방식이므로 PowerPoint의 개별 텍스트·도형 편집을 지원하지 않는다. DOCX는 Pretendard가 설치된 환경에서 정상 표시된다. 폰트가 없는 Linux/LibreOffice 렌더러는 한글을 누락할 수 있어, 렌더링 QA에서는 패키지의 Pretendard 폰트를 fontconfig에 등록했다.
 
 ## 1회차 진행 전 확인
 
-사용자가 지정한 영상 세 편의 메타데이터 길이는 6:22, 5:26, 5:01로 합계 **16:49**다. 초안은 영상을 12:00으로 배정했으므로 38분 설명과 10분 질의응답을 그대로 유지하면 **64:49**가 된다. 전체 재생과 순서는 유지하며, 60분 진행 여부는 리허설과 발표자의 시간 조정이 필요하다. 영상 내용은 아직 시청 검증되지 않았다.
+영상 세 편은 V01 → V02 → V03 순서로 전체 재생한다. 페이지에서 확인한 길이 합계는 **16:49**이며, 설명·전환 **38:00**을 더하면 본편은 **54:49**다. 고정 질의응답은 **0:00**이고, 질문은 진행 중이나 실제 남는 시간에 유동적으로 받는다. **5:11**은 추가 콘텐츠로 채우지 않고 유동 여유로 둔다. 영상의 본문·자막은 시청 검증하지 않았다.
 
 가격·모델·기능은 `sources.yaml`의 확인일과 검증 상태를 함께 읽어야 한다. URL의 HTTP 응답만 확인된 항목을 본문 사실 검증 완료로 취급하지 않는다. 강의 전 현재 요금·학생 혜택·학교 제공 조건을 다시 확인한다.
 
 ## 새 회차와 공개 경계
 
-`npm run lecture:new -- --slug 02-prompt-and-workflow --title "Prompt and Workflow"`는 빈 기획 틀만 만든다. 기획을 고치면 Codex가 `deck.json`과 출처를 재작성해야 하며, 해시 검사만 통과시키는 수정은 허용하지 않는다. 활성 규칙은 [AGENTS.md](AGENTS.md), 상세 계약은 [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md)와 [docs/QA_AND_ACCEPTANCE.md](docs/QA_AND_ACCEPTANCE.md)에 있다.
+`npm run lecture:new -- --slug 02-prompt-and-workflow --title "프롬프트와 작업 흐름"`는 한국어를 기본값으로 하는 빈 기획 틀만 만든다. 기획을 고치면 Codex가 한국어 `deck.json`과 출처를 재작성해야 하며, 해시 검사만 통과시키는 수정은 허용하지 않는다. 활성 규칙은 [AGENTS.md](AGENTS.md), 상세 계약은 [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md)와 [docs/QA_AND_ACCEPTANCE.md](docs/QA_AND_ACCEPTANCE.md)에 있다.
 
-GitHub 저장소와 Pages 사이트가 공개되었다. 1회차의 현재 콘텐츠 해시와 공개 범위는 `publication.approval.json`에 있다. 사이트에는 슬라이드만 게시하고 한국어 발표 대본과 PDF·PPTX·DOCX 내보내기는 올리지 않는다. 공개 저장소의 `deck.json`에는 발표 대본이, 기존 Git 이력에는 커밋 작성자 이메일이 포함된다. `brief.md`의 초기 `public_approved: false`는 기획 입력 당시의 값이며, 현재 공개 결정은 별도의 승인 파일이 기록한다. 라이선스 결정과 제3자 자료 범위는 [docs/LICENSE_POLICY.md](docs/LICENSE_POLICY.md)에 기록했다.
+GitHub 저장소와 Pages 사이트에는 별도 승인된 기존 공개본이 있다. `publication.approval.json`과 공개본은 보존한다. 현재 로컬 개정 `0.5.0`은 한국어·시각자료 수정 검토본이며 기존 공개 승인 해시와 일치하지 않는다. 새 개정은 별도 승인 전 공개 사이트에 배포하지 않는다. 사이트에는 슬라이드만 게시하고 한국어 발표 대본과 PDF·PPTX·DOCX 내보내기는 올리지 않는다. 제3자 자료의 재사용 범위는 [docs/LICENSE_POLICY.md](docs/LICENSE_POLICY.md)에 기록한다.
 
 저장소: [Phjrab/ai-agent-club-2026-fall](https://github.com/Phjrab/ai-agent-club-2026-fall). 사이트: [GitHub Pages](https://phjrab.github.io/ai-agent-club-2026-fall/).
 

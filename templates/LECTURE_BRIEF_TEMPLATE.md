@@ -8,11 +8,12 @@ start_time: "18:00"
 timezone: Asia/Seoul
 classroom: null
 duration_minutes: 60
-lecture_minutes: 50
-questions_minutes: 10
-target_main_slides: 30
+lecture_minutes: 60
+questions_minutes: 0
+questions_mode: flexible
+target_main_slides: null
 appendix_max_slides: 6
-slide_language: en
+slide_language: ko
 script_language: ko
 presentation_mode: research_synthesis
 content_state: planned
@@ -62,9 +63,9 @@ public_approved: false
 | 사용 예시 | 화면·작업·프롬프트 사례 | 15 |
 | 경험·한계 | 내가 겪은 점과 판단 기준 | 10 |
 | 정리 | 한 문장씩 회수 | 2 |
-| 질의응답 | 별도 운영 | 10 |
+| 질문·추가 설명·현장 지연용 유동 여유 | 계획 본편에 더하지 않음 | 회차 설정에 따름 |
 
-위 배분은 예시다. 수정 후 설명 합계와 질의응답 합계가 frontmatter와 일치해야 한다.
+위 배분은 예시다. 계획 본편 시간과 고정 질의응답 시간은 frontmatter와 일치해야 한다. `questions_mode: flexible`이면 고정 배정은 0분이며, 질문은 설명 중이나 실제 남는 시간에 받는다. 남는 시간을 새 콘텐츠로 채워 총량을 맞추지 않는다.
 
 ## 6. 내 경험과 꼭 지킬 표현
 

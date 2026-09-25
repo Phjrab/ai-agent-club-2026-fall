@@ -3,7 +3,7 @@ import path from 'node:path';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
 import {build} from 'esbuild';
-import {root,config,lectureDirs,loadLecture,validateDeck,validateSources,isApproved,sanitizeDeck,escapeHtml,selectLecture,readJson,writeJson} from './lib.mjs';
+import {root,config,lectureDirs,loadLecture,validateDeck,validateSources,isApproved,sanitizeDeck,escapeHtml,selectLecture,readJson,writeJson,assetSourceFile} from './lib.mjs';
 
 const [cmd,...args]=process.argv.slice(2);
 const option=(name, fallback)=>{const i=args.indexOf(name);return i<0?fallback:args[i+1];};
@@ -39,11 +39,14 @@ async function buildSite(isPublic=false){
   const d=loadLecture(dir), slug=d.deck.slug, approved=isApproved(d);
   if(isPublic&&!approved) continue;
   const target=path.join(out,'lectures',slug);fs.mkdirSync(target,{recursive:true});
-  const student={...sanitizeDeck(d.deck),sources:d.sources.sources};writeJson(path.join(target,'deck.json'),student);
+  const assets=d.assets.assets.filter(a=>!isPublic||a.publicAllowed===true);
+  for(const a of assets) copy(assetSourceFile(d,a),path.join(target,a.path));
+  const assetManifest=assets.map(({id,path,alt,caption,kind,width,height,sha256})=>({id,path,alt,caption,kind,width,height,sha256}));
+  const student={...sanitizeDeck(d.deck,assets,{includePrivateAssets:!isPublic}),sources:d.sources.sources};writeJson(path.join(target,'deck.json'),student);
   const css='../../assets/site.css',js='../../assets/presentation.js';
   fs.writeFileSync(path.join(target,'index.html'),makePage(d.deck.title,css,js,'<div id="presentation-app"></div>'));
   if(!isPublic) {
-   writeJson(path.join(target,'presenter-deck.json'),{...d.deck,sources:d.sources.sources});
+   writeJson(path.join(target,'presenter-deck.json'),{...d.deck,assets:assetManifest,sources:d.sources.sources});
    fs.writeFileSync(path.join(target,'presenter.html'),makePage(d.deck.title+' · 발표자',css,js,'<div id="presentation-app" data-presenter="true"></div>'));
   }
   cards.push({slug,title:d.deck.title,state:d.deck.contentState,date:'2026-10-01',goals:['AI 선택 기준','Agent 작업과 검증','GitHub 포트폴리오'],sourceChecked:'2026-09-25'});
@@ -65,7 +68,7 @@ try {
  else if(cmd==='lecture:new'){
   const slug=option('--slug'),title=option('--title');if(!slug||!title)throw new Error('--slug와 --title이 필요합니다');
   const target=path.join(root,'lectures',config.term,slug);if(fs.existsSync(target))throw new Error('동일 강의 폴더가 이미 있습니다');
-  fs.mkdirSync(target,{recursive:true});fs.writeFileSync(path.join(target,'brief.md'),`---\nslug: ${slug}\nterm: ${config.term}\ntitle: "${title.replaceAll('"','')}"\ncontent_state: planned\nevent_state: unknown\n---\n\n# ${title}\n\n## 목표\n\n## 필수 내용\n\n## 확인할 자료\n`);console.log(target);
+  fs.mkdirSync(target,{recursive:true});fs.writeFileSync(path.join(target,'brief.md'),`---\nslug: ${slug}\nterm: ${config.term}\ntitle: "${title.replaceAll('\"','')}"\nduration_minutes: ${config.durationMinutes}\nlecture_minutes: ${config.lectureMinutes}\nquestions_minutes: ${config.questionsMinutes}\nquestions_mode: ${config.questionsMode}\nslide_language: ${config.slideLanguage}\nscript_language: ${config.scriptLanguage}\ncontent_state: planned\nevent_state: unknown\n---\n\n# ${title}\n\n## 목표\n\n## 필수 내용\n\n## 확인할 자료\n\n## 한국어 작성 기준\n슬라이드와 발표 원고는 기본적으로 한국어로 작성한다. 제품명·코드·경로·URL·실제 화면 문구는 원문을 보존하고 필요한 한국어 설명을 덧붙인다.\n`);console.log(target);
  }
  else if(cmd==='sources:check') {
   let count=0,errors=[];

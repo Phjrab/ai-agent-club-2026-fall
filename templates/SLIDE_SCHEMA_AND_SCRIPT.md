@@ -20,23 +20,24 @@
   "lectureId": "L01",
   "slug": "01-agent-ai-intro",
   "term": "2026-fall",
-  "title": "From Chat to Action",
+  "title": "AI에게 묻고 맡기기",
   "revision": "0.1.0",
   "inputDigest": "COMPUTE_SHA256_OF_BRIEF",
   "sourceRegistryDigest": "COMPUTE_SHA256_OF_SOURCE_REGISTRY",
-  "slideLanguage": "en",
+  "slideLanguage": "ko",
   "scriptLanguage": "ko",
   "contentState": "draft",
   "plannedMainDurationSec": 120,
   "questionsSec": 0,
+  "questionsMode": "flexible",
   "slides": [
     {
       "id": "L01-S001",
       "kind": "main",
       "sectionId": "opening",
       "layout": "cover",
-      "title": "From Chat to Action",
-      "takeaway": "How we will learn to use AI agents",
+      "title": "AI에게 묻고, 일을 맡기기",
+      "takeaway": "AI를 고르고, 범위를 정해 맡기고, 결과를 확인한다",
       "requirementIds": [],
       "durationSec": 120,
       "sourcePolicy": "not_applicable",
@@ -57,7 +58,7 @@
 }
 ```
 
-위 예시는 120초짜리 한 장의 최소 예시다. 실제 1회차는 3000초 설명 + 600초 질의응답이며 실제 slide들로 채워야 한다.
+위 예시는 120초짜리 한 장의 최소 예시다. 실제 회차의 본편·질의응답·유동 여유는 `duration_minutes`, `questions_minutes`, `questions_mode`와 각 장의 시간에서 계산한다. 30장이나 특정 질의응답 분량을 모든 회차에 고정하지 않는다.
 
 ## 3. 필드 계약
 

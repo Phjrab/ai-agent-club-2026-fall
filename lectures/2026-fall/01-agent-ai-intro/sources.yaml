@@ -1,585 +1,480 @@
-{
-  "schema_version": 1,
-  "sources": [
-    {
-      "id": "S01",
-      "type": "official_or_reference",
-      "title": "OpenAI models",
-      "publisher": "OpenAI",
-      "url": "https://developers.openai.com/api/docs/models",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "모델 이름·공식 용도; 소비자 요금제 제공 여부는 별도"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S02",
-      "type": "official_or_reference",
-      "title": "ChatGPT pricing",
-      "publisher": "OpenAI",
-      "url": "https://chatgpt.com/pricing/",
-      "published_at": null,
-      "checked_at": null,
-      "verification_status": "unavailable",
-      "access_status": "HTTP 403",
-      "supports": [
-        "개인 플랜 이름·포함 기능"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S03",
-      "type": "official_or_reference",
-      "title": "Codex pricing",
-      "publisher": "OpenAI",
-      "url": "https://learn.chatgpt.com/docs/pricing",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "Plus·Pro 공식 표시, 구독/API 구분; 과거 프로모션을 현재로 취급하지 않음"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S04",
-      "type": "official_or_reference",
-      "title": "Using Codex with your ChatGPT plan",
-      "publisher": "OpenAI",
-      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
-      "published_at": null,
-      "checked_at": null,
-      "verification_status": "unavailable",
-      "access_status": "HTTP 403",
-      "supports": [
-        "사용량·Work/Codex 공유·별도 한도·일회성 리셋 조건"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S05",
-      "type": "official_or_reference",
-      "title": "Claude models overview",
-      "publisher": "Anthropic",
-      "url": "https://platform.claude.com/docs/en/models/overview",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "모델 계열·버전·공식 설명"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S06",
-      "type": "official_or_reference",
-      "title": "Claude pricing",
-      "publisher": "Anthropic",
-      "url": "https://claude.com/pricing",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "Pro 월/연 결제, Max, Claude Code 포함"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S07",
-      "type": "official_or_reference",
-      "title": "Use Claude Code with Pro or Max",
-      "publisher": "Anthropic",
-      "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "Claude/Claude Code 사용량 공유와 인증·API 청구 차이"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S08",
-      "type": "official_or_reference",
-      "title": "Gemini API models",
-      "publisher": "Google",
-      "url": "https://ai.google.dev/gemini-api/docs/models",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "모델 이름·상태; 앱 제공 목록과 구분"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S09",
-      "type": "official_or_reference",
-      "title": "Google One Korea",
-      "publisher": "Google",
-      "url": "https://one.google.com/intl/ko_kr/about/",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "Google AI Plus/Pro/Ultra, 기능·지역 조건; 동적 가격 별도 확인"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S10",
-      "type": "official_or_reference",
-      "title": "Gemini for Students Korea",
-      "publisher": "기타",
-      "url": "https://gemini.google/kr/students/?hl=ko",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "현재 학생 AI Plus 혜택·대상·기한·자동 갱신"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S11",
-      "type": "official_or_reference",
-      "title": "Google 학생 혜택 발표, 2026-08-20",
-      "publisher": "기타",
-      "url": "https://blog.google/intl/ko-kr/company-news/inside-google/student-offer-google-ai-kr/",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "인증·개인 계정·신청 조건; 사후 월 요금은 S10과 불일치 확인"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S12",
-      "type": "official_or_reference",
-      "title": "CSU 서비스 소개",
-      "publisher": "Mindlogic",
-      "url": "https://docs.mindlogic.ai/docs/chosun-ac/baze/getting-started/introduction#서비스-소개",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "서비스 구조·모델 제공; 학교별 무료·추가 지급 절차의 증거로 확대하지 않음"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S13",
-      "type": "official_or_reference",
-      "title": "CSU 모델별 크레딧 단가",
-      "publisher": "Mindlogic",
-      "url": "https://docs.mindlogic.ai/docs/chosun-ac/baze/product/model-credits",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "입력/출력 토큰·단가·크레딧; 학생별 배정량은 확인되지 않음"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S14",
-      "type": "official_or_reference",
-      "title": "CSU Codex CLI 연동",
-      "publisher": "Mindlogic",
-      "url": "https://docs.mindlogic.ai/docs/chosun-ac/api-gateway/integrations/codex-cli",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "Gateway·커스텀 제공자·학교 크레딧; 모든 앱·클라우드 기능 지원으로 확대하지 않음"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S15",
-      "type": "official_or_reference",
-      "title": "CSU Claude Code 연동",
-      "publisher": "Mindlogic",
-      "url": "https://docs.mindlogic.ai/docs/chosun-ac/api-gateway/integrations/claude-code",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "CLI/지원 확장·Gateway; 포괄적인 '모든 기능' 표현은 S25 제한과 함께 해석"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S16",
-      "type": "external_reference",
-      "title": "Codex Resets",
-      "publisher": "기타",
-      "url": "https://codex-resets.com",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "사용자 지정 비공식 참고 사이트; 개인 한도·향후 리셋 보장 근거가 아님"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S17",
-      "type": "official_or_reference",
-      "title": "Anthropic, Building effective agents",
-      "publisher": "Anthropic",
-      "url": "https://www.anthropic.com/engineering/building-effective-agents",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "Agent·workflow·도구·작업 구성의 기본 구분"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S18",
-      "type": "external_reference",
-      "title": "Wei et al., Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
-      "publisher": "기타",
-      "url": "https://arxiv.org/abs/2201.11903",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "CoT 원 논문의 개념; 현재 모델 내부 동작의 보장으로 확대하지 않음"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S19",
-      "type": "official_or_reference",
-      "title": "OpenAI reasoning best practices",
-      "publisher": "OpenAI",
-      "url": "https://developers.openai.com/api/docs/guides/reasoning-best-practices",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "추론 모델에 대한 명확한 요청과 CoT 프롬프트의 한계"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S20",
-      "type": "official_or_reference",
-      "title": "Agent Skills",
-      "publisher": "기타",
-      "url": "https://agentskills.io/home",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "SKILL.md와 재사용 지침·부속 자료의 형식"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S21",
-      "type": "official_or_reference",
-      "title": "MCP introduction",
-      "publisher": "Model Context Protocol",
-      "url": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "외부 도구·데이터 연결 프로토콜의 정의"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S22",
-      "type": "official_or_reference",
-      "title": "ChatGPT desktop / Codex app docs",
-      "publisher": "OpenAI",
-      "url": "https://learn.chatgpt.com/docs/app",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "현재 작업 모드·제품 명칭·지원 환경"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S23",
-      "type": "official_or_reference",
-      "title": "Codex Remote",
-      "publisher": "OpenAI",
-      "url": "https://learn.chatgpt.com/docs/remote",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "모바일에서 컴퓨터 작업 지시·승인·검토, 기기·전원·네트워크 조건"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S24",
-      "type": "official_or_reference",
-      "title": "Claude download",
-      "publisher": "Anthropic",
-      "url": "https://claude.com/download",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "공식 앱·다운로드 경로; 앱 속도 우월성의 근거로 쓰지 않음"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S25",
-      "type": "official_or_reference",
-      "title": "Claude Code Remote Control",
-      "publisher": "Anthropic",
-      "url": "https://code.claude.com/docs/en/remote-control",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "로컬 세션·구독 인증·API 키/외부 Gateway 미지원·관리자 조건"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S26",
-      "type": "official_or_reference",
-      "title": "GitHub Hello World",
-      "publisher": "GitHub",
-      "url": "https://docs.github.com/en/get-started/using-github/hello-world",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "repository·branch·commit·pull request·merge"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S27",
-      "type": "official_or_reference",
-      "title": "GitHub profile pinning",
-      "publisher": "GitHub",
-      "url": "https://docs.github.com/en/account-and-profile/how-tos/profile-customization/pinning-items-to-your-profile",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "프로젝트를 프로필에서 소개하는 기능"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S28",
-      "type": "official_or_reference",
-      "title": "Google Antigravity",
-      "publisher": "기타",
-      "url": "https://antigravity.google/",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "Agent 개발 환경 예시, 실제 지원 기능 확인"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S29",
-      "type": "official_or_reference",
-      "title": "Claude product update",
-      "publisher": "Anthropic",
-      "url": "https://claude.com/blog/cowork-is-now-claude",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "needs_verification",
-      "access_status": "HTTP 200",
-      "supports": [
-        "2026-09-16 앱/작업 방식 통합 안내; 전체 계정 동시 제공으로 단정하지 않음"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "S30",
-      "type": "official_or_reference",
-      "title": "Grok official product",
-      "publisher": "기타",
-      "url": "https://x.ai/grok",
-      "published_at": null,
-      "checked_at": null,
-      "verification_status": "unavailable",
-      "access_status": "HTTP 403",
-      "supports": [
-        "다른 제품의 짧은 소개; 점유율·성능 순위 주장에는 사용하지 않음"
-      ],
-      "caveats": [
-        "본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인"
-      ]
-    },
-    {
-      "id": "U01",
-      "type": "personal_experience",
-      "title": "발표자가 제공한 이번 강의 요구·추천·사용 경험",
-      "publisher": "발표자",
-      "url": null,
-      "published_at": null,
-      "checked_at": "2026-09-24",
-      "verification_status": "user_provided",
-      "supports": [
-        "학교 운영 안내와 발표자 의견, 사용 경험"
-      ],
-      "caveats": [
-        "독립 검증된 성능·학교 정책 자료 아님"
-      ]
-    },
-    {
-      "id": "V01",
-      "type": "video",
-      "title": "AI 에이전트 만드는 기초 기술",
-      "publisher": "YouTube 원본 업로더",
-      "url": "https://youtu.be/eu5H0iRJsJ4?si=pXLiCFBb4oqFFzQl",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "metadata_verified",
-      "access_status": "HTTP 200",
-      "duration_seconds": 382,
-      "supports": [
-        "페이지 제목과 lengthSeconds 메타데이터만 확인"
-      ],
-      "caveats": [
-        "영상 본문·자막·장면은 시청 검증하지 않음"
-      ]
-    },
-    {
-      "id": "V02",
-      "type": "video",
-      "title": "요즘 판교사투리 1. 하네스 엔지니어링",
-      "publisher": "YouTube 원본 업로더",
-      "url": "https://www.youtube.com/watch?v=q1v1_btl19w&list=PLH5MbtNd7k1U&index=8",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "metadata_verified",
-      "access_status": "HTTP 200",
-      "duration_seconds": 326,
-      "supports": [
-        "페이지 제목과 lengthSeconds 메타데이터만 확인"
-      ],
-      "caveats": [
-        "영상 본문·자막·장면은 시청 검증하지 않음"
-      ]
-    },
-    {
-      "id": "V03",
-      "type": "video",
-      "title": "요즘 핫한 MCP는 트랄랄레로 트랄랄라같은 것임",
-      "publisher": "YouTube 원본 업로더",
-      "url": "https://youtu.be/KZwV6dOfNuE?si=yxE6tpN8nccJCkLd",
-      "published_at": null,
-      "checked_at": "2026-09-25",
-      "verification_status": "metadata_verified",
-      "access_status": "HTTP 200",
-      "duration_seconds": 301,
-      "supports": [
-        "페이지 제목과 lengthSeconds 메타데이터만 확인"
-      ],
-      "caveats": [
-        "영상 본문·자막·장면은 시청 검증하지 않음"
-      ]
-    }
-  ]
-}
+schema_version: 1
+sources:
+  - id: S01
+    type: official_or_reference
+    title: OpenAI models
+    publisher: OpenAI
+    url: https://developers.openai.com/api/docs/models
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 모델 이름·공식 용도; 소비자 요금제 제공 여부는 별도
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S02
+    type: official_or_reference
+    title: ChatGPT pricing
+    publisher: OpenAI
+    url: https://chatgpt.com/pricing/
+    published_at: null
+    checked_at: null
+    verification_status: unavailable
+    access_status: HTTP 403
+    supports:
+      - 개인 플랜 이름·포함 기능
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S03
+    type: official_or_reference
+    title: Codex pricing
+    publisher: OpenAI
+    url: https://learn.chatgpt.com/docs/pricing
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - Plus·Pro 공식 표시, 구독/API 구분; 과거 프로모션을 현재로 취급하지 않음
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S04
+    type: official_or_reference
+    title: Using Codex with your ChatGPT plan
+    publisher: OpenAI
+    url: https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan
+    published_at: null
+    checked_at: null
+    verification_status: unavailable
+    access_status: HTTP 403
+    supports:
+      - 사용량·Work/Codex 공유·별도 한도·일회성 리셋 조건
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S05
+    type: official_or_reference
+    title: Claude models overview
+    publisher: Anthropic
+    url: https://platform.claude.com/docs/en/models/overview
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 모델 계열·버전·공식 설명
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S06
+    type: official_or_reference
+    title: Claude pricing
+    publisher: Anthropic
+    url: https://claude.com/pricing
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - Pro 월/연 결제, Max, Claude Code 포함
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S07
+    type: official_or_reference
+    title: Use Claude Code with Pro or Max
+    publisher: Anthropic
+    url: https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - Claude/Claude Code 사용량 공유와 인증·API 청구 차이
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S08
+    type: official_or_reference
+    title: Gemini API models
+    publisher: Google
+    url: https://ai.google.dev/gemini-api/docs/models
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 모델 이름·상태; 앱 제공 목록과 구분
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S09
+    type: official_or_reference
+    title: Google One Korea
+    publisher: Google
+    url: https://one.google.com/intl/ko_kr/about/
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - Google AI Plus/Pro/Ultra, 기능·지역 조건; 동적 가격 별도 확인
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S10
+    type: official_or_reference
+    title: Gemini for Students Korea
+    publisher: 기타
+    url: https://gemini.google/kr/students/?hl=ko
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 현재 학생 AI Plus 혜택·대상·기한·자동 갱신
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S11
+    type: official_or_reference
+    title: Google 학생 혜택 발표, 2026-08-20
+    publisher: 기타
+    url: https://blog.google/intl/ko-kr/company-news/inside-google/student-offer-google-ai-kr/
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 인증·개인 계정·신청 조건; 사후 월 요금은 S10과 불일치 확인
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S12
+    type: official_or_reference
+    title: CSU 서비스 소개
+    publisher: Mindlogic
+    url: https://docs.mindlogic.ai/docs/chosun-ac/baze/getting-started/introduction#서비스-소개
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 서비스 구조·모델 제공; 학교별 무료·추가 지급 절차의 증거로 확대하지 않음
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S13
+    type: official_or_reference
+    title: CSU 모델별 크레딧 단가
+    publisher: Mindlogic
+    url: https://docs.mindlogic.ai/docs/chosun-ac/baze/product/model-credits
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 입력/출력 토큰·단가·크레딧; 학생별 배정량은 확인되지 않음
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S14
+    type: official_or_reference
+    title: CSU Codex CLI 연동
+    publisher: Mindlogic
+    url: https://docs.mindlogic.ai/docs/chosun-ac/api-gateway/integrations/codex-cli
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - Gateway·커스텀 제공자·학교 크레딧; 모든 앱·클라우드 기능 지원으로 확대하지 않음
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S15
+    type: official_or_reference
+    title: CSU Claude Code 연동
+    publisher: Mindlogic
+    url: https://docs.mindlogic.ai/docs/chosun-ac/api-gateway/integrations/claude-code
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - CLI/지원 확장·Gateway; 포괄적인 '모든 기능' 표현은 S25 제한과 함께 해석
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S16
+    type: external_reference
+    title: Codex Resets
+    publisher: 기타
+    url: https://codex-resets.com
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 사용자 지정 비공식 참고 사이트; 개인 한도·향후 리셋 보장 근거가 아님
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S17
+    type: official_or_reference
+    title: Anthropic, Building effective agents
+    publisher: Anthropic
+    url: https://www.anthropic.com/engineering/building-effective-agents
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - Agent·workflow·도구·작업 구성의 기본 구분
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S18
+    type: external_reference
+    title: Wei et al., Chain-of-Thought Prompting Elicits Reasoning in Large
+      Language Models
+    publisher: 기타
+    url: https://arxiv.org/abs/2201.11903
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - CoT 원 논문의 개념; 현재 모델 내부 동작의 보장으로 확대하지 않음
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S19
+    type: official_or_reference
+    title: OpenAI reasoning best practices
+    publisher: OpenAI
+    url: https://developers.openai.com/api/docs/guides/reasoning-best-practices
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 추론 모델에 대한 명확한 요청과 CoT 프롬프트의 한계
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S20
+    type: official_or_reference
+    title: Agent Skills
+    publisher: 기타
+    url: https://agentskills.io/home
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - SKILL.md와 재사용 지침·부속 자료의 형식
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S21
+    type: official_or_reference
+    title: MCP introduction
+    publisher: Model Context Protocol
+    url: https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 외부 도구·데이터 연결 프로토콜의 정의
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S22
+    type: official_or_reference
+    title: ChatGPT desktop / Codex app docs
+    publisher: OpenAI
+    url: https://learn.chatgpt.com/docs/app
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 현재 작업 모드·제품 명칭·지원 환경
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S23
+    type: official_or_reference
+    title: Codex Remote
+    publisher: OpenAI
+    url: https://learn.chatgpt.com/docs/remote
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 모바일에서 컴퓨터 작업 지시·승인·검토, 기기·전원·네트워크 조건
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S24
+    type: official_or_reference
+    title: Claude download
+    publisher: Anthropic
+    url: https://claude.com/download
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 공식 앱·다운로드 경로; 앱 속도 우월성의 근거로 쓰지 않음
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S25
+    type: official_or_reference
+    title: Claude Code Remote Control
+    publisher: Anthropic
+    url: https://code.claude.com/docs/en/remote-control
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 로컬 세션·구독 인증·API 키/외부 Gateway 미지원·관리자 조건
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S26
+    type: official_or_reference
+    title: GitHub Hello World
+    publisher: GitHub
+    url: https://docs.github.com/en/get-started/using-github/hello-world
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - repository·branch·commit·pull request·merge
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S27
+    type: official_or_reference
+    title: GitHub profile pinning
+    publisher: GitHub
+    url: https://docs.github.com/en/account-and-profile/how-tos/profile-customization/pinning-items-to-your-profile
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 프로젝트를 프로필에서 소개하는 기능
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S28
+    type: official_or_reference
+    title: Google Antigravity
+    publisher: 기타
+    url: https://antigravity.google/
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - Agent 개발 환경 예시, 실제 지원 기능 확인
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S29
+    type: official_or_reference
+    title: Claude product update
+    publisher: Anthropic
+    url: https://claude.com/blog/cowork-is-now-claude
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: needs_verification
+    access_status: HTTP 200
+    supports:
+      - 2026-09-16 앱/작업 방식 통합 안내; 전체 계정 동시 제공으로 단정하지 않음
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: S30
+    type: official_or_reference
+    title: Grok official product
+    publisher: 기타
+    url: https://x.ai/grok
+    published_at: null
+    checked_at: null
+    verification_status: unavailable
+    access_status: HTTP 403
+    supports:
+      - 다른 제품의 짧은 소개; 점유율·성능 순위 주장에는 사용하지 않음
+    caveats:
+      - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
+  - id: U01
+    type: personal_experience
+    title: 발표자가 제공한 이번 강의 요구·추천·사용 경험
+    publisher: 발표자
+    url: null
+    published_at: null
+    checked_at: 2026-09-24
+    verification_status: user_provided
+    supports:
+      - 학교 운영 안내와 발표자 의견, 사용 경험
+    caveats:
+      - 독립 검증된 성능·학교 정책 자료 아님
+  - id: V01
+    type: video
+    title: AI 에이전트 만드는 기초 기술
+    publisher: YouTube 원본 업로더
+    url: https://youtu.be/eu5H0iRJsJ4?si=pXLiCFBb4oqFFzQl
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: metadata_verified
+    access_status: HTTP 200
+    duration_seconds: 382
+    supports:
+      - 페이지 제목과 lengthSeconds 메타데이터만 확인
+    caveats:
+      - 영상 본문·자막·장면은 시청 검증하지 않음
+  - id: V02
+    type: video
+    title: 요즘 판교사투리 1. 하네스 엔지니어링
+    publisher: YouTube 원본 업로더
+    url: https://www.youtube.com/watch?v=q1v1_btl19w&list=PLH5MbtNd7k1U&index=8
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: metadata_verified
+    access_status: HTTP 200
+    duration_seconds: 326
+    supports:
+      - 페이지 제목과 lengthSeconds 메타데이터만 확인
+    caveats:
+      - 영상 본문·자막·장면은 시청 검증하지 않음
+  - id: V03
+    type: video
+    title: 요즘 핫한 MCP는 트랄랄레로 트랄랄라같은 것임
+    publisher: YouTube 원본 업로더
+    url: https://youtu.be/KZwV6dOfNuE?si=yxE6tpN8nccJCkLd
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: metadata_verified
+    access_status: HTTP 200
+    duration_seconds: 301
+    supports:
+      - 페이지 제목과 lengthSeconds 메타데이터만 확인
+    caveats:
+      - 영상 본문·자막·장면은 시청 검증하지 않음
+  - id: U02
+    type: user_provided_reference
+    title: 사용자가 제공한 요금제·학생 혜택 페이지 화면 정보 (2026-09-25)
+    publisher: 사용자 제공 Safari 화면 참조
+    url: null
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: user_provided
+    supports:
+      - "ChatGPT 한국 가격 페이지 표시: Go ₩13,000/월, Plus ₩29,000/월, Pro 월 ₩159,000부터"
+      - "Claude 가격 페이지 표시: Pro는 연 선결제 $220(월 환산 $18) 또는 월 $22, Max는 월 $110부터,
+        페이지에 부가세 10% 포함 안내"
+      - "Google AI 한국 요금 페이지 표시: AI Plus ₩7,500/월, Plus 2배·Pro 4배 사용량, AI Plus
+        저장공간 400GB·Pro 5TB, Ultra ₩119,000/₩300,000 단계"
+      - 상단 학생 배너에 1년 무료 Plus 프로모션과 종료 임박 안내가 표시됨
+    caveats:
+      - Safari 앱샷의 브라우저 탭·계정 정보는 슬라이드 자산으로 사용하지 않음
+      - 사용자가 제공한 화면의 표시값만 참고했으며 공식 페이지를 이번 실행에서 별도로 다시 확인하지 않음
+      - 개인 신청 자격·정확한 마감일·세금·갱신 조건은 가입 시점의 화면과 약관을 확인해야 함
+  - id: U03
+    type: user_provided_reference
+    title: 사용자가 제공한 V01–V03 YouTube 영상 썸네일 3장
+    publisher: 사용자 제공 첨부
+    url: null
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: user_provided
+    supports:
+      - 사용자가 세 PNG를 지정된 영상의 YouTube 썸네일이라고 확인함.
+      - 영상 썸네일과 실제 제품 화면·영상 프레임을 구분하는 한국어 캡션을 표시함.
+    caveats:
+      - 썸네일 원저작자와 라이선스·공개 재배포 권한은 확인하지 못함.
+      - 비공개 빌드에서만 사용하고 공개 배포에는 포함하지 않음.

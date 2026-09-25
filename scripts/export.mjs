@@ -31,7 +31,8 @@ const children=[];deck.slides.forEach((s,i)=>{
  children.push(new Paragraph({text:`${s.id} · ${Math.floor(s.durationSec/60)}분 ${s.durationSec%60}초`,spacing:{after:200}}));
  children.push(new Paragraph({children:[new TextRun({text:'발표 원고',bold:true})],spacing:{before:120,after:100}}));
  children.push(new Paragraph({text:s.speakerNotes?.say||'',spacing:{after:220},lineSpacingMultiple:1.25}));
- if(s.speakerNotes?.pointTo?.length){children.push(new Paragraph({children:[new TextRun({text:'화면 지시  ',bold:true}),new TextRun(s.speakerNotes.pointTo.join(', '))],spacing:{after:120}}))}
+ const pointTo=s.speakerNotes?.pointTo;
+ if(pointTo?.length){children.push(new Paragraph({children:[new TextRun({text:'화면 지시  ',bold:true}),new TextRun(Array.isArray(pointTo)?pointTo.join(', '):pointTo)],spacing:{after:120}}))}
  if(s.speakerNotes?.background?.length)children.push(new Paragraph({children:[new TextRun({text:'발표 전 이해  ',bold:true}),new TextRun(s.speakerNotes.background.join(' '))]}));
  if(s.speakerNotes?.pitfalls?.length)children.push(new Paragraph({children:[new TextRun({text:'주의  ',bold:true}),new TextRun(s.speakerNotes.pitfalls.join(' '))]}));
  if(s.speakerNotes?.transition)children.push(new Paragraph({children:[new TextRun({text:'다음 연결  ',bold:true}),new TextRun(s.speakerNotes.transition)]}));
