@@ -22,7 +22,7 @@ try{
   await context.route('**/*',route=>{const u=new URL(route.request().url());return u.hostname==='127.0.0.1'?route.continue():route.abort()});
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(`${url}/lectures/${slug}/index.html?export=1`);await page.waitForFunction(()=>window.__PRESENTATION_READY__===true);
-  const manifest=await page.evaluate(()=>window.presentation.getManifest());add('slide_count',manifest.slides.length===31?'PASS':'FAIL',`${manifest.slides.length}장`);add('asset_registry',manifest.failures.length===0?'PASS':'FAIL',JSON.stringify(manifest.failures));
+  const manifest=await page.evaluate(()=>window.presentation.getManifest());const expectedMain=renderedDeck.slides.filter(s=>s.kind==='main').length,expectedQa=renderedDeck.slides.filter(s=>s.kind==='qa').length;add('slide_count',manifest.slides.length===renderedDeck.slides.length?'PASS':'FAIL',`${expectedMain}장 본편 + ${expectedQa}장 Q&A = ${manifest.slides.length}장`);add('asset_registry',manifest.failures.length===0?'PASS':'FAIL',JSON.stringify(manifest.failures));
   const font=await page.evaluate(()=>({faces:[...document.fonts].filter(x=>x.family==='Pretendard').map(x=>({weight:x.weight,status:x.status})),check400:document.fonts.check('400 40px Pretendard'),check700:document.fonts.check('700 64px Pretendard')}));
   add('font',font.check400&&font.check700&&['400','600','700'].every(w=>font.faces.some(x=>x.status==='loaded'&&x.weight===w))?'PASS':'FAIL',JSON.stringify(font));
   for(const s of manifest.slides){await page.evaluate(id=>window.presentation.goTo(id),s.id);await page.evaluate(id=>window.presentation.slideReady(id),s.id);
@@ -30,8 +30,15 @@ try{
    const expectedImages=renderedDeck.slides.find(x=>x.id===s.id).blocks.reduce((n,b)=>n+(b.type==='figure'?1:b.type==='video-list'?(b.items||[]).filter(x=>x.assetId).length:0),0);
    if(imageCheck.length!==expectedImages||imageCheck.some(x=>!x.loaded))add(`slide_assets_${s.id}`,'FAIL',JSON.stringify({expected:expectedImages,actual:imageCheck}));
    else if(expectedImages)add(`slide_assets_${s.id}`,'PASS',`${imageCheck.length}개 이미지 디코드 완료`);
-   const bounds=await page.evaluate(()=>{const slide=document.querySelector('.slide'),footer=document.querySelector('.slide-footer'),body=document.querySelector('.slide-body'),r=slide.getBoundingClientRect(),f=footer.getBoundingClientRect(),b=body.getBoundingClientRect();const text=[...slide.querySelectorAll('.slide-title,.slide-takeaway,.slide-content p,.slide-content li,.block-card,.block-step,.block-callout,.block-table')].map(e=>{const x=e.getBoundingClientRect();return {text:e.textContent.slice(0,35),left:x.left,right:x.right,top:x.top,bottom:x.bottom}});return {bodyBottom:b.bottom,footerTop:f.top,scrollW:slide.scrollWidth,scrollH:slide.scrollHeight,violations:text.filter(x=>x.left<r.left+70||x.right>r.right-70||x.top<r.top+45||x.bottom>f.top-10)}});
-   if(bounds.violations.length||bounds.bodyBottom>bounds.footerTop) add(`bounds_${s.id}`,'FAIL',JSON.stringify(bounds));
+   const layout=renderedDeck.slides.find(x=>x.id===s.id).layout;
+   if(layout==='screenshot'){
+    const frame=await page.evaluate(()=>{const slide=document.querySelector('.slide'),img=slide.querySelector('.block-figure img'),s=slide.getBoundingClientRect(),r=img?.getBoundingClientRect();return {images:slide.querySelectorAll('.block-figure img').length,layout:slide.dataset.layout,objectFit:img?getComputedStyle(img).objectFit:null,naturalWidth:img?.naturalWidth,naturalHeight:img?.naturalHeight,slide:{left:s.left,top:s.top,width:s.width,height:s.height},image:r?{left:r.left,top:r.top,width:r.width,height:r.height}:null}});
+    const exactFrame=frame.layout==='screenshot'&&frame.images===1&&frame.naturalWidth===1920&&frame.naturalHeight===1080&&frame.objectFit==='contain'&&frame.image&&Math.abs(frame.image.left-frame.slide.left)<1&&Math.abs(frame.image.top-frame.slide.top)<1&&Math.abs(frame.image.width-frame.slide.width)<1&&Math.abs(frame.image.height-frame.slide.height)<1;
+    add(`original_screenshot_${s.id}`,exactFrame?'PASS':'FAIL',JSON.stringify(frame));
+   } else {
+    const bounds=await page.evaluate(()=>{const slide=document.querySelector('.slide'),footer=document.querySelector('.slide-footer'),body=document.querySelector('.slide-body'),r=slide.getBoundingClientRect(),f=footer.getBoundingClientRect(),b=body.getBoundingClientRect();const text=[...slide.querySelectorAll('.slide-title,.slide-takeaway,.slide-content p,.slide-content li,.block-card,.block-step,.block-callout,.block-table')].map(e=>{const x=e.getBoundingClientRect();return {text:e.textContent.slice(0,35),left:x.left,right:x.right,top:x.top,bottom:x.bottom}});return {bodyBottom:b.bottom,footerTop:f.top,scrollW:slide.scrollWidth,scrollH:slide.scrollHeight,violations:text.filter(x=>x.left<r.left+70||x.right>r.right-70||x.top<r.top+45||x.bottom>f.top-10)}});
+    if(bounds.violations.length||bounds.bodyBottom>bounds.footerTop) add(`bounds_${s.id}`,'FAIL',JSON.stringify(bounds));
+   }
    const file=path.join(out,`${s.id}.png`);await page.locator('.slide').screenshot({path:file});screens.push(file);
   }
   add('browser_errors',errors.length?'FAIL':'PASS',errors.join(' | ')||'없음');

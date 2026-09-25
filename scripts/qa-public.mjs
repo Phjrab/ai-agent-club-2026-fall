@@ -17,7 +17,15 @@ try{
   check('public draft label',(await page.locator('.card .tag').textContent())==='공개 초안');
   await page.locator('.card a').click();
   await page.waitForFunction(()=>window.__PRESENTATION_READY__===true);
-  check('presentation pages',(await page.evaluate(()=>window.presentation.getManifest().slides.length))===31);
+  const publicDeckResponse=await page.request.get(`${url}/ai-agent-club-2026-fall/lectures/${slug}/deck.json`),publicDeck=await publicDeckResponse.json();
+  const screenshotSlides=publicDeck.slides.filter(s=>s.layout==='screenshot');
+  check('presentation pages',(await page.evaluate(()=>window.presentation.getManifest().slides.length))===publicDeck.slides.length,`${publicDeck.slides.filter(s=>s.kind==='main').length}장 본편 + ${publicDeck.slides.filter(s=>s.kind==='qa').length}장 Q&A`);
+  check('pricing screenshot order',screenshotSlides.map(s=>s.blocks?.find(b=>b.type==='figure')?.assetId).join(',')==='pricing-chatgpt,pricing-claude,pricing-google',screenshotSlides.map(s=>s.id).join(' → '));
+  for(const s of screenshotSlides){
+   await page.evaluate(id=>window.presentation.goTo(id),s.id);
+   const frame=await page.evaluate(()=>{const slide=document.querySelector('.slide'),img=slide.querySelector('.block-figure img'),a=img?.getBoundingClientRect(),b=slide.getBoundingClientRect();return {images:slide.querySelectorAll('.block-figure img').length,naturalWidth:img?.naturalWidth,naturalHeight:img?.naturalHeight,objectFit:img?getComputedStyle(img).objectFit:null,fullFrame:a&&Math.abs(a.left-b.left)<1&&Math.abs(a.top-b.top)<1&&Math.abs(a.width-b.width)<1&&Math.abs(a.height-b.height)<1}});
+   check(`original screenshot ${s.id}`,frame.images===1&&frame.naturalWidth===1920&&frame.naturalHeight===1080&&frame.objectFit==='contain'&&frame.fullFrame,JSON.stringify(frame));
+  }
   check('font',await page.evaluate(()=>document.fonts.check('400 40px Pretendard')));
   await page.goto(`${url}/ai-agent-club-2026-fall/lectures/${slug}/index.html#slide=L01-S15`);
   await page.waitForFunction(()=>document.querySelectorAll('.block-video-card a').length===3);

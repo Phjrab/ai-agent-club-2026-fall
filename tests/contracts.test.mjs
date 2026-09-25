@@ -19,7 +19,7 @@ test('비공개 썸네일 원본은 CI 체크아웃에 없어도 검증되며 �
 test('0×0 또는 NaN 차트와 경로 탈출 자산은 실패한다',()=>{const e=mutate(x=>{x.deck.slides[2].blocks.push({type:'chart',data:{labels:['x'],values:[NaN]}});x.assets.assets=[{id:'BAD',path:'../private.png'}]});assert.ok(e.some(x=>x.includes('chart 데이터')));assert.ok(e.some(x=>x.includes('자산 경로 탈출')))});
 test('승인 해시는 콘텐츠 변경 후 무효가 된다',()=>{const d=contentDigest(original),x=structuredClone(original);x.brief=original.brief;x.dir=original.dir;x.approval={status:'approved',approvedContentDigest:d,scope:{site:true}};assert.equal(isApproved(x),true);x.approval.approvedContentDigest=sha('stale');assert.equal(isApproved(x),false)});
 test('출처 URL과 확인일 오류를 검출하고 접근 응답과 내용 검증을 구분한다',()=>{const x=structuredClone(original.sources);x.sources[0].url='javascript:alert(1)';x.sources[1].checked_at='2026-02-30';const result=validateSources(x,'2026-09-25');assert.ok(result.errors.some(e=>e.includes('HTTP URL')));assert.ok(result.errors.some(e=>e.includes('확인일 오류')));assert.ok(result.warnings.some(e=>e.includes('본문 검증 필요')))});
-test('승인된 공개 빌드는 슬라이드만 포함하고 비공개 썸네일과 발표자 원고를 제외한다',()=>{
+test('승인된 공개 빌드는 모든 이미지 참조를 공개 파일로 해석하고 대본·비공개 썸네일을 제외한다',()=>{
  execFileSync('npm',['run','build:public'],{cwd:root,stdio:'pipe'});
  const publicDir=path.join(root,'dist','public'),slug='01-agent-ai-intro';
  const txt=fs.readFileSync(path.join(publicDir,'portfolio.json'),'utf8');
@@ -34,7 +34,26 @@ test('승인된 공개 빌드는 슬라이드만 포함하고 비공개 썸네�
  assert.ok(videoList);
  assert.equal(videoList.items.some(item=>item.assetId||item.thumbnailCaption),false);
  assert.match(videoList.caption,/공개 권리가 확인되지 않은 썸네일은 공개하지 않고/);
- assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'assets','user')),false);
+ const captures=['pricing-chatgpt','pricing-claude','pricing-google'];
+ assert.equal(publicDeck.slides.filter(s=>s.layout==='screenshot').length,3);
+ assert.deepEqual(publicDeck.slides.filter(s=>s.layout==='screenshot').map(s=>s.blocks.find(b=>b.type==='figure')?.assetId),captures);
+ for(const id of captures){
+  const capture=publicDeck.assets.find(a=>a.id===id);
+  assert.ok(capture);
+  const capturePath=path.join(publicDir,'lectures',slug,capture.path);
+  assert.equal(fs.existsSync(capturePath),true);
+  assert.equal(sha(fs.readFileSync(capturePath)),capture.sha256);
+  assert.equal(capture.width,1920);
+  assert.equal(capture.height,1080);
+ }
+ const publicAssets=new Map(publicDeck.assets.map(a=>[a.id,a]));
+ const figures=publicDeck.slides.flatMap(s=>s.blocks||[]).filter(b=>b.type==='figure');
+ for(const figure of figures){
+  const asset=publicAssets.get(figure.assetId);
+  assert.ok(asset,`공개 슬라이드의 그림 자산 누락: ${figure.assetId}`);
+  assert.notEqual(asset.publicAllowed,false,`공개되지 않은 그림 자산 참조: ${figure.assetId}`);
+  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,asset.path)),true,`공개 파일 누락: ${figure.assetId}`);
+ }
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter.html')),false);
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter-deck.json')),false);
  assert.equal(txt.includes('PRIVATE_TEST_SENTINEL_DO_NOT_PUBLISH'),false);
