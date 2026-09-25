@@ -1,0 +1,38 @@
+import {Chart,registerables} from 'chart.js';
+import katex from 'katex';
+import Prism from 'prismjs';
+import mermaid from 'mermaid';
+Chart.register(...registerables);Chart.defaults.font.family='Pretendard';Chart.defaults.animation=false;
+mermaid.initialize({startOnLoad:false,securityLevel:'strict',theme:'neutral',fontFamily:'Pretendard'});
+const app=document.getElementById('presentation-app'),presenter=app.dataset.presenter==='true';
+const deck=await(await fetch(presenter?'./presenter-deck.json':'./deck.json')).json();
+const slides=deck.slides;let index=0,chart=null,ready=Promise.resolve();const exportMode=new URLSearchParams(location.search).has('export');if(exportMode)document.body.classList.add('export-mode');if(presenter)document.body.classList.add('presenter-mode');
+const el=(tag,cls,text)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=text;return x};
+const shell=el('div','deck-shell'),bar=el('div','deck-toolbar'),stage=el('div','deck-stage'),slide=el('main','slide');slide.setAttribute('role','main');stage.append(slide);shell.append(bar,stage);app.append(shell);
+const back=el('button','','‹'),next=el('button','','›'),count=el('span','',''),tocButton=el('button','','목차'),help=el('button','','도움말'),fullscreen=el('button','','전체화면');bar.append(back,next,count,el('span','spacer'),tocButton,help,fullscreen);
+const toc=el('div');toc.id='toc';toc.hidden=true;toc.append(el('h2','','슬라이드 목차'));slides.forEach((s,i)=>{const b=el('button','',`${String(i+1).padStart(2,'0')}  ${s.title}`);b.addEventListener('click',()=>{toc.hidden=true;goTo(s.id)});toc.append(b)});app.append(toc);
+const noteBox=presenter?el('aside','presenter-notes'):null;if(noteBox)app.append(noteBox);
+function block(b){let x;if(b.type==='paragraph')x=el('p','',b.text);else if(b.type==='bullets'){x=el('ul');for(const t of b.items||[])x.append(el('li','',t));}
+else if(b.type==='callout'){x=el('div','block-callout');if(b.label)x.append(el('span','label',b.label));x.append(el('span','',b.text));}
+else if(b.type==='comparison'){x=el('div','block-grid');for(const item of b.items||[]){const c=el('div','block-card');c.append(el('strong','',item.heading),el('span','',item.text));x.append(c)}}
+else if(b.type==='table'){x=el('table','block-table');const tr=el('tr');for(const c of b.columns||[])tr.append(el('th','',c));x.append(tr);for(const row of b.rows||[]){const r=el('tr');for(const c of row)r.append(el('td','',c));x.append(r)}}
+else if(b.type==='process'){x=el('div','block-process');for(const [i,t] of (b.steps||[]).entries()){const c=el('div','block-step');c.append(el('em','',String(i+1).padStart(2,'0')),el('span','',t));x.append(c)}}
+else if(b.type==='code'){x=el('pre','block-code');const c=el('code','language-'+(b.language||'text'),b.text);x.append(c);Prism.highlightElement(c);}
+else if(b.type==='chart'){x=el('div','block-chart');const c=el('canvas');c.dataset.chart=JSON.stringify(b.data);x.append(c)}
+else if(b.type==='math'){x=el('div','block-math');try{katex.render(b.latex,x,{throwOnError:true})}catch(e){x.textContent='수식 렌더링 오류: '+e.message}}
+else if(b.type==='diagram'){x=el('div','block-diagram');x.dataset.diagram=b.text}
+else if(b.type==='video-list'){x=el('div','block-video-list');for(const item of b.items||[]){const card=el('div','block-video-card');card.append(el('strong','',`${item.id} · ${item.duration}`),el('span','',item.title));const a=el('a','','원본 영상 열기 ↗');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';card.append(a);x.append(card)}}
+else x=el('p','',b.text||'');if(b.caption)x.append(el('small','block-caption',b.caption));return x}
+function scale(){if(exportMode)return;const w=stage.clientWidth,h=stage.clientHeight,s=Math.min(w/1920,h/1080);slide.style.transform=`translate(-50%,-50%) scale(${s})`;}
+ async function draw(){const s=slides[index];if(chart){chart.destroy();chart=null}slide.className='slide'+(s.layout==='cover'?' slide-cover':'');slide.replaceChildren();const head=el('div','slide-header');if(s.layout!=='cover')head.append(el('div','slide-kicker',s.sectionId?.toUpperCase()||'AI AGENT CLUB'));head.append(el('h1','slide-title',s.title));const body=el('div','slide-body');body.append(el('div','slide-takeaway',s.takeaway));const content=el('div','slide-content');for(const b of s.blocks)content.append(block(b));body.append(content);const foot=el('div','slide-footer');const refs=(s.sourceIds||[]).map(id=>deck.sources?.find(x=>x.id===id)).filter(Boolean),names=[...new Set(refs.map(x=>x.publisher))],pending=refs.some(x=>['needs_verification','unavailable'].includes(x.verification_status));foot.append(el('span','',names.length?`Source: ${names.join(', ')} · ${pending?'details pending':'checked 2026-09-25'}`:'AI Agent Club · Fall 2026'),el('span','',`${index+1} / ${slides.length}`));slide.append(head,body,foot);count.textContent=`${index+1} / ${slides.length}`;
+ if(noteBox){noteBox.replaceChildren(el('h2','',`${s.id} · ${s.title}`),el('p','',s.speakerNotes?.say||''),el('h2','','다음 장'),el('p','',slides[index+1]?.title||'질의응답 종료'));}
+ await document.fonts.load('400 40px Pretendard','AI Agent 활용 2026 ₩/$');await document.fonts.load('600 28px Pretendard','AI Agent 활용 2026');await document.fonts.load('700 64px Pretendard','AI Agent 활용 2026');await document.fonts.ready;
+ const canvas=slide.querySelector('canvas[data-chart]');if(canvas){const d=JSON.parse(canvas.dataset.chart);chart=new Chart(canvas,{type:d.type||'bar',data:{labels:d.labels,datasets:[{label:d.label||'',data:d.values,backgroundColor:'#2657c8'}]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:!!d.label}},scales:{y:{beginAtZero:true}}}});chart.resize();chart.update('none')}
+ for(const node of slide.querySelectorAll('[data-diagram]')){const {svg}=await mermaid.render('diagram-'+index,node.dataset.diagram);node.innerHTML=svg;}
+ scale();await new Promise(requestAnimationFrame);window.__PRESENTATION_READY__=true;
+}
+async function goTo(id){const i=typeof id==='number'?id:slides.findIndex(s=>s.id===id);if(i<0||i>=slides.length)throw Error('slide ID 없음: '+id);index=i;history.replaceState(null,'',`#slide=${encodeURIComponent(slides[index].id)}`);ready=draw();await ready;return slides[index].id}
+window.presentation={goTo,slideReady:async id=>{if(slides[index].id!==id)await goTo(id);await ready},prepareForExport:async()=>{for(const s of slides)await goTo(s.id);await goTo(slides[0].id)},getManifest:()=>({slides:slides.map(s=>({id:s.id,title:s.title,kind:s.kind})),fonts:['Pretendard 400','Pretendard 700'],charts:slides.filter(s=>s.blocks.some(b=>b.type==='chart')).map(s=>s.id),failures:[]})};
+back.onclick=()=>goTo(Math.max(0,index-1));next.onclick=()=>goTo(Math.min(slides.length-1,index+1));tocButton.onclick=()=>toc.hidden=!toc.hidden;help.onclick=()=>alert('←/→, PageUp/PageDown, Space: 이동 · Home/End: 처음/끝 · 목차: 장 선택');fullscreen.onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await shell.requestFullscreen()}catch{fullscreen.textContent='전체화면 불가'}};
+document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)||e.target.isContentEditable)return;let n=null;if(['ArrowRight','PageDown',' '].includes(e.key))n=index+1;else if(['ArrowLeft','PageUp'].includes(e.key))n=index-1;else if(e.key==='Home')n=0;else if(e.key==='End')n=slides.length-1;if(n!==null){e.preventDefault();goTo(Math.max(0,Math.min(slides.length-1,n)))}});
+addEventListener('resize',scale);const hash=decodeURIComponent(location.hash.replace(/^#slide=/,''));await goTo(slides.some(s=>s.id===hash)?hash:slides[0].id);

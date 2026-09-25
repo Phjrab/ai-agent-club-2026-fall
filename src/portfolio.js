@@ -1,0 +1,10 @@
+const data=await (await fetch('./portfolio.json')).json();
+const app=document.getElementById('portfolio-app');app.className='portfolio';
+const el=(tag,cls,text)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(text)x.textContent=text;return x};
+const header=el('header');header.append(el('div','eyebrow','AI AGENT CLUB · FALL 2026'),el('h1','',data.title),el('p','lead','질문을 넘어 실제 작업을 맡기고, 결과를 확인하는 AI 활용을 배웁니다.'));const meta=el('div','meta');for(const t of ['첫 수업 2026.10.01 목요일','18:00–19:00 · Asia/Seoul','장소 추후 공지','강의식 · 공동 실습 없음'])meta.append(el('span','',t));header.append(meta);app.append(header);
+const section=(title)=>{const s=el('section');s.append(el('h2','',title));app.append(s);return s};
+let s=section('수업 안내');s.append(el('p','','약 5회 진행을 계획하고 있습니다. 시험 일정과 이후 수업 날짜는 확정 후 안내합니다. 관심 있는 도구는 수업 뒤 자율적으로 사용해 볼 수 있습니다.'));
+s=section('강의 자료');const cards=el('div','cards');if(data.cards.length){for(const c of data.cards){const card=el('article','card');card.append(el('div','tag',data.public?'공개 승인':'검토용 초안'),el('h3','',c.title),el('p','',`${c.date} · ${c.goals.join(' / ')}`));const a=el('a','','슬라이드 보기');a.href=`./lectures/${encodeURIComponent(c.slug)}/index.html`;card.append(a);cards.append(card)}}else{const card=el('article','card');card.append(el('div','tag','공개 전 검토 중'),el('h3','','1회차 자료 준비 중'),el('p','','공개 승인된 강의 자료는 아직 없습니다.'));cards.append(card)}s.append(cards);
+s=section('자료를 만드는 과정');const steps=el('div','steps');for(const [h,p] of [['01 · 기획','강의별 brief에 청중, 목표, 시간과 반드시 다룰 내용을 기록합니다.'],['02 · 제작과 검증','구조화된 슬라이드 데이터에서 화면과 한국어 발표 원고를 생성하고 실제 화면을 확인합니다.'],['03 · 개선','수업 뒤 확인된 내용만 회고에 남기고, 다음 자료에 반영합니다.']]){const a=el('article');a.append(el('h3','',h),el('p','',p));steps.append(a)}s.append(steps);
+s=section('현재 상태');s.append(el('p','',data.public?'공개 승인된 자료만 표시합니다.':'이 화면은 비공개 로컬 검토용입니다. 1회차 내용은 아직 교육 내용 검토 전 초안입니다.'));
+app.append(el('footer','','AI Agent 활용 동아리 교육 · 2026년 2학기'));

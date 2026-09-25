@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies and Chromium
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+      - name: Record tool versions
+        run: |
+          node --version
+          npm --version
+          npx playwright --version
+      - name: Validate content and source metadata
+        run: |
+          npm run validate
+          npm run sources:check
+      - name: Run contract tests
+        run: npm test
+      - name: Build and inspect in Chromium
+        run: |
+          npm run build
+          npm run qa -- --lecture 01-agent-ai-intro
+      - name: Save bounded QA evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: browser-qa
+          path: reports/*/qa-summary.md
+          if-no-files-found: ignore
+          retention-days: 7

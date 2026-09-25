@@ -1,0 +1,37 @@
+{
+  "name": "ai-agent-club-2026-fall",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "setup:assets": "node scripts/cli.mjs setup:assets",
+    "dev": "node scripts/cli.mjs dev",
+    "build": "node scripts/cli.mjs build",
+    "build:public": "node scripts/cli.mjs build:public",
+    "serve": "node scripts/cli.mjs serve",
+    "validate": "node scripts/cli.mjs validate",
+    "test": "node --test tests/*.test.mjs",
+    "qa": "node scripts/qa.mjs",
+    "export": "node scripts/export.mjs",
+    "lecture:new": "node scripts/cli.mjs lecture:new",
+    "sources:check": "node scripts/cli.mjs sources:check",
+    "release:check": "node scripts/cli.mjs release:check"
+  },
+  "dependencies": {
+    "chart.js": "4.5.1",
+    "docx": "9.6.1",
+    "esbuild": "0.25.10",
+    "katex": "0.16.22",
+    "mermaid": "11.12.0",
+    "pdf-lib": "1.17.1",
+    "playwright": "1.62.1",
+    "pptxgenjs": "4.0.1",
+    "pretendard": "1.3.9",
+    "prismjs": "1.30.0",
+    "sharp": "0.34.4",
+    "yaml": "2.8.1"
+  }
+}

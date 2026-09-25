@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "status": "unapproved",
+  "approvedContentDigest": null,
+  "approvedAt": null,
+  "approvalEvidence": null,
+  "scope": {"site": false, "repositorySource": false, "includeSpeakerNotesInRepository": false, "pdf": false}
+}

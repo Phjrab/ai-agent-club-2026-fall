@@ -1,0 +1,55 @@
+name: Pages publication
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - id: check
+        name: Check explicit publication flags
+        run: |
+          enabled=$(node -p "const c=require('./course.config.json'); c.publishSite === true && c.publicReleaseApproved === true")
+          echo "enabled=$enabled" >> "$GITHUB_OUTPUT"
+
+  publish:
+    needs: gate
+    if: needs.gate.outputs.enabled == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Require content approval and passing checks
+        run: |
+          npm run validate
+          npm test
+          npm run release:check
+      - name: Build approved public files
+        run: npm run build:public
+      - uses: actions/configure-pages@v6.0.0
+      - uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: dist/public
+      - id: deployment
+        uses: actions/deploy-pages@v5.0.1
