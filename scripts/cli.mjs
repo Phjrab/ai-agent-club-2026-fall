@@ -39,10 +39,13 @@ async function buildSite(isPublic=false){
   const d=loadLecture(dir), slug=d.deck.slug, approved=isApproved(d);
   if(isPublic&&!approved) continue;
   const target=path.join(out,'lectures',slug);fs.mkdirSync(target,{recursive:true});
-  const assets=d.assets.assets.filter(a=>!isPublic||a.publicAllowed===true);
-  for(const a of assets) copy(assetSourceFile(d,a),path.join(target,a.path));
-  const assetManifest=assets.map(({id,path,alt,caption,kind,width,height,sha256})=>({id,path,alt,caption,kind,width,height,sha256}));
-  const student={...sanitizeDeck(d.deck,assets,{includePrivateAssets:!isPublic}),sources:d.sources.sources};writeJson(path.join(target,'deck.json'),student);
+  const assets=d.assets.assets.filter(a=>!isPublic||a.publicAllowed===true),availableAssets=[];
+  for(const a of assets){
+   try{copy(assetSourceFile(d,a),path.join(target,a.path));availableAssets.push(a)}
+   catch(err){if(!isPublic&&a.publicAllowed===false&&a.sourcePath?.startsWith('.private/lecture-assets/')&&err.code==='ENOENT')continue;throw err}
+  }
+  const assetManifest=availableAssets.map(({id,path,alt,caption,kind,width,height,sha256})=>({id,path,alt,caption,kind,width,height,sha256}));
+  const student={...sanitizeDeck(d.deck,availableAssets,{includePrivateAssets:!isPublic}),sources:d.sources.sources};writeJson(path.join(target,'deck.json'),student);
   const css='../../assets/site.css',js='../../assets/presentation.js';
   fs.writeFileSync(path.join(target,'index.html'),makePage(d.deck.title,css,js,'<div id="presentation-app"></div>'));
   if(!isPublic) {
