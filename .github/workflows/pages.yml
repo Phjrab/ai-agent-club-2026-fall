@@ -17,8 +17,11 @@ jobs:
       - uses: actions/checkout@v7.0.1
       - id: check
         name: Check explicit publication flags
+        env:
+          REPOSITORY_PRIVATE: ${{ github.event.repository.private }}
         run: |
           enabled=$(node -p "const c=require('./course.config.json'); c.publishSite === true && c.publicReleaseApproved === true")
+          if [ "$REPOSITORY_PRIVATE" = "true" ]; then enabled=false; fi
           echo "enabled=$enabled" >> "$GITHUB_OUTPUT"
 
   publish:

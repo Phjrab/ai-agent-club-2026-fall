@@ -3,6 +3,6 @@
   "status": "approved",
   "approvedContentDigest": "4bd3c3a99ea7e75c66ea832f2413e3c6e84e0e2a05c47d9335c136840ad62de3",
   "approvedAt": "2026-09-25T06:08:34Z",
-  "approvalEvidence": "사용자의 2026-09-25 공개 전환 및 GitHub Pages 게시 요청",
-  "scope": {"site": true, "repositorySource": true, "includeSpeakerNotesInRepository": true, "pdf": false}
+  "approvalEvidence": "사용자의 2026-09-25 공개 전환 및 GitHub Pages 게시 요청; 기존 이력의 이메일과 추적된 대본 공개 범위는 별도 확인 대기",
+  "scope": {"site": true, "repositorySource": false, "includeSpeakerNotesInRepository": false, "pdf": false}
 }

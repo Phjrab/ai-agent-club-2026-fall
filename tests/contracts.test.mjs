@@ -24,5 +24,6 @@ test('승인된 공개 빌드에 1회차가 보이고 사이트 대본은 제외
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter.html')),false);
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter-deck.json')),false);
  assert.equal(txt.includes('PRIVATE_TEST_SENTINEL_DO_NOT_PUBLISH'),false);
- execFileSync('npm',['run','release:check'],{cwd:root,stdio:'pipe'});
+ const release=()=>execFileSync('npm',['run','release:check'],{cwd:root,stdio:'pipe'});
+ if(original.approval.scope.repositorySource)release();else assert.throws(release);
 });

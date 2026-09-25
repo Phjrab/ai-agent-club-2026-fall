@@ -1,6 +1,6 @@
 # AI Agent 동아리 2026년 가을 강의
 
-동아리 강의를 위한 HTML 발표자료와 학기 포트폴리오 프로젝트다. 1회차는 `brief.md`를 기획 입력으로, `deck.json`을 화면·한국어 발표 원고의 렌더링 정본으로 사용한다. 현재 1회차는 **공개 초안**이며, 수업 실시나 내용 검토 완료를 뜻하지 않는다.
+동아리 강의를 위한 HTML 발표자료와 학기 포트폴리오 프로젝트다. 1회차는 `brief.md`를 기획 입력으로, `deck.json`을 화면·한국어 발표 원고의 렌더링 정본으로 사용한다. 현재 1회차는 **공개 준비 중인 초안**이며, 수업 실시나 내용 검토 완료를 뜻하지 않는다.
 
 ## 지금 준비된 것
 
@@ -39,8 +39,8 @@ npm run serve -- --dir dist/private
 
 `npm run lecture:new -- --slug 02-prompt-and-workflow --title "Prompt and Workflow"`는 빈 기획 틀만 만든다. 기획을 고치면 Codex가 `deck.json`과 출처를 재작성해야 하며, 해시 검사만 통과시키는 수정은 허용하지 않는다. 활성 규칙은 [AGENTS.md](AGENTS.md), 상세 계약은 [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md)와 [docs/QA_AND_ACCEPTANCE.md](docs/QA_AND_ACCEPTANCE.md)에 있다.
 
-GitHub 저장소와 Pages 사이트는 공개된다. 1회차의 현재 콘텐츠 해시와 공개 범위는 `publication.approval.json`에 기록했다. 사이트에는 슬라이드만 게시하며 한국어 발표 대본과 PDF·PPTX·DOCX 내보내기는 올리지 않는다. 다만 공개 저장소의 `deck.json`에는 발표 대본이 포함된다. `brief.md`의 초기 `public_approved: false`는 기획 입력 당시의 값이며, 현재 공개 결정은 별도의 승인 파일이 기록한다. 라이선스 결정과 제3자 자료 범위는 [docs/LICENSE_POLICY.md](docs/LICENSE_POLICY.md)에 기록했다.
+GitHub 저장소와 Pages 사이트의 공개 준비가 끝났지만 실제 게시 상태는 [HANDOFF.md](HANDOFF.md)에 기록한다. 1회차의 현재 콘텐츠 해시와 공개 범위는 `publication.approval.json`에 있다. 사이트에는 슬라이드만 게시하고 한국어 발표 대본과 PDF·PPTX·DOCX 내보내기는 올리지 않는다. 저장소가 공개되면 `deck.json`의 발표 대본과 기존 Git 이력의 커밋 작성자 이메일도 함께 공개된다. `brief.md`의 초기 `public_approved: false`는 기획 입력 당시의 값이며, 현재 공개 결정은 별도의 승인 파일이 기록한다. 라이선스 결정과 제3자 자료 범위는 [docs/LICENSE_POLICY.md](docs/LICENSE_POLICY.md)에 기록했다.
 
-저장소: [Phjrab/ai-agent-club-2026-fall](https://github.com/Phjrab/ai-agent-club-2026-fall). 사이트: [GitHub Pages](https://phjrab.github.io/ai-agent-club-2026-fall/).
+저장소: [Phjrab/ai-agent-club-2026-fall](https://github.com/Phjrab/ai-agent-club-2026-fall). 현재 private이며 GitHub Pages는 게시 전이다.
 
 생성물(`dist/`, `exports/`, `reports/`)과 개인 메모(`.private/`)는 Git에서 제외한다. 검수 산출물의 실제 상태와 남은 항목은 [HANDOFF.md](HANDOFF.md)를 본다.
