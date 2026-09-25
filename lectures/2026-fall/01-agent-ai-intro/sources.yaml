@@ -447,23 +447,23 @@ sources:
       - 영상 본문·자막·장면은 시청 검증하지 않음
   - id: U02
     type: user_provided_reference
-    title: 사용자가 제공한 요금제·학생 혜택 페이지 화면 정보 (2026-09-25)
-    publisher: 사용자 제공 Safari 화면 참조
+    title: 사용자가 제공한 ChatGPT·Claude·Google AI 구독 페이지 원본 캡처 (2026-09-25)
+    publisher: 사용자가 제공한 공식 구독 페이지 캡처
     url: null
     published_at: null
     checked_at: 2026-09-25
     verification_status: user_provided
     supports:
-      - "ChatGPT 한국 가격 페이지 표시: Go ₩13,000/월, Plus ₩29,000/월, Pro 월 ₩159,000부터"
-      - "Claude 가격 페이지 표시: Pro는 연 선결제 $220(월 환산 $18) 또는 월 $22, Max는 월 $110부터,
-        페이지에 부가세 10% 포함 안내"
-      - "Google AI 한국 요금 페이지 표시: AI Plus ₩7,500/월, Plus 2배·Pro 4배 사용량, AI Plus
-        저장공간 400GB·Pro 5TB, Ultra ₩119,000/₩300,000 단계"
-      - 상단 학생 배너에 1년 무료 Plus 프로모션과 종료 임박 안내가 표시됨
+      - "ChatGPT 한국 요금 페이지: Free ₩0, Go ₩13,000/월, Plus ₩29,000/월, Pro ₩159,000/월부터"
+      - "Claude 요금 페이지: Pro 연 선결제 $220(월 환산 $18) 또는 월 결제 $22, Max 월 $110부터, 가격에 부가세 10% 포함 안내"
+      - "Google AI 한국 구독 페이지: Plus ₩7,500/월 및 무료 대비 2배, Pro 4배, Ultra ₩119,000/₩300,000 단계"
+      - Google AI 상단에 학생 1년 무료 Plus 프로모션과 종료 임박 안내가 표시됨
     caveats:
-      - Safari 앱샷의 브라우저 탭·계정 정보는 슬라이드 자산으로 사용하지 않음
-      - 사용자가 제공한 화면의 표시값만 참고했으며 공식 페이지를 이번 실행에서 별도로 다시 확인하지 않음
-      - 개인 신청 자격·정확한 마감일·세금·갱신 조건은 가입 시점의 화면과 약관을 확인해야 함
+      - 사용자가 제공한 세 장의 원본 PNG를 크롭·합성·수정하지 않고 각 화면 전체를 그대로 사용함
+      - Safari 탭과 주소 표시줄도 원본 캡처 그대로 보임
+      - 사용자가 이 원본 캡처 세 장을 공개본과 향후 개정본에 그대로 사용하는 것을 명시적으로 허용함
+      - 가격과 안내는 2026-09-25 캡처 시점의 표시값이며 이후 변경될 수 있음
+      - 개인 신청 자격·마감일·결제·갱신 조건은 실제 가입 시점의 화면과 약관 확인이 필요함
   - id: U03
     type: user_provided_reference
     title: 사용자가 제공한 V01–V03 YouTube 영상 썸네일 3장
@@ -478,3 +478,17 @@ sources:
     caveats:
       - 썸네일 원저작자와 라이선스·공개 재배포 권한은 확인하지 못함.
       - 비공개 빌드에서만 사용하고 공개 배포에는 포함하지 않음.
+  - id: U04
+    type: user_provided_reference
+    title: 사용자가 제공한 ChatGPT 웹 시작 화면 캡처
+    publisher: 사용자 제공 Safari 화면 참조
+    url: https://chatgpt.com/
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: user_provided
+    access_status: 사용자 제공 화면
+    supports:
+      - 로그인 안내가 표시된 ChatGPT 웹 시작 화면과 입력창 위치
+    caveats:
+      - 캡처는 시작 화면 일부로 실제 파일 업로드·응답 생성 기록이 아님
+      - 공개 재배포 권한을 확인하지 않아 슬라이드 자산은 비공개로 유지

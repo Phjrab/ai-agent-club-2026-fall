@@ -130,6 +130,7 @@ PPTX를 13⅓×7½인치로 내보내면 가로 폭은 960pt다. 비율을 유�
 | `statement` | 중요한 문장 하나·오해 바로잡기 |
 | `text-figure` | 설명 + 실제 Figure나 UI |
 | `figure-focus` | 큰 Figure·차트와 짧은 읽기 안내 |
+| `screenshot` | 사용자 승인 원본 화면 전체를 픽셀 수정 없이 한 장에 표시 |
 | `comparison` | 같은 기준으로 보는 2–3개 대상 |
 | `process` | 순서·의사결정·도구 연결 |
 | `table` | 정밀 수치·요금·조건 비교 |

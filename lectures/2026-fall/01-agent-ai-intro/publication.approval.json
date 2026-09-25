@@ -1,8 +1,13 @@
 {
   "schemaVersion": 1,
   "status": "approved",
-  "approvedContentDigest": "9c7cf04e5ebf958ff1b3c45f838793219c36922364beb14a6b1e875ddf970558",
-  "approvedAt": "2026-09-25T09:39:16Z",
-  "approvalEvidence": "2026-09-25 사용자 명시 승인: v3 1회차를 메인에 반영하고 그에 수반되는 GitHub Pages 자동 공개 배포를 허용함. 공개 권리가 확인되지 않은 YouTube 썸네일은 공개 산출물에서 제외함.",
-  "scope": {"site": true, "repositorySource": true, "includeSpeakerNotesInRepository": true, "pdf": false}
+  "approvedContentDigest": "a8fbc944d41aee31ff3ae67a899d59523850b803d1db4f88e541d20ca733e115",
+  "approvedAt": "2026-09-25T11:33:36Z",
+  "approvalEvidence": "2026-09-25 사용자 명시 승인: v3 1회차 메인 반영과 GitHub Pages 공개를 허용함. 사용자가 제공한 ChatGPT·Claude·Google AI 구독 페이지 원본 캡처 세 장을 크롭·합성·수정 없이 공개본과 향후 개정본에 그대로 사용하는 것도 허용함. 공개 권리가 확인되지 않은 YouTube 썸네일은 공개 산출물에서 제외함.",
+  "scope": {
+    "site": true,
+    "repositorySource": true,
+    "includeSpeakerNotesInRepository": true,
+    "pdf": false
+  }
 }

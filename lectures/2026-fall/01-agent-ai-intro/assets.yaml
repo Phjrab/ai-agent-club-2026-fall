@@ -1,28 +1,5 @@
 schema_version: 2
 assets:
-  - id: gpt-ecosystem
-    path: assets/diagrams/gpt-ecosystem.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://chatgpt.com/ko-KR/pricing/
-    sourceIds:
-      - S01
-      - S03
-      - S22
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: GPT 모델 계열, ChatGPT 대화 서비스, Codex 코딩 환경의 관계. 실제 제품 화면이 아닌 설명용 도식.
-    caption: 설명용 도식 · 실제 제품 화면 아님
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 06113797827acd12bbef73d30162ce98ba4a0eb72e12336566a4a6080ac54602
   - id: claude-product
     path: assets/diagrams/claude-product.svg
     kind: explanatory_diagram
@@ -93,32 +70,74 @@ assets:
     height: 760
     ratio: 1.5789
     sha256: f8533d916ee04fa295f8f149a96c4e0a6c601b833723affea682fa0b9d4730e0
-  - id: plan-overview
-    path: assets/diagrams/plan-overview.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: null
+  - id: pricing-chatgpt
+    path: assets/user/pricing-chatgpt.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 직접 캡처해 제공한 ChatGPT 한국 구독 가격 페이지의 원본 PNG.
+    creator: "화면 캡처: 사용자 · 페이지: OpenAI"
+    sourceUrl: https://chatgpt.com/ko-KR/pricing/
     sourceIds:
       - S02
-      - S03
-      - S06
-      - S09
       - U02
     checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 원본 화면 캡처를 공개본과 향후 개정본에 그대로 사용하는 것을 명시적으로 허용함.
     licenseUrl: null
     publicAllowed: true
     containsPersonalData: false
-    alt: 2026-09-25 사용자가 제공한 구독 페이지의 표시값을 재구성. 결제 주기·통화·세금·한도 조건이 달라 서로 직접 비교하거나 성능
-      순위를 뜻하지 않음.
-    caption: 사용자 제공 화면 정보 재구성 · 실제 제품 화면·캡처 아님
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 273417098231516ae17fbf56854b4846a3101bbca3c67a602d8db3bdc13ad711
+    alt: 사용자가 제공한 ChatGPT 한국 구독 가격 페이지 전체 화면. 캡처일 2026-09-25.
+    caption: ChatGPT 실제 구독 페이지 · 사용자 제공 원본 · 2026-09-25
+    modifications: 원본 PNG 바이트를 변경하지 않고 전체 화면 슬라이드에 그대로 배치.
+    width: 1920
+    height: 1080
+    ratio: 1.7778
+    sha256: 0cc5fbb5c66ad5de8c75bc723b1825f0a4c0b8616d10895ed0fe32e8af1cffb4
+  - id: pricing-claude
+    path: assets/user/pricing-claude.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 직접 캡처해 제공한 Claude 한국어 요금 페이지의 원본 PNG.
+    creator: "화면 캡처: 사용자 · 페이지: Anthropic"
+    sourceUrl: https://claude.com/ko/pricing
+    sourceIds:
+      - S06
+      - U02
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 원본 화면 캡처를 공개본과 향후 개정본에 그대로 사용하는 것을 명시적으로 허용함.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: 사용자가 제공한 Claude 한국어 요금 페이지 전체 화면. 캡처일 2026-09-25.
+    caption: Claude 실제 요금 페이지 · 사용자 제공 원본 · 2026-09-25
+    modifications: 원본 PNG 바이트를 변경하지 않고 전체 화면 슬라이드에 그대로 배치.
+    width: 1920
+    height: 1080
+    ratio: 1.7778
+    sha256: 02db05ce506d6712f39187a5e0d47eef1b20be44cff461cdb303f7d89b219400
+  - id: pricing-google
+    path: assets/user/pricing-google.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 직접 캡처해 제공한 Google AI 한국 구독 페이지의 원본 PNG.
+    creator: "화면 캡처: 사용자 · 페이지: Google"
+    sourceUrl: https://gemini.google/kr/subscriptions/?hl=ko
+    sourceIds:
+      - S09
+      - S10
+      - S11
+      - U02
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 원본 화면 캡처를 공개본과 향후 개정본에 그대로 사용하는 것을 명시적으로 허용함.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: 사용자가 제공한 Google AI 한국 구독 페이지 전체 화면. 캡처일 2026-09-25.
+    caption: Google AI 실제 구독 페이지 · 사용자 제공 원본 · 2026-09-25
+    modifications: 원본 PNG 바이트를 변경하지 않고 전체 화면 슬라이드에 그대로 배치.
+    width: 1920
+    height: 1080
+    ratio: 1.7778
+    sha256: fc172f061973057261f9af61cefe3455cdcec179f2fd587d8ccf0ba3d0f3389f
   - id: csu-path
     path: assets/diagrams/csu-path.svg
     kind: explanatory_diagram
@@ -187,27 +206,6 @@ assets:
     height: 760
     ratio: 1.5789
     sha256: 07af6ac674705873f746ccb6b03ee7b244673f08cdad65867173b67e473f1a26
-  - id: agent-loop
-    path: assets/diagrams/agent-loop.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://www.anthropic.com/engineering/building-effective-agents
-    sourceIds:
-      - S17
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: 목표·도구 실행·결과 관찰·통과 여부를 반복하는 에이전트 실행 흐름. 실패 시 수정, 경계에 닿으면 멈춤.
-    caption: 설명용 개념도
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 89a506994047d10a0ab2e28e2f9ed7aac6f9ab54ee1b0015194bfef3bbc78460
   - id: orchestration
     path: assets/diagrams/orchestration.svg
     kind: explanatory_diagram
@@ -308,37 +306,14 @@ assets:
     licenseUrl: null
     publicAllowed: true
     containsPersonalData: false
-    alt: 이번 과업에 대응하는 brief·Agent·렌더·검수·기록 단계의 설명용 흐름도. 새 버전 공개나 GitHub 등록 완료의 증거는 아님.
+    alt: 이번 과업에 대응하는 brief·Agent·렌더·검수·기록 단계의 설명용 흐름도. 새 버전 공개나 GitHub 등록 완료의 증거는
+      아님.
     caption: 설명용 흐름도 · 새 버전 게시·등록 완료를 뜻하지 않음
     modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
     width: 1200
     height: 760
     ratio: 1.5789
     sha256: b4c2b80a6edb5c7482ead2709cbe67957040079713e51817026b29221646491f
-  - id: apps
-    path: assets/diagrams/apps.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://learn.chatgpt.com/docs/app
-    sourceIds:
-      - S22
-      - S24
-      - S29
-      - U01
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: 웹과 데스크톱 작업 환경의 차이를 설명하는 개념도. 실제 제품 UI 캡처나 속도 비교가 아님.
-    caption: 설명용 이용 경로 · 실제 화면 아님
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: d5f84e48ce133b57ac7ce6900d03449fbed458bc9bc40dad2890181fc96a7821
   - id: remote
     path: assets/diagrams/remote.svg
     kind: explanatory_diagram
@@ -477,3 +452,71 @@ assets:
     height: 720
     ratio: 1.7778
     sha256: f00e86ca2d3fe76c36fdcc497d1c8dddaa1d4a83d5e5061cff0fcfed273e7e6f
+  - id: apps-sample
+    path: assets/user/apps-sample.png
+    sourcePath: .private/lecture-assets/L01/apps-sample.png
+    kind: user_provided_screenshot_composite
+    acquisitionMethod: 사용자가 제공한 ChatGPT 웹 시작 화면을 실제 픽셀 크롭해 강의용 설명 레이아웃에 배치
+    creator: "화면 캡처: 사용자 · 설명 레이아웃: AI 에이전트 동아리"
+    sourceUrl: https://chatgpt.com/
+    sourceIds:
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: rights_unverified
+    rightsBasis: 사용자 제공 화면의 저작권·공개 재배포 권한은 확인되지 않았다. 공개 배포에는 포함하지 않고 비공개 검토용으로만 사용한다.
+    licenseUrl: null
+    publicAllowed: false
+    containsPersonalData: false
+    alt: 실제 ChatGPT 웹 시작 화면 크롭과 공개 PDF 요청의 설명용 예시를 나란히 보여준다. 실제 업로드·답변 결과는 표시하지 않는다.
+    caption: "왼쪽: 실제 시작 화면 크롭 · 오른쪽: 설명용 요청 예시"
+    modifications: 비공개로 보관한 사용자 제공 화면에서 입력창 부분을 크롭했다. 오른쪽의 PDF 요청은 직접 작성한 예시이며 실제
+      입력·응답 화면이 아니다.
+    width: 1200
+    height: 760
+    ratio: 1.5789
+    sha256: b60d05219243c49f002bf9a0cec852f582981df7b44abff569915632b4d6ebe6
+  - id: gpt-ecosystem
+    path: assets/diagrams/gpt-ecosystem.svg
+    kind: explanatory_diagram
+    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
+    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
+    sourceUrl: https://chatgpt.com/ko-KR/pricing/
+    sourceIds:
+      - S01
+      - S03
+      - S22
+    checkedAt: 2026-09-25
+    rightsStatus: original_work
+    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: GPT는 모델 계열, ChatGPT는 대화 서비스, Codex는 코딩 작업 환경을 나타내는 설명용 분류도. 실제 제품 화면이 아님.
+    caption: 설명용 분류도 · 실제 제품 화면 아님
+    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
+    width: 1200
+    height: 760
+    ratio: 1.5789
+    sha256: d4ffa8788ada15d0b35018c01abda33b7e29c5a621d072af66e5a87e95a76b63
+  - id: agent-loop
+    path: assets/diagrams/agent-loop.svg
+    kind: explanatory_diagram
+    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
+    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
+    sourceUrl: https://www.anthropic.com/engineering/building-effective-agents
+    sourceIds:
+      - S17
+    checkedAt: 2026-09-25
+    rightsStatus: original_work
+    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: 저장 버튼을 눌러도 결과 파일이 없는 가상 예시에서 실행 결과를 관찰하고 수정 후보를 정한 뒤 같은 조건으로 재검사하는 루프. 실제
+      검사 기록이 아님.
+    caption: 설명용 가상 사례 · 실제 검사 결과 아님
+    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
+    width: 1200
+    height: 760
+    ratio: 1.5789
+    sha256: c5802d8cbba50c59e3568d7abe080ccb4841e401d8b387dd40c18d199338cb4c

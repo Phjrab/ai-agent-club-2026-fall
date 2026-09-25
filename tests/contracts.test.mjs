@@ -34,7 +34,18 @@ test('승인된 공개 빌드는 슬라이드만 포함하고 비공개 썸네�
  assert.ok(videoList);
  assert.equal(videoList.items.some(item=>item.assetId||item.thumbnailCaption),false);
  assert.match(videoList.caption,/공개 권리가 확인되지 않은 썸네일은 공개하지 않고/);
- assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'assets','user')),false);
+ const captures=['pricing-chatgpt','pricing-claude','pricing-google'];
+ assert.equal(publicDeck.slides.filter(s=>s.layout==='screenshot').length,3);
+ assert.deepEqual(publicDeck.slides.filter(s=>s.layout==='screenshot').map(s=>s.blocks.find(b=>b.type==='figure')?.assetId),captures);
+ for(const id of captures){
+  const capture=publicDeck.assets.find(a=>a.id===id);
+  assert.ok(capture);
+  const capturePath=path.join(publicDir,'lectures',slug,capture.path);
+  assert.equal(fs.existsSync(capturePath),true);
+  assert.equal(sha(fs.readFileSync(capturePath)),capture.sha256);
+  assert.equal(capture.width,1920);
+  assert.equal(capture.height,1080);
+ }
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter.html')),false);
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter-deck.json')),false);
  assert.equal(txt.includes('PRIVATE_TEST_SENTINEL_DO_NOT_PUBLISH'),false);

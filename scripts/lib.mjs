@@ -71,10 +71,11 @@ export function validateDeck(data) {
   const assetById=new Map((assets.assets||[]).map(a=>[a.id,a]));
   const assetIds=new Set(assetById.keys());
   const usedAssets=new Map();
-  const allowed=new Set(['cover','statement','bullets','comparison','process','table','figure-focus','text-figure','case-study','summary','qa','code-prompt','chart','math','diagram']);
+  const allowed=new Set(['cover','statement','bullets','comparison','process','table','figure-focus','text-figure','case-study','summary','qa','code-prompt','chart','math','diagram','screenshot']);
   for(const s of deck.slides||[]) {
     if(!s.id || ids.has(s.id)) e.push(`중복/누락 slide ID: ${s.id}`); ids.add(s.id);
     if(!allowed.has(s.layout)) e.push(`미등록 layout: ${s.id}`);
+    if(s.layout==='screenshot'&&(s.blocks?.length!==1||s.blocks[0]?.type!=='figure')) e.push(`screenshot layout은 figure 블록 하나만 허용: ${s.id}`);
     if(!['main','appendix','qa'].includes(s.kind)) e.push(`kind 오류: ${s.id}`);
     if(!Number.isInteger(s.durationSec)||s.durationSec<0) e.push(`duration 오류: ${s.id}`);
     if(!s.title || !s.takeaway || !Array.isArray(s.blocks) || s.blocks.length===0) e.push(`콘텐츠 누락: ${s.id}`);
