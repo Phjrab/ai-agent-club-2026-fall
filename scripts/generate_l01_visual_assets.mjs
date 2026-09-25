@@ -60,10 +60,11 @@ add('workflow','workflow.svg','brief부터 검토 가능한 기록까지의 강�
 add('remote','remote.svg','휴대전화로 컴퓨터에서 실행되는 작업을 확인','휴대전화, 서비스 연결, 온라인 컴퓨터의 역할·조건을 구분한 원격 흐름.','설명용 구조도 · 실제 원격 화면 아님',{sourceUrl:'https://learn.chatgpt.com/docs/remote',sourceIds:['S23','S25','S14','S15']});
 add('github-flow','github-flow.svg','저장·공개 전에 변경 내용을 검토','파일 변경, diff 확인, commit, PR 검토의 역할을 설명. 이 자료는 공개 허가나 승인 기록의 증거가 아님.','설명용 개념도',{sourceUrl:'https://docs.github.com/en/get-started/using-github/hello-world',sourceIds:['S26']});
 add('portfolio','portfolio.svg','포트폴리오에 판단과 검증을 남김','문제, 선택, AI 역할, 검증 근거, 한계를 함께 기록하는 포트폴리오 틀.','설명용 구조도',{sourceUrl:'https://docs.github.com/en/account-and-profile/how-tos/profile-customization/pinning-items-to-your-profile',sourceIds:['S26','S27','U01']});
+add('apps','apps.svg','웹과 데스크톱의 서로 다른 작업 환경','웹과 데스크톱 작업 환경의 차이를 설명하는 개념도. 실제 제품 UI 캡처나 속도 비교가 아님.','설명용 이용 경로 · 실제 화면 아님',{sourceUrl:'https://learn.chatgpt.com/docs/app',sourceIds:['S22','S24','S29','U01']});
 
-if(!only.size){fs.rmSync(path.join(out,'claude-plans.svg'),{force:true});fs.rmSync(path.join(out,'apps.svg'),{force:true});}
+if(!only.size){fs.rmSync(path.join(out,'claude-plans.svg'),{force:true});}
 const generatedIds=new Set(assets.map(a=>a.id));
-const retiredIds=new Set(['plan-overview','pricing-captures']);
+const retiredIds=new Set(['plan-overview','pricing-captures','apps-sample']);
 const mergedAssets=[...assets,...priorAssets.filter(a=>!generatedIds.has(a.id)&&!retiredIds.has(a.id))];
 fs.writeFileSync(path.join(dir,'assets.yaml'),YAML.stringify({schema_version:2,assets:mergedAssets}));
 console.log(`Generated ${assets.length} authored SVG assets in ${path.relative(root,out)}${only.size?` (selected: ${[...only].join(', ')})`:''}`);

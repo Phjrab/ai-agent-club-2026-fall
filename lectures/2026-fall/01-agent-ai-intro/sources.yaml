@@ -478,17 +478,3 @@ sources:
     caveats:
       - 썸네일 원저작자와 라이선스·공개 재배포 권한은 확인하지 못함.
       - 비공개 빌드에서만 사용하고 공개 배포에는 포함하지 않음.
-  - id: U04
-    type: user_provided_reference
-    title: 사용자가 제공한 ChatGPT 웹 시작 화면 캡처
-    publisher: 사용자 제공 Safari 화면 참조
-    url: https://chatgpt.com/
-    published_at: null
-    checked_at: 2026-09-25
-    verification_status: user_provided
-    access_status: 사용자 제공 화면
-    supports:
-      - 로그인 안내가 표시된 ChatGPT 웹 시작 화면과 입력창 위치
-    caveats:
-      - 캡처는 시작 화면 일부로 실제 파일 업로드·응답 생성 기록이 아님
-      - 공개 재배포 권한을 확인하지 않아 슬라이드 자산은 비공개로 유지

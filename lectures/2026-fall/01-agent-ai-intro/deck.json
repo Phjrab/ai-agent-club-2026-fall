@@ -6,7 +6,7 @@
   "title": "AI를 고르고, 일을 맡기고, 검증해 기록하기",
   "revision": "0.5.2",
   "inputDigest": "8ed52b0fad88a3e0456bf6a2d6cf03cff9edb43ffab3858905b07a0e286ed2ac",
-  "sourceRegistryDigest": "9a24afc18c596b95ccff1e76f723f0fd8f03b9935052f703715b5c77115f2d6d",
+  "sourceRegistryDigest": "7ef1a7e1968f11b4de8c933f9349377df558e4401a6efa12d660fa8908311169",
   "slideLanguage": "ko",
   "scriptLanguage": "ko",
   "contentState": "draft",
@@ -1213,9 +1213,9 @@
       "id": "L01-S24",
       "kind": "main",
       "sectionId": "practice",
-      "layout": "figure-focus",
-      "title": "웹 자료 요약과 근거 확인",
-      "takeaway": "답변을 받은 뒤 근거 페이지를 직접 대조한다",
+      "layout": "comparison",
+      "title": "웹과 데스크톱 앱은 작업 흐름을 바꾼다",
+      "takeaway": "앱 선호는 개인 경험이며 속도 비교 결과가 아니다",
       "requirementIds": [
         "REQ-APPS",
         "REQ-EXPERIENCE"
@@ -1224,27 +1224,39 @@
       "sourcePolicy": "external",
       "sourceReason": null,
       "sourceIds": [
-        "U04"
+        "S22",
+        "S24",
+        "S29",
+        "U01"
       ],
       "blocks": [
         {
+          "type": "comparison",
+          "items": [
+            {
+              "heading": "웹",
+              "text": "대화와 연결된 자료에 유용"
+            },
+            {
+              "heading": "데스크톱 앱",
+              "text": "지원 모드와 권한이 있으면 로컬 작업 가능"
+            }
+          ]
+        },
+        {
           "type": "figure",
-          "assetId": "apps-sample",
-          "alt": "왼쪽은 사용자가 제공한 ChatGPT 웹 시작 화면의 입력창 크롭, 오른쪽은 공개 강의자료 PDF를 요약하는 설명용 요청 예시. 실제 파일 업로드나 답변 화면은 아님.",
-          "caption": "왼쪽: 실제 시작 화면 크롭 · 오른쪽: 설명용 요청 예시",
+          "assetId": "apps",
+          "alt": "웹과 데스크톱 작업 환경의 차이를 설명하는 도식. 실제 제품 화면이 아님.",
+          "caption": "설명용 비교도 · 실제 제품 화면 아님",
           "fit": "contain"
         }
       ],
       "speakerNotes": {
-        "say": "왼쪽은 ChatGPT 웹 시작 화면 일부입니다. 입력창이 보일 뿐, 파일을 올리거나 답변을 받은 기록은 아닙니다. 오른쪽 절차는 공개 강의 PDF를 다룬다고 가정한 설명용 요청 예시입니다. 실제로 사용할 때는 핵심과 근거 페이지를 요청하고, 답변의 페이지를 원문과 대조합니다. 사용 가능한 기능과 업로드 한도는 내 계정에서 확인해야 합니다.",
-        "pointTo": "실제 시작 화면 크롭과 설명용 PDF 요청 예시의 차이",
+        "say": "이 도식은 실제 화면을 흉내 내지 않은 개념 비교입니다. 웹과 데스크톱은 입력할 수 있는 연결 자료와 로컬 권한 조건이 다를 수 있지만 앱이 항상 더 빠르다는 자료는 아닙니다. 제가 앱을 선호하는 것은 개인 사용 경험입니다.",
+        "pointTo": "설명용 비교도: 웹과 데스크톱 작업 환경",
         "background": [],
-        "pitfalls": [
-          "실제 업로드·답변 캡처로 오해시키지 않기",
-          "개인정보나 공개되지 않은 자료를 올리지 않기",
-          "제품 기능·한도는 계정에서 확인하기"
-        ],
-        "transition": "컴퓨터에서 작업하는 원격 기능은 로그인·기기·권한 조건을 따로 확인해야 합니다."
+        "pitfalls": [],
+        "transition": "휴대전화로 컴퓨터의 작업을 확인할 때도 계정과 권한 조건이 필요합니다."
       },
       "sectionLabel": "작업 환경"
     },
