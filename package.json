@@ -15,6 +15,7 @@
     "validate": "node scripts/cli.mjs validate",
     "test": "node --test tests/*.test.mjs",
     "qa": "node scripts/qa.mjs",
+    "qa:public": "node scripts/qa-public.mjs",
     "export": "node scripts/export.mjs",
     "lecture:new": "node scripts/cli.mjs lecture:new",
     "sources:check": "node scripts/cli.mjs sources:check",

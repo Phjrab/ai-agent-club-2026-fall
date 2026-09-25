@@ -14,4 +14,15 @@ test('요구 주제와 발표 시간 누락은 실패한다',()=>{const e=mutate
 test('0×0 또는 NaN 차트와 경로 탈출 자산은 실패한다',()=>{const e=mutate(x=>{x.deck.slides[2].blocks.push({type:'chart',data:{labels:['x'],values:[NaN]}});x.assets.assets=[{id:'BAD',path:'../private.png'}]});assert.ok(e.some(x=>x.includes('chart 데이터')));assert.ok(e.some(x=>x.includes('자산 경로 탈출')))});
 test('승인 해시는 콘텐츠 변경 후 무효가 된다',()=>{const d=contentDigest(original),x=structuredClone(original);x.brief=original.brief;x.dir=original.dir;x.approval={status:'approved',approvedContentDigest:d,scope:{site:true}};assert.equal(isApproved(x),true);x.approval.approvedContentDigest=sha('stale');assert.equal(isApproved(x),false)});
 test('출처 URL과 확인일 오류를 검출하고 접근 응답과 내용 검증을 구분한다',()=>{const x=structuredClone(original.sources);x.sources[0].url='javascript:alert(1)';x.sources[1].checked_at='2026-02-30';const result=validateSources(x,'2026-09-25');assert.ok(result.errors.some(e=>e.includes('HTTP URL')));assert.ok(result.errors.some(e=>e.includes('확인일 오류')));assert.ok(result.warnings.some(e=>e.includes('본문 검증 필요')))});
-test('공개 빌드에서 미승인 강의와 비공개 표식이 제외된다',()=>{execFileSync('npm',['run','build:public'],{cwd:root,stdio:'pipe'});const publicDir=path.join(root,'dist','public');const txt=fs.readFileSync(path.join(publicDir,'portfolio.json'),'utf8');assert.equal(JSON.parse(txt).cards.length,0);assert.equal(fs.existsSync(path.join(publicDir,'lectures','01-agent-ai-intro')),false);assert.equal(txt.includes('PRIVATE_TEST_SENTINEL_DO_NOT_PUBLISH'),false)});
+test('승인된 공개 빌드에 1회차가 보이고 사이트 대본은 제외된다',()=>{
+ execFileSync('npm',['run','build:public'],{cwd:root,stdio:'pipe'});
+ const publicDir=path.join(root,'dist','public'),slug='01-agent-ai-intro';
+ const txt=fs.readFileSync(path.join(publicDir,'portfolio.json'),'utf8');
+ assert.deepEqual(JSON.parse(txt).cards.map(c=>c.slug),[slug]);
+ const deck=fs.readFileSync(path.join(publicDir,'lectures',slug,'deck.json'),'utf8');
+ assert.equal(deck.includes('speakerNotes'),false);
+ assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter.html')),false);
+ assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter-deck.json')),false);
+ assert.equal(txt.includes('PRIVATE_TEST_SENTINEL_DO_NOT_PUBLISH'),false);
+ execFileSync('npm',['run','release:check'],{cwd:root,stdio:'pipe'});
+});

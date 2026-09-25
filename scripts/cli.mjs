@@ -3,7 +3,7 @@ import path from 'node:path';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
 import {build} from 'esbuild';
-import {root,config,lectureDirs,loadLecture,validateDeck,validateSources,isApproved,sanitizeDeck,escapeHtml,selectLecture,writeJson} from './lib.mjs';
+import {root,config,lectureDirs,loadLecture,validateDeck,validateSources,isApproved,sanitizeDeck,escapeHtml,selectLecture,readJson,writeJson} from './lib.mjs';
 
 const [cmd,...args]=process.argv.slice(2);
 const option=(name, fallback)=>{const i=args.indexOf(name);return i<0?fallback:args[i+1];};
@@ -24,6 +24,11 @@ async function buildSite(isPublic=false){
  const out=path.join(root,'dist',isPublic?'public':'private');fs.rmSync(out,{recursive:true,force:true});fs.mkdirSync(out,{recursive:true});
  fs.mkdirSync(path.join(out,'assets','fonts'),{recursive:true});
  for(const f of fs.readdirSync(path.join(root,'.cache','fonts'))) copy(path.join(root,'.cache','fonts',f),path.join(out,'assets','fonts',f));
+ if(isPublic){
+  for(const [name,file] of [['Chart.js','chart.js/LICENSE.md'],['KaTeX','katex/LICENSE'],['Mermaid','mermaid/LICENSE'],['Prism.js','prismjs/LICENSE']])
+   copy(path.join(root,'node_modules',file),path.join(out,'licenses',`${name}.txt`));
+  copy(path.join(root,'docs','LICENSE_POLICY.md'),path.join(out,'licenses','PROJECT_POLICY.md'));
+ }
  copy(path.join(root,'src','site.css'),path.join(out,'assets','site.css'));
  const katexDir=path.join(root,'node_modules','katex','dist');copy(path.join(katexDir,'katex.min.css'),path.join(out,'assets','katex.min.css'));
  fs.cpSync(path.join(katexDir,'fonts'),path.join(out,'assets','fonts'),{recursive:true});
@@ -43,7 +48,7 @@ async function buildSite(isPublic=false){
   }
   cards.push({slug,title:d.deck.title,state:d.deck.contentState,date:'2026-10-01',goals:['AI 선택 기준','Agent 작업과 검증','GitHub 포트폴리오'],sourceChecked:'2026-09-25'});
  }
- const payload={title:config.title,term:config.term,startDate:config.startDate,startTime:config.startTime,classroom:config.classroom,plannedSessionCount:config.plannedSessionCount,cards,public:isPublic};
+ const payload={title:config.title,term:config.term,startDate:config.startDate,startTime:config.startTime,classroom:config.classroom,plannedSessionCount:config.plannedSessionCount,cards,public:isPublic,repositoryUrl:isPublic?`https://github.com/${config.githubOwner}/${config.repoName}`:null};
  writeJson(path.join(out,'portfolio.json'),payload);
  fs.writeFileSync(path.join(out,'index.html'),makePage(config.title,'./assets/site.css','./assets/portfolio.js','<div id="portfolio-app"></div>'));
  console.log(`${isPublic?'공개':'비공개'} 빌드: ${out} (${cards.length}회차)`);
@@ -73,6 +78,30 @@ try {
   if(errors.length)throw new Error(errors.join('\n'));
   console.log(`출처 메타데이터 PASS: ${count}건. URL 응답 상태는 저장된 기록이며 본문 사실 확인을 뜻하지 않습니다.`);
  }
- else if(cmd==='release:check') {if(config.publishSite!==true||config.publicReleaseApproved!==true)throw new Error('공개 플래그가 승인되지 않았습니다');for(const d of lectureDirs()){if(!fs.existsSync(path.join(d,'deck.json')))continue;const x=loadLecture(d);if(!isApproved(x))throw new Error(`${x.deck.slug} 공개 승인 해시 불일치`)}console.log('공개 게이트 PASS');}
+ else if(cmd==='release:check') {
+  if(config.publishSite!==true||config.publicReleaseApproved!==true)throw new Error('공개 플래그가 승인되지 않았습니다');
+  if(config.publicTranscript!==false)throw new Error('공개 사이트 대본 제외 설정이 필요합니다');
+  const expected=[];
+  for(const d of lectureDirs()){
+   if(!fs.existsSync(path.join(d,'deck.json')))continue;
+   const x=loadLecture(d),a=x.approval;
+   if(!isApproved(x))throw new Error(`${x.deck.slug} 공개 승인 해시 불일치`);
+   if(a.scope?.repositorySource!==true||a.scope?.includeSpeakerNotesInRepository!==true||!a.approvedAt||!a.approvalEvidence)throw new Error(`${x.deck.slug} 공개 저장소와 대본 범위 승인 누락`);
+   expected.push(x.deck.slug);
+  }
+  const out=path.join(root,'dist','public');
+  const portfolio=readJson(path.join(out,'portfolio.json'));
+  if(JSON.stringify(portfolio.cards.map(x=>x.slug).sort())!==JSON.stringify(expected.sort()))throw new Error('공개 강의 목록 불일치');
+  for(const slug of expected){
+   const dir=path.join(out,'lectures',slug);
+   if(fs.existsSync(path.join(dir,'presenter.html'))||fs.existsSync(path.join(dir,'presenter-deck.json')))throw new Error(`${slug} 발표자 화면 누출`);
+   const deckText=fs.readFileSync(path.join(dir,'deck.json'),'utf8');
+   if(deckText.includes('speakerNotes')||deckText.includes('PRIVATE_TEST_SENTINEL_DO_NOT_PUBLISH'))throw new Error(`${slug} 대본 또는 비공개 표식 누출`);
+  }
+  const files=[];const visit=dir=>{for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,entry.name);if(entry.isDirectory())visit(p);else files.push(path.relative(out,p));}};visit(out);
+  if(files.some(f=>/^(?:\.private|reports|exports|private)\/|(?:presenter|speaker-script|\.env)/i.test(f)))throw new Error('공개 파일 목록에 비공개 산출물 포함');
+  if(files.some(f=>/\.(pdf|pptx|docx)$/i.test(f)))throw new Error('PDF/PPTX/DOCX는 이번 사이트 게시 범위가 아닙니다');
+  console.log(`공개 게이트 PASS: ${expected.length}회차, ${files.length}개 파일`);
+ }
  else throw new Error('알 수 없는 명령. --help를 확인하세요.');
 } catch(e){console.error(e.message);process.exitCode=1;}
