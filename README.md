@@ -41,4 +41,6 @@ npm run serve -- --dir dist/private
 
 private GitHub 저장소의 소스와 공개 사이트는 별개다. `publishSite`와 `publicReleaseApproved`는 모두 `false`이고, 1회차 콘텐츠 승인 파일도 미승인 상태다. Pages workflow는 이를 확인해 게시를 건너뛴다. 공개 전환과 Pages 게시는 별도 승인 후에만 진행한다. 라이선스 결정과 제3자 자료 범위는 [docs/LICENSE_POLICY.md](docs/LICENSE_POLICY.md)에 기록했다.
 
+비공개 저장소: [Phjrab/ai-agent-club-2026-fall](https://github.com/Phjrab/ai-agent-club-2026-fall). 접근 권한이 없는 방문자에게는 열리지 않는다.
+
 생성물(`dist/`, `exports/`, `reports/`)과 개인 메모(`.private/`)는 Git에서 제외한다. 검수 산출물의 실제 상태와 남은 항목은 [HANDOFF.md](HANDOFF.md)를 본다.

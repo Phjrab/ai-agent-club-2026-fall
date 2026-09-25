@@ -8,7 +8,7 @@
 - `npm run validate`, `npm run sources:check`, `npm test`(8개), `npm run build`, `npm run build:public`을 통과했다. 공개 빌드에는 승인되지 않은 1회차 본문이 없다. `npm run release:check`는 공개 플래그가 둘 다 `false`이므로 예상대로 실패한다.
 - `npm run qa -- --lecture 01-agent-ai-intro` 브라우저 검수는 31장, 글꼴, deep link, 키보드, 모바일 포트폴리오, project base path, 영상 순서, 차트·수식·도식·코드 fixture를 통과했다. 최신 증거: `reports/2026-09-25T05-55-19-562Z/qa-summary.md`.
 - 개정 `0.2.0`의 HTML·PDF·시각 호환 PPTX·DOCX를 `exports/2026-fall/01-agent-ai-intro/0.2.0/`에 생성했다. PDF와 PPTX는 각 31페이지, DOCX는 31페이지이며 렌더링된 화면과 한글을 검수했다. 검수 기록은 `reports/export-0.2.0/qa-summary.md`를 본다.
-- CI와 Pages workflow를 작성했다. Pages는 `publishSite=false`, `publicReleaseApproved=false`, 1회차 승인 상태 `unapproved`에서 게시하지 않는다. CI/Pages의 실제 GitHub 실행은 아직 확인하지 못했다.
+- CI와 Pages workflow를 작성했다. 첫 [CI 실행](https://github.com/Phjrab/ai-agent-club-2026-fall/actions/runs/36100791992)은 설치·콘텐츠 검사·계약 테스트·Chromium QA를 모두 통과했다. Pages는 `publishSite=false`, `publicReleaseApproved=false`, 1회차 승인 상태 `unapproved`에서 게시하지 않는다. 첫 [Pages workflow](https://github.com/Phjrab/ai-agent-club-2026-fall/actions/runs/36100791990)의 `gate`는 성공했고 `publish` job은 `skipped`였다.
 
 ## 발표 전 해결할 콘텐츠 문제
 
@@ -18,6 +18,6 @@
 
 ## GitHub 상태와 필요한 조치
 
-로컬 저장소는 `main`으로 준비했다. 기본 샌드박스에서 `gh auth status`가 토큰 오류로 보였으나, 승인된 실행 경로에서 **Phjrab** 계정의 keyring 로그인과 `repo`, `workflow` 권한을 확인했다. 같은 실행 경로의 `gh repo view Phjrab/ai-agent-club-2026-fall`은 동명 저장소가 없다고 응답했다. 연결된 GitHub 앱도 Phjrab 프로필을 반환했다. 안전한 파일의 로컬 커밋 후 새 private 저장소를 생성·push하고, 실제 URL·가시성·원격 HEAD·CI 상태를 확인한다. 공개 전환과 GitHub Pages 게시는 별도 승인 전에는 실행하지 않는다.
+`main`을 [Phjrab/ai-agent-club-2026-fall](https://github.com/Phjrab/ai-agent-club-2026-fall)에 push했다. `gh repo view`의 `isPrivate` 값은 `true`이며 기본 브랜치는 `main`이다. 최초 원격 HEAD `e3a648dede738cb35210a640e66d7fd596253bad`는 로컬과 일치했다. 이 인계 문서를 포함한 후속 커밋의 최신 SHA는 `git rev-parse HEAD`와 `git ls-remote origin HEAD`로 비교한다. 현재 remote는 `origin` 하나다. 기본 샌드박스에서는 GitHub CLI가 토큰·네트워크 오류로 보였으나 승인된 실행 경로에서는 **Phjrab** 계정의 keyring 로그인과 `repo`, `workflow` 권한으로 생성과 push를 완료했다. 공개 전환과 GitHub Pages 게시는 별도 승인 전에는 실행하지 않는다.
 
 로컬 브라우저 검수·export는 제한된 기본 샌드박스에서 loopback 서버가 `EPERM`으로 차단되어 승인된 실행 경로에서 완료했다.

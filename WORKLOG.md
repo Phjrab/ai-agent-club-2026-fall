@@ -7,6 +7,6 @@
 - HTML·PDF·PPTX·DOCX 개정 `0.2.0`을 생성했다. PDF·PPTX 렌더는 31페이지였다. DOCX는 최초 LibreOffice 렌더에서 한글이 빠졌으며, npm Pretendard 1.3.9의 공식 OTF 경로를 임시 fontconfig에 등록한 뒤 31페이지를 다시 렌더링해 글자가 표시되는 것을 확인했다.
 - 출처 검사에 URL 형식, 확인일, 중복 ID 검사를 추가했다. HTTP 응답과 본문 검증을 구분하는 경고를 남긴다. 계약 테스트는 8개 모두 통과했다.
 - CI와 기본 비활성 Pages workflow, README, 라이선스 정책을 작성했다. 사용한 GitHub Actions release 태그는 2026-09-25에 해당 공식 저장소의 latest release API에서 확인했다.
-- GitHub CLI는 기본 샌드박스에서 토큰 오류와 네트워크 오류를 반환했다. 승인된 실행 경로에서는 Phjrab 계정의 keyring 로그인, `repo`·`workflow` 권한과 동명 저장소 부재를 확인했다. 새 private 저장소 생성과 push를 이어서 진행한다.
+- GitHub CLI는 기본 샌드박스에서 토큰 오류와 네트워크 오류를 반환했다. 승인된 실행 경로에서는 Phjrab 계정의 keyring 로그인, `repo`·`workflow` 권한과 동명 저장소 부재를 확인했다. `Phjrab/ai-agent-club-2026-fall`을 private으로 만들고 `main`을 push했다. GitHub API에서 `isPrivate=true`, 원격 HEAD 일치, CI 성공, Pages의 게시 job skip을 확인했다.
 
 다음 작업자는 `HANDOFF.md`와 실제 Git 상태를 먼저 비교하고, 강의 전 가격·학생 혜택·영상 내용 및 60분 리허설을 확인한다.
