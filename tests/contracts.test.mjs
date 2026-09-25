@@ -15,18 +15,23 @@ test('고정 질의응답 0분, 영상 단일 합산, 유동 여유 계산이 �
 test('60분 상한 초과를 검출하고 회차별 다른 전체 시간은 허용한다',()=>{const over=mutate(x=>{x.deck.slides.find(s=>s.id==='L01-S01').durationSec+=312});assert.ok(over.some(x=>x.includes('수업 상한 초과')));const x=structuredClone(original);x.brief=Buffer.from(original.brief.toString().replace('duration_minutes: 60','duration_minutes: 70'));x.dir=original.dir;x.deck.sessionDurationSec=4200;x.deck.flexibleBufferSec=911;x.deck.inputDigest=sha(x.brief);assert.deepEqual(validateDeck(x),[])});
 test('향후 회차의 기본 화면·대본 언어는 한국어다',()=>{assert.equal(config.slideLanguage,'ko');assert.equal(config.scriptLanguage,'ko');assert.match(fs.readFileSync(path.join(root,'scripts/cli.mjs'),'utf8'),/slide_language: \$\{config\.slideLanguage\}[\s\S]*script_language: \$\{config\.scriptLanguage\}/)});
 test('사용자 YouTube 썸네일은 비공개 빌드에만 포함된다',()=>{const assets=original.assets.assets.filter(a=>a.id.startsWith('thumb-v'));assert.equal(assets.length,3);assert.ok(assets.every(a=>a.publicAllowed===false&&a.rightsStatus==='rights_unverified'&&a.sourcePath.startsWith('.private/')));assert.equal(sanitizeDeck(original.deck,original.assets.assets).assets.some(a=>a.id.startsWith('thumb-v')),false);assert.equal(sanitizeDeck(original.deck,original.assets.assets,{includePrivateAssets:true}).assets.filter(a=>a.id.startsWith('thumb-v')).length,3)});
+test('비공개 썸네일 원본은 CI 체크아웃에 없어도 검증되며 공개 승인 해시에 포함되지 않는다',()=>{const x=structuredClone(original);x.brief=original.brief;x.dir=original.dir;x.assets=structuredClone(original.assets);for(const a of x.assets.assets.filter(a=>a.id.startsWith('thumb-v')))a.sourcePath='.private/lecture-assets/CI_MISSING/'+path.basename(a.sourcePath);assert.deepEqual(validateDeck(x),[]);assert.equal(contentDigest(original),contentDigest({...original,assets:{...original.assets,assets:original.assets.assets.filter(a=>a.publicAllowed===true)}}))});
 test('0×0 또는 NaN 차트와 경로 탈출 자산은 실패한다',()=>{const e=mutate(x=>{x.deck.slides[2].blocks.push({type:'chart',data:{labels:['x'],values:[NaN]}});x.assets.assets=[{id:'BAD',path:'../private.png'}]});assert.ok(e.some(x=>x.includes('chart 데이터')));assert.ok(e.some(x=>x.includes('자산 경로 탈출')))});
 test('승인 해시는 콘텐츠 변경 후 무효가 된다',()=>{const d=contentDigest(original),x=structuredClone(original);x.brief=original.brief;x.dir=original.dir;x.approval={status:'approved',approvedContentDigest:d,scope:{site:true}};assert.equal(isApproved(x),true);x.approval.approvedContentDigest=sha('stale');assert.equal(isApproved(x),false)});
 test('출처 URL과 확인일 오류를 검출하고 접근 응답과 내용 검증을 구분한다',()=>{const x=structuredClone(original.sources);x.sources[0].url='javascript:alert(1)';x.sources[1].checked_at='2026-02-30';const result=validateSources(x,'2026-09-25');assert.ok(result.errors.some(e=>e.includes('HTTP URL')));assert.ok(result.errors.some(e=>e.includes('확인일 오류')));assert.ok(result.warnings.some(e=>e.includes('본문 검증 필요')))});
-test('현재 콘텐츠 변경본은 승인되지 않아 공개 빌드에서 제외된다',()=>{
+test('승인된 공개 빌드는 슬라이드만 포함하고 비공개 썸네일과 발표자 원고를 제외한다',()=>{
  execFileSync('npm',['run','build:public'],{cwd:root,stdio:'pipe'});
  const publicDir=path.join(root,'dist','public'),slug='01-agent-ai-intro';
  const txt=fs.readFileSync(path.join(publicDir,'portfolio.json'),'utf8');
- assert.deepEqual(JSON.parse(txt).cards,[]);
- assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'deck.json')),false);
+ assert.deepEqual(JSON.parse(txt).cards.map(x=>x.slug),[slug]);
+ const deckPath=path.join(publicDir,'lectures',slug,'deck.json');
+ assert.equal(fs.existsSync(deckPath),true);
+ const deckText=fs.readFileSync(deckPath,'utf8');
+ assert.equal(deckText.includes('speakerNotes'),false);
+ assert.equal(JSON.parse(deckText).assets.some(a=>a.id.startsWith('thumb-v')),false);
+ assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'assets','user')),false);
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter.html')),false);
  assert.equal(fs.existsSync(path.join(publicDir,'lectures',slug,'presenter-deck.json')),false);
  assert.equal(txt.includes('PRIVATE_TEST_SENTINEL_DO_NOT_PUBLISH'),false);
- const release=()=>execFileSync('npm',['run','release:check'],{cwd:root,stdio:'pipe'});
- assert.throws(release);
+ execFileSync('npm',['run','release:check'],{cwd:root,stdio:'pipe'});
 });

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "approved",
-  "approvedContentDigest": "4bd3c3a99ea7e75c66ea832f2413e3c6e84e0e2a05c47d9335c136840ad62de3",
-  "approvedAt": "2026-09-25T06:08:34Z",
-  "approvalEvidence": "2026-09-25 사용자 후속 응답: 기존 Git 이력의 커밋 작성자 Gmail 주소와 deck.json의 한국어 발표 대본을 포함한 저장소 공개 및 GitHub Pages 1회차 슬라이드 게시 승인",
+  "approvedContentDigest": "9c7cf04e5ebf958ff1b3c45f838793219c36922364beb14a6b1e875ddf970558",
+  "approvedAt": "2026-09-25T09:39:16Z",
+  "approvalEvidence": "2026-09-25 사용자 명시 승인: v3 1회차를 메인에 반영하고 그에 수반되는 GitHub Pages 자동 공개 배포를 허용함. 공개 권리가 확인되지 않은 YouTube 썸네일은 공개 산출물에서 제외함.",
   "scope": {"site": true, "repositorySource": true, "includeSpeakerNotesInRepository": true, "pdf": false}
 }

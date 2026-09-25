@@ -18,7 +18,7 @@ script_language: ko
 presentation_mode: mixed
 content_state: planned
 event_state: scheduled
-public_approved: false
+public_approved: true
 ---
 
 # 1회차 · AI를 고르는 법부터, 일을 맡기고 기록하는 법까지

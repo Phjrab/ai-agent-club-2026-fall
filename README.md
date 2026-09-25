@@ -40,7 +40,7 @@ npm run serve -- --dir dist/private
 
 `npm run lecture:new -- --slug 02-prompt-and-workflow --title "프롬프트와 작업 흐름"`는 한국어를 기본값으로 하는 빈 기획 틀만 만든다. 기획을 고치면 Codex가 한국어 `deck.json`과 출처를 재작성해야 하며, 해시 검사만 통과시키는 수정은 허용하지 않는다. 활성 규칙은 [AGENTS.md](AGENTS.md), 상세 계약은 [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md)와 [docs/QA_AND_ACCEPTANCE.md](docs/QA_AND_ACCEPTANCE.md)에 있다.
 
-GitHub 저장소와 Pages 사이트에는 별도 승인된 기존 공개본이 있다. `publication.approval.json`과 공개본은 보존한다. 현재 로컬 개정 `0.5.0`은 한국어·시각자료 수정 검토본이며 기존 공개 승인 해시와 일치하지 않는다. 새 개정은 별도 승인 전 공개 사이트에 배포하지 않는다. 사이트에는 슬라이드만 게시하고 한국어 발표 대본과 PDF·PPTX·DOCX 내보내기는 올리지 않는다. 제3자 자료의 재사용 범위는 [docs/LICENSE_POLICY.md](docs/LICENSE_POLICY.md)에 기록한다.
+기존 공개본과 승인 이력은 Git에 보존되어 있다. 2026-09-25에 사용자가 1회차 개정 `0.5.0`의 메인 반영과 GitHub Pages 공개를 승인했으며, `publication.approval.json`은 해당 콘텐츠 해시에 연결된다. 승인된 공개 빌드에는 학생용 슬라이드만 포함하고 발표자 원고와 PDF·PPTX·DOCX 내보내기는 제외한다. 원저작자와 재배포 권한이 확인되지 않은 YouTube 썸네일 3장은 공개 빌드에서 제외하고 비공개 원본으로만 보관한다. 제3자 자료의 재사용 범위는 [docs/LICENSE_POLICY.md](docs/LICENSE_POLICY.md)에 기록한다.
 
 저장소: [Phjrab/ai-agent-club-2026-fall](https://github.com/Phjrab/ai-agent-club-2026-fall). 사이트: [GitHub Pages](https://phjrab.github.io/ai-agent-club-2026-fall/).
 

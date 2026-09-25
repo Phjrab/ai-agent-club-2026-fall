@@ -38,6 +38,7 @@ export function contentDigest(data) {
   const chartDir=path.join(data.dir,'charts');
   if (fs.existsSync(chartDir)) for(const f of fs.readdirSync(chartDir).sort()) payload.push([`charts/${f}`,fs.readFileSync(path.join(chartDir,f),'utf8')]);
   for(const asset of [...(data.assets.assets||[])].sort((a,b)=>a.id.localeCompare(b.id))) {
+    if(asset.publicAllowed===false && asset.sourcePath?.startsWith('.private/lecture-assets/')) continue;
     try { const file=assetSourceFile(data,asset); payload.push([`asset:${asset.id}`,fs.readFileSync(file)]); } catch {}
   }
   return sha(JSON.stringify(payload));
@@ -140,7 +141,10 @@ export function validateDeck(data) {
         if(!/<svg\b/i.test(svg)||/<script\b|<foreignObject\b|<image\b|\son\w+\s*=|javascript:|(?:href|src)\s*=\s*["'](?:https?:|\/\/|data:)/i.test(svg)) throw new Error('unsafe-svg');
       }
       if(Number.isInteger(a.width)&&Number.isInteger(a.height)&&a.ratio&&Math.abs(a.width/a.height-a.ratio)>0.02) throw new Error('ratio');
-    } catch(err) { e.push(`자산 파일/해시/안전 검사 실패: ${a.id} (${err.message})`); }
+    } catch(err) {
+      const privateSourceUnavailable=a.publicAllowed===false&&a.sourcePath?.startsWith('.private/lecture-assets/')&&err.code==='ENOENT';
+      if(!privateSourceUnavailable) e.push(`자산 파일/해시/안전 검사 실패: ${a.id} (${err.message})`);
+    }
   }
   if(deck.videoBlock){
     const v=deck.videoBlock,listed=(deck.slides||[]).find(s=>s.id===v.slide_id);
