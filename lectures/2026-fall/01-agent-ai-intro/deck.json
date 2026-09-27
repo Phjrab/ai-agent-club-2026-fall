@@ -4,18 +4,18 @@
   "slug": "01-agent-ai-intro",
   "term": "2026-fall",
   "title": "AI 서비스 선택부터 에이전트 활용까지",
-  "revision": "0.6.1",
-  "inputDigest": "0e8be2a5d8254a5866882c2d58a5cc930c1bd3b07d3b4c594866322df0af01d9",
-  "sourceRegistryDigest": "f18da1cd53ac4e2ac6c2ef8780d6b8810c3515c7119c215af9b387e458659539",
+  "revision": "0.6.2",
+  "inputDigest": "95ac4999167353b1a249ccdf9fb967f22c4904151c65a01d16acf9aa2c237a83",
+  "sourceRegistryDigest": "0965bbd29cbe164b2f33fe3e75ec9f81e0a3c11a185a3a2c4134ed34d6035e71",
   "slideLanguage": "ko",
   "scriptLanguage": "ko",
   "contentState": "draft",
-  "plannedMainDurationSec": 3724,
-  "plannedSpeakerDurationSec": 2715,
+  "plannedMainDurationSec": 3784,
+  "plannedSpeakerDurationSec": 2775,
   "plannedVideoBudgetSec": 1009,
   "actualVideoDurationSec": 1009,
-  "estimatedFullDurationSec": 3724,
-  "timeFitStatus": "within_session_plan",
+  "estimatedFullDurationSec": 3784,
+  "timeFitStatus": "over_guideline",
   "questionsSec": 0,
   "videoBlock": {
     "slide_id": "L01-S15",
@@ -1991,6 +1991,52 @@
       "sectionLabel": "기록과 포트폴리오"
     },
     {
+      "id": "L01-A12",
+      "kind": "main",
+      "sectionId": "record",
+      "layout": "screen",
+      "title": "공개 저장소에 관한 외부 제안 메일",
+      "takeaway": "공개 저장소는 외부와 연결되는 접점이 될 수 있다",
+      "requirementIds": [
+        "REQ-PORTFOLIO",
+        "REQ-EXPERIENCE"
+      ],
+      "durationSec": 60,
+      "sourcePolicy": "personal_experience",
+      "sourceReason": "사용자가 제공한 메일 화면 한 사례. 발신자와 제안의 신뢰성은 이 화면만으로 검증하지 않음.",
+      "sourceIds": [
+        "U07"
+      ],
+      "blocks": [
+        {
+          "type": "figure",
+          "assetId": "mail-blurred",
+          "alt": "이름, 이메일 주소, 저장소 식별자를 흐리게 처리한 공개 저장소 관련 메일 대화 화면",
+          "caption": "사용자 제공 메일 화면 · 식별 정보 블러 처리",
+          "fit": "cover"
+        },
+        {
+          "type": "callout",
+          "text": "외부 연락은 한 사례입니다. 제안의 내용과 발신자는 별도로 확인합니다."
+        }
+      ],
+      "speakerNotes": {
+        "say": "GitHub에 프로젝트를 공개하면 누군가 저장소에 관해 연락할 수도 있습니다. 이 화면은 제 계정으로 도착한 메일의 첫 제안 부분입니다. 발신자는 저장소를 봤다고 적었지만, 여기서는 그 주장이나 제안의 신뢰성을 검증하지 않았습니다. 이름과 이메일 주소, 저장소 식별자는 공개 자료에 맞게 흐리게 처리했습니다. 답하거나 링크를 열기 전에는 발신자와 제안 내용을 확인해야 합니다. README와 공개 프로필을 관리하는 이유를 이런 접점과 연결해 볼 수 있습니다.",
+        "pointTo": [
+          "메일 제목과 첫 제안",
+          "저장소를 언급한 문장",
+          "블러 처리된 식별 정보"
+        ],
+        "background": [],
+        "pitfalls": [
+          "메일 한 통을 검증된 성과나 공식 평가로 소개하지 않습니다.",
+          "발신자나 제안의 신뢰성은 별도로 확인합니다."
+        ],
+        "transition": "마지막으로 다음 강의에서 다룰 주제를 보겠습니다."
+      },
+      "sectionLabel": "기록과 포트폴리오"
+    },
+    {
       "id": "L01-S30",
       "kind": "main",
       "sectionId": "close",
@@ -2036,5 +2082,5 @@
   "sessionDurationSec": 3600,
   "questionsMode": "flexible",
   "flexibleBufferSec": 0,
-  "plannedOverrunSec": 124
+  "plannedOverrunSec": 184
 }

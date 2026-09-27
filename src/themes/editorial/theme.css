@@ -119,3 +119,9 @@ body.export-mode .theme-editorial .slide-body,body.export-mode .theme-editorial 
 .theme-editorial .slide[data-slide-id="L01-S09B"] .block-figure{border:0}
 .theme-editorial .slide[data-layout="copilot-details"] .block-figure{background:#27272a;border:0;box-shadow:none}
 .theme-editorial .slide[data-slide-id="L01-S29"] .block-figure{background:transparent;border:0;box-shadow:none}
+/* The redacted mail is presented as a readable excerpt; the published asset itself is blurred. */
+.theme-editorial .slide[data-slide-id="L01-A12"] .slide-content{display:grid;grid-template-columns:1fr;grid-template-rows:600px 96px;gap:20px;align-content:center}
+.theme-editorial .slide[data-slide-id="L01-A12"] .block-figure{width:100%;height:600px;max-height:none;padding:0;overflow:hidden;box-shadow:none}
+.theme-editorial .slide[data-slide-id="L01-A12"] .block-figure figure{height:100%;margin:0}
+.theme-editorial .slide[data-slide-id="L01-A12"] .block-figure img{width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:center 15%}
+.theme-editorial .slide[data-slide-id="L01-A12"] .block-callout{height:96px;padding:24px 30px;font-size:36px;line-height:1.25;background:var(--ed-panel)}

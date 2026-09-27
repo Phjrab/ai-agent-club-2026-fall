@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "status": "approved",
-  "approvedContentDigest": "5329c1ce7a1825543de4714359757be3a8a7e57c8e35e1f96bc2e8af33b9b21a",
-  "approvedAt": "2026-09-27T09:46:42.141Z",
-  "approvalEvidence": "2026-09-27 사용자가 기본 개념 5장을 추가한 0.6.1 수정본을 공개 GitHub 저장소와 Pages에 배포하도록 지시함. 60분은 참고 길이로 바꾸고 초과를 허용하도록 지시함. 외부 강의자료 예시 화면의 재배포 권리 확인을 명시함. 이전에 승인된 학교 포털 편집 이미지, 사용자 캡처, PDF와 발표 메모 포함 PPTX의 공개 범위는 유지함.",
+  "approvedContentDigest": "074fcb15a21fa1a29c89cc8402e1480e6210359ea338843c2b703dda97c3157f",
+  "approvedAt": "2026-09-27T10:58:19.472Z",
+  "approvalEvidence": "2026-09-27 사용자가 mail.png를 새 41쪽으로 넣고 GitHub와 Pages까지 공개 배포하도록 지시함. 후속 지시로 이름·이메일 주소·저장소 식별자 블러 처리를 승인함. 원본은 저장소에 올리지 않고 블러 처리본만 공개하며, 이전에 승인된 PDF·PPTX 공개 범위를 유지함.",
   "scope": {
     "site": true,
     "repositorySource": true,

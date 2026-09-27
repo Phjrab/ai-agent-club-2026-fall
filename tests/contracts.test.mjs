@@ -12,7 +12,7 @@ const mutate=fn=>{const x=structuredClone(original);x.brief=original.brief;x.dir
 test('실제 1회차는 입력 해시, 요구 범위, 장수, 시간이 일치한다',()=>assert.deepEqual(validateDeck(original),[]));
 test('사용자 주석의 화면 순서와 실제 예시 자산이 반영된다',()=>{
  const slides=original.deck.slides,at=id=>slides.findIndex(s=>s.id===id),get=id=>slides[at(id)];
- assert.equal(slides.filter(s=>s.kind==='main').length,41);
+ assert.equal(slides.filter(s=>s.kind==='main').length,42);
  assert.deepEqual(slides.slice(1,6).map(s=>s.id),['L01-A07','L01-A11','L01-A08','L01-A09','L01-A10']);
  assert.equal(at('L01-A01'),at('L01-S12')+1);
  assert.equal(at('L01-A04'),at('L01-A02')+1);
@@ -28,11 +28,14 @@ test('사용자 주석의 화면 순서와 실제 예시 자산이 반영된다'
  assert.equal(get('L01-S15').blocks[0].showIndexAndDuration,false);
  assert.deepEqual(get('L01-S25').blocks.filter(b=>b.type==='figure').map(b=>b.assetId),['remote-gpt-01','remote-gpt-02']);
  assert.equal(slides.some(s=>s.blocks.some(b=>b.assetId==='brand-github')),false);
+ assert.equal(at('L01-A12'),at('L01-S28')+1);
+ assert.equal(at('L01-S30'),at('L01-A12')+1);
+ assert.equal(get('L01-A12').blocks[0].assetId,'mail-blurred');
 });
 test('중복 slide ID와 없는 출처는 실패한다',()=>{const e=mutate(x=>{x.deck.slides[1].id=x.deck.slides[0].id;x.deck.slides[4].sourceIds=['SRC-NOT-FOUND']});assert.ok(e.some(x=>x.includes('중복')));assert.ok(e.some(x=>x.includes('없는 source ID')))});
 test('오래된 brief 해시는 실패한다',()=>assert.ok(mutate(x=>x.deck.inputDigest='0'.repeat(64)).some(x=>x.includes('inputDigest'))));
 test('요구 주제와 본편 시간 합계 누락은 실패한다',()=>{const e=mutate(x=>{for(const s of x.deck.slides)s.requirementIds=s.requirementIds.filter(i=>i!=='REQ-MCP');x.deck.slides[0].durationSec=1});assert.ok(e.some(x=>x.includes('REQ-MCP')));assert.ok(e.some(x=>x.includes('본편 시간 합계')))});
-test('고정 질의응답 0분, 영상 단일 합산, 참고 길이 초과 기록이 일치한다',()=>{assert.equal(original.deck.questionsSec,0);assert.equal(original.deck.questionsMode,'flexible');assert.equal(original.deck.slides.some(s=>s.kind==='qa'),false);assert.equal(original.deck.plannedMainDurationSec,3724);assert.equal(original.deck.plannedSpeakerDurationSec,2715);assert.equal(original.deck.actualVideoDurationSec,1009);assert.equal(original.deck.flexibleBufferSec,0);assert.equal(original.deck.plannedOverrunSec,124);assert.equal(original.deck.estimatedFullDurationSec,3724)});
+test('고정 질의응답 0분, 영상 단일 합산, 참고 길이 초과 기록이 일치한다',()=>{assert.equal(original.deck.questionsSec,0);assert.equal(original.deck.questionsMode,'flexible');assert.equal(original.deck.slides.some(s=>s.kind==='qa'),false);assert.equal(original.deck.plannedMainDurationSec,3784);assert.equal(original.deck.plannedSpeakerDurationSec,2775);assert.equal(original.deck.actualVideoDurationSec,1009);assert.equal(original.deck.flexibleBufferSec,0);assert.equal(original.deck.plannedOverrunSec,184);assert.equal(original.deck.estimatedFullDurationSec,3784)});
 test('참고 길이 모드는 초과를 허용하고 엄격 모드는 검출한다',()=>{
  const guideline=structuredClone(original);guideline.brief=original.brief;guideline.dir=original.dir;
  guideline.deck.slides.find(s=>s.id==='L01-S01').durationSec+=60;
