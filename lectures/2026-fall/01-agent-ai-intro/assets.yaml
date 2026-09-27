@@ -1,51 +1,5 @@
 schema_version: 2
 assets:
-  - id: gpt-ecosystem
-    path: assets/diagrams/gpt-ecosystem.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://chatgpt.com/ko-KR/pricing/
-    sourceIds:
-      - S01
-      - S03
-      - S22
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: GPT 모델 계열, ChatGPT 대화 서비스, Codex 코딩 환경의 관계. 실제 제품 화면이 아닌 설명용 도식.
-    caption: 설명용 도식 · 실제 제품 화면 아님
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 06113797827acd12bbef73d30162ce98ba4a0eb72e12336566a4a6080ac54602
-  - id: claude-product
-    path: assets/diagrams/claude-product.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://claude.com/ko/pricing
-    sourceIds:
-      - S05
-      - S06
-      - S07
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: Claude 모델군, 사용자 앱·개인 구독, Claude Code 개발 작업 환경을 구분한 관계도.
-    caption: 설명용 도식 · 실제 제품 화면 아님
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 2a8b0cd673f404319458ff152ec57ba0ee0d3bf704ffb1cab4c290d4946bdbed
   - id: gemini-student
     path: assets/diagrams/gemini-student.svg
     kind: explanatory_diagram
@@ -62,110 +16,88 @@ assets:
     licenseUrl: null
     publicAllowed: true
     containsPersonalData: false
-    alt: 제공된 한국 구독 페이지에 학생 1년 무료 프로모션과 종료 임박 안내가 표시됨. 신청 자격·정확한 기한은 별도 확인 필요.
+    alt: 학생 1년 무료 혜택과 일반 Google AI Plus 월 7,500원대 표시 가격을 구분한 도식.
     caption: 사용자 제공 페이지 정보 재구성 · 대상·마감일 확인 필요
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
+    modifications: 기존 도식의 중복 제목·배경을 없애고 핵심 개념만 직접 다시 그린 SVG.
     width: 1200
     height: 760
     ratio: 1.5789
-    sha256: a3554bb08eb622acf361c2786a276932fa3e8330d0541edc6962804738fd840b
-  - id: gemini-plans
-    path: assets/diagrams/gemini-plans.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://gemini.google/kr/subscriptions/
-    sourceIds:
-      - S09
-      - S10
-      - U02
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: 사용자가 제공한 한국 페이지의 Google AI 무료·Plus·Pro·Ultra 요금제 표시 요약. Gemini API 모델 이용과
-      별도이며 계정·지역 조건을 확인해야 함.
-    caption: 공식 구독 페이지 정보 재구성 · 캡처 아님
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: f8533d916ee04fa295f8f149a96c4e0a6c601b833723affea682fa0b9d4730e0
-  - id: plan-overview
-    path: assets/diagrams/plan-overview.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: null
+    sha256: eec5c170bc515b70cc26c9a1ef12f2cc042136eebddfc4480c6871a9738e8120
+  - id: pricing-chatgpt
+    path: assets/user/pricing-chatgpt.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: https://chatgpt.com/ko-KR/pricing/
     sourceIds:
       - S02
-      - S03
+      - U02
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: ChatGPT 한국 요금 페이지
+    caption: ChatGPT 한국 요금 페이지 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 2026-09-27 주석에 따라 슬라이드에서는 좌우 표시 범위만 크롭하며 원본 픽셀은 수정하지 않음.
+    width: 1919
+    height: 989
+    ratio: 1.9403
+    sha256: 7c64f73ec43a3c550eb8218978b3a71feaa6b9d800036bc9e3847555c6a08eb0
+    originalFilename: 요금제 gpt.png
+    sourceSet: user-originals-2026-09-25
+  - id: pricing-claude
+    path: assets/user/pricing-claude.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: https://claude.com/ko/pricing
+    sourceIds:
       - S06
+      - U02
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: Claude 한국 요금 페이지
+    caption: Claude 한국 요금 페이지 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 2026-09-27 주석에 따라 슬라이드에서는 좌우 표시 범위만 크롭하며 원본 픽셀은 수정하지 않음.
+    width: 1919
+    height: 994
+    ratio: 1.9306
+    sha256: be5421fdfffea019ab1ea82e13c453a8a9c119e00cfc1b1d3b35b960425c2356
+    originalFilename: 요금제 claude.png
+    sourceSet: user-originals-2026-09-25
+  - id: pricing-google
+    path: assets/user/pricing-google.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: https://gemini.google/kr/subscriptions/?hl=ko
+    sourceIds:
       - S09
       - U02
+      - U04
     checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
     licenseUrl: null
     publicAllowed: true
     containsPersonalData: false
-    alt: 2026-09-25 사용자가 제공한 구독 페이지의 표시값을 재구성. 결제 주기·통화·세금·한도 조건이 달라 서로 직접 비교하거나 성능
-      순위를 뜻하지 않음.
-    caption: 사용자 제공 화면 정보 재구성 · 실제 제품 화면·캡처 아님
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 273417098231516ae17fbf56854b4846a3101bbca3c67a602d8db3bdc13ad711
-  - id: csu-path
-    path: assets/diagrams/csu-path.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://docs.mindlogic.ai/docs/chosun-ac/factchat
-    sourceIds:
-      - S12
-      - S13
-      - U01
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: 학교 포털에서 CSU AI로 이동해 계정에서 제공되는 모델을 확인하는 개념 경로. 실제 학교 메뉴 화면이 아님.
-    caption: 설명용 이용 경로 · 실제 화면 아님
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 3ed294db9c085fc293847762671cbed7842b051f4632e9cd1a760e1c420db185
-  - id: campus-gateway
-    path: assets/diagrams/campus-gateway.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://docs.mindlogic.ai/docs/chosun-ac/api-gateway/integrations/codex-cli
-    sourceIds:
-      - S14
-      - S15
-      - S25
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: Codex CLI 또는 Claude Code의 요청이 학교 Gateway를 통하고, 로컬 도구 실행은 허용된 클라이언트가 수행하는
-      경계도.
-    caption: 설명용 구조도 · 키·계정 정보 없음
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 0ff4d09d79dc8783f60012fdd89d0efac25904852260ebcb786b80572afcd925
+    alt: Google AI 한국 구독 페이지
+    caption: Google AI 한국 구독 페이지 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1919
+    height: 931
+    ratio: 2.0612
+    sha256: 62780762980f5358f0137624eff5a4f04ec2f44c2c1a7eb7a09247091cfac305
+    originalFilename: 요금제 gemini.png
+    sourceSet: user-originals-2026-09-25
   - id: llm-agent
     path: assets/diagrams/llm-agent.svg
     kind: explanatory_diagram
@@ -182,32 +114,11 @@ assets:
     containsPersonalData: false
     alt: LLM의 응답 생성과 에이전트 시스템의 도구·상태·검증 작업 역할을 비교.
     caption: 설명용 개념도
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 07af6ac674705873f746ccb6b03ee7b244673f08cdad65867173b67e473f1a26
-  - id: agent-loop
-    path: assets/diagrams/agent-loop.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://www.anthropic.com/engineering/building-effective-agents
-    sourceIds:
-      - S17
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: 목표·도구 실행·결과 관찰·통과 여부를 반복하는 에이전트 실행 흐름. 실패 시 수정, 경계에 닿으면 멈춤.
-    caption: 설명용 개념도
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 89a506994047d10a0ab2e28e2f9ed7aac6f9ab54ee1b0015194bfef3bbc78460
+    modifications: 기존 도식의 중복 제목·배경을 없애고 핵심 개념만 직접 다시 그린 SVG.
+    width: 1600
+    height: 560
+    ratio: 2.8571
+    sha256: 17f5398088a541566f43a9cd2a6d40ce4056b4a8734feb24562a34ec4669616a
   - id: orchestration
     path: assets/diagrams/orchestration.svg
     kind: explanatory_diagram
@@ -224,11 +135,11 @@ assets:
     containsPersonalData: false
     alt: 자료 조사, 작성·렌더링, 검수·수정 사이의 순서와 되돌림. 실제 병렬 모델 실행을 주장하지 않음.
     caption: 설명용 개념도
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: ad4b7fd03e4b5210c2a2c4a7b317c35d049ad95fefa6b8e84aee1e11b560a548
+    modifications: 기존 도식의 중복 제목·배경을 없애고 핵심 개념만 직접 다시 그린 SVG.
+    width: 1600
+    height: 560
+    ratio: 2.8571
+    sha256: 504fb78a9d81af3add9f621553db636e9546301a3e98acf38301dd6ad1c0f624
   - id: harness
     path: assets/diagrams/harness.svg
     kind: explanatory_diagram
@@ -247,11 +158,11 @@ assets:
     containsPersonalData: false
     alt: 모델, 파일·상태, 도구, 정책·검사 결과를 포함하는 실행 환경.
     caption: 설명용 개념도
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: dae16e9d72ee0cc0071af165b74c9162f1f0f750717840b692eea21863e45a53
+    modifications: 기존 도식의 중복 제목·배경을 없애고 핵심 개념만 직접 다시 그린 SVG.
+    width: 1600
+    height: 560
+    ratio: 2.8571
+    sha256: 705023713dbcd0c1d32e801f96972cf1c641c17c71d71b74314cb6f980b91262
   - id: skill-bundle
     path: assets/diagrams/skill-bundle.svg
     kind: explanatory_diagram
@@ -268,11 +179,11 @@ assets:
     containsPersonalData: false
     alt: SKILL.md와 참고 자료·스크립트가 호스트 지원을 통해 작업 방법으로 적용되는 관계.
     caption: 설명용 구조도 · Skill 호스트 지원 조건 표시
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 916570c0266c81b0f311144764155a5dc727fdb1f80beedf358185ef63e4b13e
+    modifications: 기존 도식의 중복 제목·배경을 없애고 핵심 개념만 직접 다시 그린 SVG.
+    width: 1600
+    height: 560
+    ratio: 2.8571
+    sha256: 77ec62325c6915d59af1e1538f4803f1faa199af2a41f0c6fd90a8529a6957d4
   - id: mcp-link
     path: assets/diagrams/mcp-link.svg
     kind: explanatory_diagram
@@ -289,11 +200,11 @@ assets:
     containsPersonalData: false
     alt: MCP 클라이언트와 서버, 허용된 도구·데이터를 구분하고 연결과 승인 범위를 분리.
     caption: 설명용 구조도
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: d5889b60c7a88ec6ee05054dae38229026224574c4432d1d7ed80f583df17664
+    modifications: 기존 도식의 중복 제목·배경을 없애고 핵심 개념만 직접 다시 그린 SVG.
+    width: 1600
+    height: 560
+    ratio: 2.8571
+    sha256: c013cb84ee6b72b259d59f85cfa3350ccf4921bd84aac9afee9bc8f2a742635d
   - id: workflow
     path: assets/diagrams/workflow.svg
     kind: explanatory_diagram
@@ -308,61 +219,13 @@ assets:
     licenseUrl: null
     publicAllowed: true
     containsPersonalData: false
-    alt: 이번 과업에 대응하는 brief·Agent·렌더·검수·기록 단계의 설명용 흐름도. 새 버전 공개나 GitHub 등록 완료의 증거는 아님.
+    alt: 가상 일정 관리 웹앱 프로젝트에서 사람, 에이전트, 도구, 검사 역할을 대응한 도식.
     caption: 설명용 흐름도 · 새 버전 게시·등록 완료를 뜻하지 않음
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: b4c2b80a6edb5c7482ead2709cbe67957040079713e51817026b29221646491f
-  - id: apps
-    path: assets/diagrams/apps.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://learn.chatgpt.com/docs/app
-    sourceIds:
-      - S22
-      - S24
-      - S29
-      - U01
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: 웹과 데스크톱 작업 환경의 차이를 설명하는 개념도. 실제 제품 UI 캡처나 속도 비교가 아님.
-    caption: 설명용 이용 경로 · 실제 화면 아님
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: d5f84e48ce133b57ac7ce6900d03449fbed458bc9bc40dad2890181fc96a7821
-  - id: remote
-    path: assets/diagrams/remote.svg
-    kind: explanatory_diagram
-    acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
-    creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://learn.chatgpt.com/docs/remote
-    sourceIds:
-      - S23
-      - S25
-      - S14
-      - S15
-    checkedAt: 2026-09-25
-    rightsStatus: original_work
-    rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
-    licenseUrl: null
-    publicAllowed: true
-    containsPersonalData: false
-    alt: 휴대전화, 서비스 연결, 온라인 컴퓨터의 역할·조건을 구분한 원격 흐름.
-    caption: 설명용 구조도 · 실제 원격 화면 아님
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: a5e339ff93c7bd94fcaba5a0d14d4c5150acc4aae38a96d7ce55c46075671097
+    modifications: 기존 도식의 중복 제목·배경을 없애고 핵심 개념만 직접 다시 그린 SVG.
+    width: 1600
+    height: 560
+    ratio: 2.8571
+    sha256: 857ab21f727959363ad5ef87c27ee089883362d89804ad7c0a52f8c8f44c648a
   - id: github-flow
     path: assets/diagrams/github-flow.svg
     kind: explanatory_diagram
@@ -380,100 +243,854 @@ assets:
     alt: 파일 변경, diff 확인, commit, PR 검토의 역할을 설명. 이 자료는 공개 허가나 승인 기록의 증거가 아님.
     caption: 설명용 개념도
     modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: 6313b8e695c30f77d2ee7b692612f82b65f0f82eda30e0f8b3543013e56f7958
-  - id: portfolio
-    path: assets/diagrams/portfolio.svg
+    width: 1600
+    height: 560
+    ratio: 2.8571
+    sha256: f89bd235f5ff2c498793d6a10b858df3b510b0edb3492552f45eb2e3e6e54ba5
+  - id: thumb-v01
+    path: assets/user/thumb-v01.jpg
+    kind: user_provided_youtube_thumbnail
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: https://youtu.be/eu5H0iRJsJ4?si=pXLiCFBb4oqFFzQl
+    sourceIds:
+      - V01
+      - U03
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: OpenAI 표식과 agent 문구가 있는 영상 썸네일
+    caption: 사용자 제공 YouTube 썸네일 · 실제 제품 화면 아님
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1280
+    height: 720
+    ratio: 1.7778
+    sha256: 3b6d754778ecbfcd598a852c93308c5751eeae909dba43268b86f780184c7e99
+    originalFilename: thumbnail 1.jpg
+    sourceSet: user-originals-2026-09-25
+  - id: thumb-v02
+    path: assets/user/thumb-v02.jpg
+    kind: user_provided_youtube_thumbnail
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: https://www.youtube.com/watch?v=q1v1_btl19w&list=PLH5MbtNd7k1U&index=8
+    sourceIds:
+      - V02
+      - U03
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: 빗자루를 든 동물 그림의 하네스 영상 썸네일
+    caption: 사용자 제공 YouTube 썸네일 · 실제 제품 화면 아님
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1280
+    height: 720
+    ratio: 1.7778
+    sha256: 1faaa05fa8df4007687695cdb144afe6c765c07a332d76719c0ec7524b874114
+    originalFilename: thimbnail 3.jpg
+    sourceSet: user-originals-2026-09-25
+  - id: thumb-v03
+    path: assets/user/thumb-v03.jpg
+    kind: user_provided_youtube_thumbnail
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: https://youtu.be/KZwV6dOfNuE?si=yxE6tpN8nccJCkLd
+    sourceIds:
+      - V03
+      - U03
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: MCP 문구와 운동화를 신은 상어 영상 썸네일
+    caption: 사용자 제공 YouTube 썸네일 · 실제 제품 화면 아님
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1280
+    height: 720
+    ratio: 1.7778
+    sha256: ca1d0aad906fe30818a0f9c53032902cebd1fb20a20fe8fcca936a38b54f0763
+    originalFilename: thumbnail 2.jpg
+    sourceSet: user-originals-2026-09-25
+  - id: agent-loop
+    path: assets/diagrams/agent-loop.svg
     kind: explanatory_diagram
     acquisitionMethod: 이 강의를 위해 직접 제작한 SVG; 실제 제품 UI나 제3자 그림이 아님.
     creator: AI 에이전트 동아리 · 직접 제작한 벡터 그림
-    sourceUrl: https://docs.github.com/en/account-and-profile/how-tos/profile-customization/pinning-items-to-your-profile
+    sourceUrl: https://www.anthropic.com/engineering/building-effective-agents
     sourceIds:
-      - S26
-      - S27
-      - U01
+      - S17
     checkedAt: 2026-09-25
     rightsStatus: original_work
     rightsBasis: 이 저장소에서 직접 제작한 도식. 제품 정보는 해당 슬라이드에 출처를 표시하고, 개념 그림은 설명용임을 밝힘.
     licenseUrl: null
     publicAllowed: true
     containsPersonalData: false
-    alt: 문제, 선택, AI 역할, 검증 근거, 한계를 함께 기록하는 포트폴리오 틀.
-    caption: 설명용 구조도
-    modifications: 직접 제작한 SVG; 편집 가능한 글자와 벡터 도형으로 구성. 실제 캡처·외부 이미지·상표 그림을 포함하지 않음.
-    width: 1200
-    height: 760
-    ratio: 1.5789
-    sha256: b9781313963853510b3c1d56d9fd7cdfcbe5f05af3403d3b473b3da7e9ab6f07
-  - id: thumb-v01
-    path: assets/user/youtube-thumbnail-v01.png
-    sourcePath: .private/lecture-assets/L01/youtube-thumbnail-v01.png
-    kind: user_provided_youtube_thumbnail
-    acquisitionMethod: 사용자 직접 제공 PNG · 사용자가 해당 영상의 YouTube 썸네일이라고 확인
-    creator: 사용자 제공 · 원저작자 미확인
-    sourceUrl: https://youtu.be/eu5H0iRJsJ4?si=pXLiCFBb4oqFFzQl
+    alt: 저장 버튼을 눌러도 결과 파일이 없는 가상 예시에서 실행 결과를 관찰하고 수정 후보를 정한 뒤 같은 조건으로 재검사하는 루프. 실제 검사 기록이 아님.
+    caption: 설명용 가상 사례 · 실제 검사 결과 아님
+    modifications: 기존 도식의 중복 제목·배경을 없애고 핵심 개념만 직접 다시 그린 SVG.
+    width: 1600
+    height: 560
+    ratio: 2.8571
+    sha256: 5f4d5521377362113ebe8823162377677192c088d83cc018ad1331473abc0a13
+  - id: agent-claude
+    path: assets/user/agent-claude.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
     sourceIds:
-      - V01
-      - U03
+      - S24
+      - S29
+      - U04
     checkedAt: 2026-09-25
-    rightsStatus: rights_unverified
-    rightsBasis: 사용자가 YouTube 영상 썸네일이라고 확인했다. 원저작자·라이선스·공개 재배포 권한은 확인되지 않아 비공개 자산으로만 사용한다.
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: Claude 앱의 작업 시작 화면
+    caption: Claude 앱의 작업 시작 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1920
+    height: 1080
+    ratio: 1.7778
+    sha256: e9810e9796ecc35d51fb4ddc2fc5ad089644f2187ff824299ab7ee65911ead5e
+    originalFilename: agent claude.png
+    sourceSet: user-originals-2026-09-25
+  - id: agent-gemini
+    path: assets/user/agent-gemini.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S28
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: 사용자가 제공한 Antigravity 작업 환경 화면
+    caption: Antigravity 작업 환경 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1920
+    height: 1080
+    ratio: 1.7778
+    sha256: fadce16ba04fae348a97cfa9e440fb0eb9a1d23f91a4fb7fc99063b6955e235f
+    originalFilename: agent gemini.png
+    sourceSet: user-originals-2026-09-25
+  - id: agent-chatgpt
+    path: assets/user/agent-chatgpt.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S22
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: ChatGPT 데스크톱의 Chat·Work 및 작업 시작 화면
+    caption: ChatGPT 데스크톱의 Chat·Work 및 작업 시작 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1920
+    height: 1080
+    ratio: 1.7778
+    sha256: f7d1e2cab2fb7e2925fc564ee4efecc27a7b1e61b7038779bce21919f6120299
+    originalFilename: agent gpt.png
+    sourceSet: user-originals-2026-09-25
+  - id: codex-approval
+    path: assets/user/codex-approval.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S22
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: 작업 실행의 승인 방식 선택 메뉴
+    caption: 작업 실행의 승인 방식 선택 메뉴 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 576
+    height: 397
+    ratio: 1.4509
+    sha256: 7cc7ab5a3c506ecf5629160945d33c1cd7ed099e93b5d96c0232414917ce6600
+    originalFilename: codex approval.png
+    sourceSet: user-originals-2026-09-25
+  - id: codex-context
+    path: assets/user/codex-context.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S22
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: 대화 요약과 작업 진행이 표시된 화면
+    caption: 대화 요약과 작업 진행이 표시된 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1202
+    height: 763
+    ratio: 1.5754
+    sha256: af4d73dd0feedd8137dde92d41281f38ed3df91c3c2662d252a291f17c38501f
+    originalFilename: codex context compact ex.png
+    sourceSet: user-originals-2026-09-25
+  - id: codex-effort
+    path: assets/user/codex-effort.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S19
+      - S22
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: 모델의 추론 강도 선택 메뉴
+    caption: 모델의 추론 강도 선택 메뉴 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 595
+    height: 374
+    ratio: 1.5909
+    sha256: 1f196ae200f75b1493e366e5a88a81821e9fb6d445b97f866439483809e709db
+    originalFilename: codex cot.png
+    sourceSet: user-originals-2026-09-25
+  - id: codex-usage
+    path: assets/user/codex-usage-crop.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S04
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: 사용자 계정의 요금제·사용량·크레딧 화면
+    caption: 주간 한도와 크레딧 부분만 확대 · 사용자 제공 원본에서 크롭
+    modifications: 원본 codex-usage.png는 보존하고, 주간 한도와 크레딧 영역만 로컬 사본으로 크롭해 확대 배치.
+    width: 805
+    height: 305
+    ratio: 2.6393
+    sha256: 2ca5e69b1e8bf067c5dea828675f4f3cf41f541b6c6a98ff22cf5b6a41eb7c57
+    originalFilename: codex usage.png
+    sourceSet: user-originals-2026-09-25
+  - id: copilot-education
+    path: assets/user/copilot-education.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: 사용자 GitHub Education 신청·승인 화면
+    caption: 사용자 GitHub Education 신청·승인 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1919
+    height: 988
+    ratio: 1.9423
+    sha256: e21a8ef33afa1e788f4c0c41abe9850e84de3c5f1f3ff3b11d27ad7526eb3525
+    originalFilename: copilot edu 신청 창.png
+    sourceSet: user-originals-2026-09-25
+  - id: csu-gateway
+    path: assets/user/csu-gateway.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S14
+      - S15
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: 학교 AI 서비스의 API Gateway 화면
+    caption: 학교 AI 서비스의 API Gateway 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1919
+    height: 993
+    ratio: 1.9325
+    sha256: 72480ad129309199bd27631bee9afcb0464d269ed1770ab7f59ece6c61cf3796
+    originalFilename: csu ai api gateway.png
+    sourceSet: user-originals-2026-09-25
+  - id: csu-main
+    path: assets/user/csu-main.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S12
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: 학교 AI 서비스의 시작 화면
+    caption: 학교 AI 서비스의 시작 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1919
+    height: 991
+    ratio: 1.9364
+    sha256: d1f0241a11141eb2e5f7ebd9df085020c6f20cd0c368f2abd14f6b2b6930c0f7
+    originalFilename: csu ai main.png
+    sourceSet: user-originals-2026-09-25
+  - id: csu-models
+    path: assets/user/csu-models-crop.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S12
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: 학교 AI 서비스에서 표시된 모델 선택 목록
+    caption: 학교 AI 서비스 모델 목록의 필요한 부분만 크롭
+    modifications: 원본 assets/user/csu-models.png은 보존하고 모델 선택 목록 영역 (238,34)-(908,652)만 자른 사본을 표시.
+    width: 670
+    height: 618
+    ratio: 1.0841
+    sha256: 355ac334bebb330fb57b8f8ca735b8386d8f71be25831f800e898ee111adb385
+    originalFilename: csu ai model list.png
+    sourceSet: user-originals-2026-09-25
+  - id: csu-usage
+    path: assets/user/csu-usage.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S13
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: 학교 AI 서비스의 계정별 크레딧 잔액 화면
+    caption: 학교 AI 서비스의 계정별 크레딧 잔액 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 316
+    height: 513
+    ratio: 0.616
+    sha256: eceeb6cae73959296f6dc584495c5f2aa689f2b273ce093d504e59cf3ee7deee
+    originalFilename: csu ai usage.png
+    sourceSet: user-originals-2026-09-25
+  - id: github-profile
+    path: assets/user/github-profile.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S27
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: 발표자의 GitHub 프로필과 고정 저장소 화면
+    caption: 발표자의 GitHub 프로필과 고정 저장소 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1919
+    height: 991
+    ratio: 1.9364
+    sha256: c5a39e02d02d1c322c37c15778ba958ba956e17d535d530da4794b32d369327f
+    originalFilename: github profile.png
+    sourceSet: user-originals-2026-09-25
+  - id: brand-github
+    path: assets/brand/github.svg
+    kind: brand_logo
+    acquisitionMethod: Simple Icons의 투명 배경 GitHub SVG를 가져와 사용.
+    creator: GitHub 상표 · Simple Icons 벡터 경로
+    sourceUrl: https://github.com/simple-icons/simple-icons/blob/develop/icons/github.svg
+    sourceIds:
+      - S26
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: external_with_source
+    rightsBasis: Simple Icons의 CC0 벡터 파일을 사용. GitHub 상표 소유권을 주장하지 않음.
+    licenseUrl: https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md
+    publicAllowed: true
+    containsPersonalData: false
+    alt: 투명 배경 GitHub 로고
+    caption: GitHub 로고 · 투명 배경
+    modifications: SVG 원본 파일 바이트 보존. GitHub 이름은 슬라이드의 별도 텍스트로 표시.
+    width: 24
+    height: 24
+    ratio: 1
+    sha256: 3bf8cceead820aec50d4ee825a3fd02c5a1cd6665cc9cf4cbf3d9c8861a204bb
+  - id: vscode-copilot
+    path: assets/user/vscode-copilot.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 정리해 제공한 1회차 수업자료 이미지 폴더의 원본 파일.
+    creator: 사용자 제공 원본 · 화면과 로고의 각 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S22
+      - U04
+    checkedAt: 2026-09-25
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공 사진을 거의 그대로 발표 자료에 넣고 공개본·향후 개정본에도 사용하도록 허용한 범위. 원저작권 소유를 별도로 판정한 것은 아님.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: Visual Studio Code와 Copilot 채팅 영역
+    caption: Visual Studio Code와 Copilot 채팅 영역 · 사용자 제공 원본
+    modifications: 원본 파일 바이트 보존. 크롭·합성·색상·문구 편집 없이 종횡비를 유지해 배치.
+    width: 1920
+    height: 1080
+    ratio: 1.7778
+    sha256: c6525ae6aee60f09dacc72f5db3d0948ab160d38bfc9b805820c3152923dfa53
+    originalFilename: vscode copilot.png
+    sourceSet: user-originals-2026-09-25
+  - checkedAt: 2026-09-27
+    publicAllowed: true
+    containsPersonalData: false
+    id: cli-codex
+    path: assets/user/cli-codex.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 2026-09-27에 추가한 CLI 예시 화면 원본.
+    creator: 사용자 제공 원본 · 해당 서비스의 화면
+    sourceUrl: null
+    sourceIds:
+      - S22
+      - U04
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 이 이미지 폴더의 CLI 사진을 발표자료 예시 화면으로 사용하도록 지시함. GitHub 업로드와 Pages 게시는 후속 검토 순서에 따름.
+    licenseUrl: null
+    alt: Codex CLI 실행 예시 화면
+    caption: Codex CLI 실행 예시 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트를 보존하고 슬라이드에서 종횡비를 유지해 축소 배치.
+    width: 1008
+    height: 432
+    ratio: 2.3333
+    sha256: 8253a578f665a7fa4da9a14b13ab2db4ca852ebec2ca1301dec177a49c1d7b5a
+    originalFilename: cli codex.png
+    sourceSet: user-added-cli-2026-09-27
+  - checkedAt: 2026-09-27
+    publicAllowed: true
+    containsPersonalData: true
+    id: cli-claude
+    path: assets/user/cli-claude.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 2026-09-27에 추가한 CLI 예시 화면 원본.
+    creator: 사용자 제공 원본 · 해당 서비스의 화면
+    sourceUrl: null
+    sourceIds:
+      - S07
+      - U04
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 이 이미지 폴더의 CLI 사진을 발표자료 예시 화면으로 사용하도록 지시함. GitHub 업로드와 Pages 게시는 후속 검토 순서에 따름.
+    licenseUrl: null
+    alt: Claude Code CLI 실행 예시 화면
+    caption: Claude Code CLI 실행 예시 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트를 보존하고 슬라이드에서 종횡비를 유지해 축소 배치.
+    width: 589
+    height: 335
+    ratio: 1.7582
+    sha256: 3d947daf38c96b0c07e88d041b84bd7eb3519886aac9e93e023779e33ef036d0
+    originalFilename: cli claude.png
+    sourceSet: user-added-cli-2026-09-27
+  - checkedAt: 2026-09-27
+    publicAllowed: true
+    containsPersonalData: false
+    id: cli-gemini
+    path: assets/user/cli-gemini.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 2026-09-27에 추가한 CLI 예시 화면 원본.
+    creator: 사용자 제공 원본 · 해당 서비스의 화면
+    sourceUrl: null
+    sourceIds:
+      - S08
+      - U04
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 이 이미지 폴더의 CLI 사진을 발표자료 예시 화면으로 사용하도록 지시함. GitHub 업로드와 Pages 게시는 후속 검토 순서에 따름.
+    licenseUrl: null
+    alt: Gemini CLI 실행 예시 화면
+    caption: Gemini CLI 실행 예시 화면 · 사용자 제공 원본
+    modifications: 원본 파일 바이트를 보존하고 슬라이드에서 종횡비를 유지해 축소 배치.
+    width: 1614
+    height: 738
+    ratio: 2.187
+    sha256: 0a74d7e4fe46f410e429776c6ece2d79a890094ac915de0a4b427373fb750c3c
+    originalFilename: cli gemini.png
+    sourceSet: user-added-cli-2026-09-27
+  - id: remote-gpt-01
+    path: assets/user/remote-gpt-01.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 제공한 1회차 수업자료 이미지 폴더의 휴대전화 캡처 원본.
+    creator: 사용자 제공 원본 · 화면의 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S23
+      - U04
+    checkedAt: 2026-09-27
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 이 이미지 폴더의 ChatGPT Remote 화면을 발표자료 예시로 배치하도록 지시함. GitHub 업로드와 Pages 게시는 후속 검토 순서에 따름.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: ChatGPT 휴대전화 앱 메뉴의 Remote 항목
+    caption: ChatGPT 앱의 Remote 메뉴 · 사용자 제공 화면
+    modifications: 원본 파일 바이트 보존. 종횡비를 유지해 슬라이드에 축소 배치.
+    width: 1206
+    height: 2622
+    ratio: 0.45995
+    sha256: 6f3847e607942e5e76ab37450e6afd6378024520f1b1c76767eae80c1358a3eb
+    originalFilename: remote gpt 01.PNG
+    sourceSet: user-added-remote-2026-09-27
+  - id: remote-gpt-02
+    path: assets/user/remote-gpt-02.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 사용자가 제공한 1회차 수업자료 이미지 폴더의 휴대전화 캡처 원본.
+    creator: 사용자 제공 원본 · 화면의 서비스 제공자
+    sourceUrl: null
+    sourceIds:
+      - S23
+      - U04
+    checkedAt: 2026-09-27
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 이 이미지 폴더의 ChatGPT Remote 화면을 발표자료 예시로 배치하도록 지시함. GitHub 업로드와 Pages 게시는 후속 검토 순서에 따름.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: ChatGPT Remote의 연결된 컴퓨터와 프로젝트 목록
+    caption: ChatGPT Remote의 연결 기기·프로젝트 · 사용자 제공 화면
+    modifications: 원본 파일 바이트 보존. 종횡비를 유지해 슬라이드에 축소 배치.
+    width: 1206
+    height: 2622
+    ratio: 0.45995
+    sha256: 5e225a68c328edd4f0e0c004675352ea65486ae8315bdf54c798637e8c43cf13
+    originalFilename: remote gpt 02.PNG
+    sourceSet: user-added-remote-2026-09-27
+  - checkedAt: 2026-09-27
+    publicAllowed: true
+    containsPersonalData: false
+    id: brand-openai
+    path: assets/brand/openai.svg
+    kind: brand_logo
+    acquisitionMethod: 사용자가 제공한 투명 배경 SVG 원본.
+    creator: 사용자 제공 OpenAI 로고 원본
+    sourceUrl: null
+    sourceIds:
+      - S01
+      - U04
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 제공한 투명 배경 SVG를 발표자료에 사용하도록 지시함.
+    licenseUrl: null
+    alt: OpenAI 로고
+    caption: OpenAI 로고 · 배경 없는 로고
+    modifications: 원본 SVG 파일 바이트 보존.
+    width: 721
+    height: 721
+    ratio: 1
+    sha256: 70d9269bc02d2726db207e11956f07f1dbbfc0c063d5821527ef16ca55419e99
+  - checkedAt: 2026-09-27
+    publicAllowed: true
+    containsPersonalData: false
+    id: brand-claude
+    path: assets/brand/claude.svg
+    kind: brand_logo
+    acquisitionMethod: 공개 아이콘 SVG의 경로를 이용해 배경 없는 프레젠테이션용 파일로 구성.
+    creator: 해당 브랜드의 상표 · 벡터 경로 제공 저장소
+    sourceUrl: https://github.com/simple-icons/simple-icons/blob/develop/icons/claude.svg
+    sourceIds:
+      - S05
+    rightsStatus: external_with_source
+    rightsBasis: Simple Icons의 Claude 벡터 경로를 사용. 상표 소유권을 주장하지 않으며 사용 범위는 발표자료 검토 후 확정.
+    licenseUrl: null
+    alt: Claude 로고
+    caption: Claude 로고 · 배경 없는 로고
+    modifications: 원본 벡터 경로를 사용하고 배경 사각형을 제외해 투명 배경으로 배치. 브랜드 이름은 슬라이드의 별도 텍스트로 표시.
+    width: 512
+    height: 512
+    ratio: 1
+    sha256: 4704c70d8974c762e2226c3e301562c23836f1ae1795fda81bf98661ab8025e5
+  - checkedAt: 2026-09-27
+    publicAllowed: true
+    containsPersonalData: false
+    id: brand-gemini
+    path: assets/brand/gemini.svg
+    kind: brand_logo
+    acquisitionMethod: 공개 아이콘 SVG의 경로를 이용해 배경 없는 프레젠테이션용 파일로 구성.
+    creator: 해당 브랜드의 상표 · 벡터 경로 제공 저장소
+    sourceUrl: https://github.com/simple-icons/simple-icons/blob/develop/icons/googlegemini.svg
+    sourceIds:
+      - S08
+    rightsStatus: external_with_source
+    rightsBasis: Simple Icons의 Google Gemini 벡터 경로를 사용. 상표 소유권을 주장하지 않으며 사용 범위는 발표자료 검토 후 확정.
+    licenseUrl: null
+    alt: Gemini 로고
+    caption: Gemini 로고 · 배경 없는 로고
+    modifications: 원본 벡터 경로를 사용하고 배경 사각형을 제외해 투명 배경으로 배치. 브랜드 이름은 슬라이드의 별도 텍스트로 표시.
+    width: 512
+    height: 512
+    ratio: 1
+    sha256: 35fdbc5c8c35c193700d53085e8cdbb6d5664ea3c8669071fc84a0fec2b72571
+  - checkedAt: 2026-09-27
+    publicAllowed: true
+    containsPersonalData: false
+    id: brand-grok
+    path: assets/brand/grok.svg
+    kind: brand_logo
+    acquisitionMethod: 공개 아이콘 SVG의 경로를 이용해 배경 없는 프레젠테이션용 파일로 구성.
+    creator: 해당 브랜드의 상표 · 벡터 경로 제공 저장소
+    sourceUrl: https://github.com/edent/SuperTinyIcons/blob/master/images/svg/grok.svg
+    sourceIds:
+      - S30
+    rightsStatus: external_with_source
+    rightsBasis: SuperTinyIcons의 Grok 벡터 경로를 사용하고 흰 배경 사각형을 제외함. 상표 소유권을 주장하지 않음.
+    licenseUrl: null
+    alt: Grok 로고
+    caption: Grok 로고 · 배경 없는 로고
+    modifications: 원본 벡터 경로를 사용하고 배경 사각형을 제외해 투명 배경으로 배치. 브랜드 이름은 슬라이드의 별도 텍스트로 표시.
+    width: 512
+    height: 512
+    ratio: 1
+    sha256: 2fa2149a9ae17664056fda17a160263a77081a92450f8b12aee3766a3f0f91ac
+  - id: brand-kimi
+    path: assets/user/logo-kimi.png
+    kind: user_provided_logo
+    acquisitionMethod: 사용자가 제공한 파일 또는 강의자료의 지정 예시에서 가져옴.
+    creator: 사용자 제공 로고 · 상표 소유자
+    sourceUrl: null
+    sourceIds:
+      - U04
+    checkedAt: 2026-09-27
+    rightsStatus: user_authorized
+    rightsBasis: 사용자 제공 로고를 발표자료 예시에 배치함. 브랜드 권리는 각 제공자에게 있음.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: Kimi 로고
+    caption: Kimi 로고 · 사용자 제공
+    modifications: 원본 복사본. 로고 이미지 자체는 수정하지 않음.
+    width: 1097
+    height: 400
+    ratio: 2.7425
+    sha256: 4a80f64242bf907940765adc7bcf340c28dd83334b07c5503792a26495d1933b
+  - id: brand-openclaw
+    path: assets/brand/logo-openclaw.svg
+    kind: brand_logo
+    acquisitionMethod: OpenClaw 공식 사이트의 투명 배경 favicon SVG를 가져와 사용.
+    creator: OpenClaw 공식 사이트
+    sourceUrl: https://openclaw.ai/favicon.svg
+    sourceIds:
+      - U04
+    checkedAt: 2026-09-27
+    rightsStatus: external_with_source
+    rightsBasis: 공식 사이트의 공개 로고를 교육용 제품 소개에 사용. 상표 권리는 OpenClaw에 있음.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: 투명 배경 OpenClaw 로고
+    caption: OpenClaw 로고 · 배경 없음
+    modifications: 공식 SVG 원본 파일 바이트 보존. 기존 체크무늬 JPEG 대신 사용.
+    width: 120
+    height: 120
+    ratio: 1.0
+    sha256: fa7e2ec07ebfa696bcc8c27d7e36425cbb7b1772f6f7f04ce390cf5f1c35cf0e
+  - id: brand-perplexity
+    path: assets/brand/logo-perplexity.svg
+    kind: brand_logo
+    acquisitionMethod: Simple Icons의 투명 배경 Perplexity SVG를 가져와 사용.
+    creator: Perplexity 상표 · Simple Icons 벡터 경로
+    sourceUrl: https://cdn.simpleicons.org/perplexity
+    sourceIds:
+      - U04
+    checkedAt: 2026-09-27
+    rightsStatus: external_with_source
+    rightsBasis: Simple Icons의 CC0 벡터 파일을 사용. Perplexity 상표 소유권을 주장하지 않음.
+    licenseUrl: https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md
+    publicAllowed: true
+    containsPersonalData: false
+    alt: 투명 배경 Perplexity 로고
+    caption: Perplexity 로고 · 배경 없음
+    modifications: Simple Icons SVG 원본 파일 바이트 보존. 기존 체크무늬 JPEG 대신 사용.
+    width: 24
+    height: 24
+    ratio: 1.0
+    sha256: 407ad1254700503eb124ef5650cc267d83c79dc6dea9e9332fbdc92bb2bdf262
+  - id: lecture-claude-permission
+    path: assets/user/lecture-claude-permission.png
+    kind: user_provided_reference_crop
+    acquisitionMethod: 사용자가 제공한 파일 또는 강의자료의 지정 예시에서 가져옴.
+    creator: 외부 강의자료의 작성자
+    sourceUrl: null
+    sourceIds:
+      - U05
+    checkedAt: 2026-09-27
+    rightsStatus: permission_unverified
+    rightsBasis: 사용자가 외부 강의자료로 제공했으나 공개 재배포 권리는 확인되지 않아 로컬 검토본에만 포함.
     licenseUrl: null
     publicAllowed: false
     containsPersonalData: false
-    alt: 검은 배경에 OpenAI 표식과 agent 문구, 캐릭터 그림이 있는 사용자가 제공한 YouTube 영상 썸네일. 제품 화면이나 영상
-      프레임이 아님.
-    caption: 사용자 제공 YouTube 썸네일 · 실제 제품 화면·영상 프레임 아님
-    modifications: 원본 PNG 그대로 사용. 크롭·색상·문구·로고를 수정하지 않음. 종횡비 16:9를 유지해 카드에 표시.
-    width: 1280
-    height: 720
-    ratio: 1.7778
-    sha256: 35b3e6299ba28bb8dfa03605145947c319a46aa92633de8476f3ee7654bab554
-  - id: thumb-v02
-    path: assets/user/youtube-thumbnail-v02.png
-    sourcePath: .private/lecture-assets/L01/youtube-thumbnail-v02.png
-    kind: user_provided_youtube_thumbnail
-    acquisitionMethod: 사용자 직접 제공 PNG · 사용자가 해당 영상의 YouTube 썸네일이라고 확인
-    creator: 사용자 제공 · 원저작자 미확인
-    sourceUrl: https://www.youtube.com/watch?v=q1v1_btl19w&list=PLH5MbtNd7k1U&index=8
+    alt: 외부 강의자료 32쪽의 Claude Code 권한 모드 메뉴를 크롭한 화면
+    caption: 외부 강의자료 32쪽의 권한 모드 예시
+    modifications: PDF 32쪽의 메뉴 영역만 잘라낸 로컬 검토용 PNG.
+    width: 508
+    height: 473
+    ratio: 1.074
+    sha256: 6cfa32b8773734ba1c53eee041acf8ec32b7c1e0062984107dfd18e5bc570c87
+    sourcePath: .private/lecture-assets/lecture-claude-permission.png
+
+  - id: csu-ai-entry-redacted
+    path: assets/user/csu-ai-entry-redacted-crop.png
+    sourcePath: .private/lecture-assets/2026-09-27/csu-ai-entry-redacted-crop.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 2026-09-27 사용자가 제공한 1회차 화면 캡처.
+    creator: 사용자 제공 원본 · 화면 제공자
+    sourceUrl: null
     sourceIds:
-      - V02
-      - U03
-    checkedAt: 2026-09-25
-    rightsStatus: rights_unverified
-    rightsBasis: 사용자가 YouTube 영상 썸네일이라고 확인했다. 원저작자·라이선스·공개 재배포 권한은 확인되지 않아 비공개 자산으로만 사용한다.
+      - U06
+      - U01
+    checkedAt: 2026-09-27
+    rightsStatus: user_authorized
+    rightsBasis: 현재 강의의 로컬 발표자료 초안에 사용하도록 사용자가 제공함. GitHub 업로드와 사이트 공개는 별도 승인 순서에 따름.
     licenseUrl: null
     publicAllowed: false
-    containsPersonalData: false
-    alt: 동물 캐릭터와 빗자루, ChatGPT 표식이 담긴 사용자가 제공한 YouTube 영상 썸네일. 제품 화면이나 영상 프레임이 아님.
-    caption: 사용자 제공 YouTube 썸네일 · 실제 제품 화면·영상 프레임 아님
-    modifications: 원본 PNG 그대로 사용. 크롭·색상·문구·로고를 수정하지 않음. 종횡비 16:9를 유지해 카드에 표시.
-    width: 1280
-    height: 720
-    ratio: 1.7778
-    sha256: a1a646fbed3558e2a239207b748ae289964e3d1699ae56c0b34a8e0e300efa94
-  - id: thumb-v03
-    path: assets/user/youtube-thumbnail-v03.png
-    sourcePath: .private/lecture-assets/L01/youtube-thumbnail-v03.png
-    kind: user_provided_youtube_thumbnail
-    acquisitionMethod: 사용자 직접 제공 PNG · 사용자가 해당 영상의 YouTube 썸네일이라고 확인
-    creator: 사용자 제공 · 원저작자 미확인
-    sourceUrl: https://youtu.be/KZwV6dOfNuE?si=yxE6tpN8nccJCkLd
+    containsPersonalData: true
+    alt: CSU AI 메뉴가 강조되고 학번 숫자는 모자이크 처리된 종합정보시스템 화면
+    caption: CSU AI 접속 메뉴 · 학번 모자이크
+    modifications: 원본 사본의 학번 숫자 좌표만 불투명 모자이크하고 CSU AI 메뉴에 빨간 테두리를 표시한 뒤 상단 영역을 크롭. 원본 파일은 별도 보존.
+    width: 1402
+    height: 525
+    ratio: 2.6705
+    sha256: 4268f0518fed7545c85553c231db100576565b95ed058ee7d0e9575a25d672d0
+    originalFilename: csu ai connect.png
+    sourceSet: user-added-2026-09-27
+
+  - id: mindlogic-codex-repo
+    path: assets/user/mindlogic-codex-repo.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 2026-09-27 사용자가 제공한 1회차 화면 캡처.
+    creator: 사용자 제공 원본 · 화면 제공자
+    sourceUrl: https://github.com/Phjrab/mindlogic-codex-setup
     sourceIds:
-      - V03
-      - U03
-    checkedAt: 2026-09-25
-    rightsStatus: rights_unverified
-    rightsBasis: 사용자가 YouTube 영상 썸네일이라고 확인했다. 원저작자·라이선스·공개 재배포 권한은 확인되지 않아 비공개 자산으로만 사용한다.
+      - S31
+      - U06
+    checkedAt: 2026-09-27
+    rightsStatus: user_authorized
+    rightsBasis: 현재 강의의 로컬 발표자료 초안에 사용하도록 사용자가 제공함. GitHub 업로드와 사이트 공개는 별도 승인 순서에 따름.
     licenseUrl: null
-    publicAllowed: false
+    publicAllowed: true
     containsPersonalData: false
-    alt: MCP 문구와 운동화를 신은 상어 그림이 있는 사용자가 제공한 YouTube 영상 썸네일. 제품 화면이나 영상 프레임이 아님.
-    caption: 사용자 제공 YouTube 썸네일 · 실제 제품 화면·영상 프레임 아님
-    modifications: 원본 PNG 그대로 사용. 크롭·색상·문구·로고를 수정하지 않음. 종횡비 16:9를 유지해 카드에 표시.
-    width: 1280
-    height: 720
-    ratio: 1.7778
-    sha256: f00e86ca2d3fe76c36fdcc497d1c8dddaa1d4a83d5e5061cff0fcfed273e7e6f
+    alt: mindlogic-codex-setup GitHub 공개 저장소 화면
+    caption: 발표자가 만든 Codex 연결 저장소
+    modifications: 사용자 제공 원본 파일 바이트 보존.
+    width: 1335
+    height: 982
+    ratio: 1.3595
+    sha256: ba9738ab9a1d678b68e1a2d8d8adf96443f6dd89c1319f837ae561cb898d340a
+    originalFilename: codex mind logic connect.png
+    sourceSet: user-added-2026-09-27
+
+  - id: vscode-copilot-model
+    path: assets/user/vscode-copilot-model.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 2026-09-27 사용자가 제공한 1회차 화면 캡처.
+    creator: 사용자 제공 원본 · 화면 제공자
+    sourceUrl: null
+    sourceIds:
+      - U06
+      - S29
+    checkedAt: 2026-09-27
+    rightsStatus: user_authorized
+    rightsBasis: 현재 강의의 로컬 발표자료 초안에 사용하도록 사용자가 제공함. GitHub 업로드와 사이트 공개는 별도 승인 순서에 따름.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: VS Code Copilot 모델 선택 메뉴
+    caption: Copilot 모델 선택 화면
+    modifications: 사용자 제공 원본 파일 바이트 보존.
+    width: 369
+    height: 312
+    ratio: 1.1827
+    sha256: 181658bd004e02d75f837f56cefdb8b1fdfcc5f9abe26491851ef0e36d4028b4
+    originalFilename: vscode copilot model.png
+    sourceSet: user-added-2026-09-27
+
+  - id: vscode-copilot-usage
+    path: assets/user/vscode-copilot-usage.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 2026-09-27 사용자가 제공한 1회차 화면 캡처.
+    creator: 사용자 제공 원본 · 화면 제공자
+    sourceUrl: null
+    sourceIds:
+      - U06
+      - S29
+    checkedAt: 2026-09-27
+    rightsStatus: user_authorized
+    rightsBasis: 현재 강의의 로컬 발표자료 초안에 사용하도록 사용자가 제공함. GitHub 업로드와 사이트 공개는 별도 승인 순서에 따름.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: false
+    alt: VS Code Copilot Student 사용량 창
+    caption: Copilot Student 사용량 화면
+    modifications: 사용자 제공 원본 파일 바이트 보존.
+    width: 365
+    height: 314
+    ratio: 1.1624
+    sha256: 70bf59a0418815d391501e94de4de69463d755e948a232a78a203388295bdfff
+    originalFilename: vscode copilot usage.png
+    sourceSet: user-added-2026-09-27

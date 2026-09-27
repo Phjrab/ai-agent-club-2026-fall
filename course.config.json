@@ -24,6 +24,7 @@
   "additionalSessions": [],
   "slideLanguage": "ko",
   "scriptLanguage": "ko",
+  "standaloneSpeakerScript": false,
   "canvas": {
     "width": 1920,
     "height": 1080

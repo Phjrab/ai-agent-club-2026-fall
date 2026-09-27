@@ -1,12 +1,14 @@
 # 슬라이드 데이터·출처·발표 대본 계약
 
+새 회차는 공통 `src/themes/editorial/theme.css`가 빌드에 자동 포함된다. `deck.json`의 기존 `layout`과 block 타입을 유지하고, 표지·비교·과정·표·영상·도식의 표시 패턴은 렌더러가 정한다. 정보 Figure와 로고는 회전·왜곡·의미 있는 크롭 없이 배치한다. 테마 장식은 강의 출처나 성과 증거로 쓰지 않는다. 상세 기준은 `docs/decisions/editorial-theme.md`를 참조한다.
+
 최종 경로: `templates/SLIDE_SCHEMA_AND_SCRIPT.md`
 
 이 문서는 Codex가 JSON Schema와 파서를 구현할 때 따를 계약이다. 아래 예시는 형식을 설명하기 위한 것이며, 자리표시자 hash를 가진 상태로 실제 검수를 통과시키면 안 된다.
 
 ## 1. 렌더링 정본
 
-사용자가 작성한 `brief.md`를 Codex가 읽어 `deck.json`을 작성한다. HTML·PDF·PPTX·DOCX·읽기자료는 여기서 파생된다.
+사용자가 작성한 `brief.md`를 Codex가 읽어 `deck.json`을 작성한다. HTML·PDF·PPTX·읽기자료는 여기서 파생된다.
 
 `deck.json`에는 보통의 교육용 발표 원고를 포함할 수 있지만 학생 정보·비밀정보·비공개 개인 메모를 넣지 않는다. 웹사이트에서 원고를 제외하는 것과 GitHub 소스의 공개 여부는 별개다. 공개 repo로 전환할 때는 원고를 포함한 추적 파일 공개에 대한 승인이 필요하다.
 
@@ -129,11 +131,11 @@ synthetic 테스트 차트에는 `isIllustrative: true`와 설명용 데이터�
 
 원본과 재구성 도식을 구분한다. 포트폴리오 이미지에 실제 인물·계정 정보가 보이면 필요한 권한과 가림 여부를 확인한다. 글꼴은 공식 의존성 경로로 관리하고 자산 manifest에 출처·버전·고지를 연결한다.
 
-## 8. 대본 생성과 읽기 자료
+## 8. 발표 메모와 읽기 자료
 
-`deck.json.speakerNotes`에서 presenter 화면과 DOCX를 함께 생성한다. DOCX의 slide ID와 화면 순번은 renderer manifest에서 계산한다. ‘슬라이드 7’처럼 문장 속 숫자를 여기저기 하드코딩하지 않는다.
+`deck.json.speakerNotes`에서 presenter 화면과 PPTX 노트를 생성한다. 별도 대본 파일은 생성하지 않는다. slide ID와 화면 순번은 renderer manifest에서 계산한다. ‘슬라이드 7’처럼 문장 속 숫자를 여기저기 하드코딩하지 않는다.
 
-DOCX의 한 장 설명은 다음 순서를 기본으로 한다.
+한 장의 발표 메모는 다음 순서를 기본으로 한다.
 
 ```text
 슬라이드 순번 · 제목 · slide ID · 목표 시간

@@ -223,8 +223,7 @@ sources:
       - 본문 주장의 적용 조건과 개인 계정 제공 여부는 발표 전 재확인
   - id: S18
     type: external_reference
-    title: Wei et al., Chain-of-Thought Prompting Elicits Reasoning in Large
-      Language Models
+    title: Wei et al., Chain-of-Thought Prompting Elicits Reasoning in Large Language Models
     publisher: 기타
     url: https://arxiv.org/abs/2201.11903
     published_at: null
@@ -447,23 +446,23 @@ sources:
       - 영상 본문·자막·장면은 시청 검증하지 않음
   - id: U02
     type: user_provided_reference
-    title: 사용자가 제공한 요금제·학생 혜택 페이지 화면 정보 (2026-09-25)
-    publisher: 사용자 제공 Safari 화면 참조
+    title: 사용자가 정리해 제공한 ChatGPT·Claude·Google AI 요금 페이지 원본 (2026-09-25)
+    publisher: 사용자가 제공한 공식 구독 페이지 캡처
     url: null
     published_at: null
     checked_at: 2026-09-25
     verification_status: user_provided
     supports:
-      - "ChatGPT 한국 가격 페이지 표시: Go ₩13,000/월, Plus ₩29,000/월, Pro 월 ₩159,000부터"
-      - "Claude 가격 페이지 표시: Pro는 연 선결제 $220(월 환산 $18) 또는 월 $22, Max는 월 $110부터,
-        페이지에 부가세 10% 포함 안내"
-      - "Google AI 한국 요금 페이지 표시: AI Plus ₩7,500/월, Plus 2배·Pro 4배 사용량, AI Plus
-        저장공간 400GB·Pro 5TB, Ultra ₩119,000/₩300,000 단계"
-      - 상단 학생 배너에 1년 무료 Plus 프로모션과 종료 임박 안내가 표시됨
+      - "ChatGPT 한국 요금 페이지: Free ₩0, Go ₩13,000/월, Plus ₩29,000/월, Pro ₩159,000/월부터"
+      - "Claude 요금 페이지: Pro 연 선결제 $220(월 환산 $18) 또는 월 결제 $22, Max 월 $110부터, 가격에 부가세 10% 포함 안내"
+      - "Google AI 한국 구독 페이지: Plus ₩7,500/월 및 무료 대비 2배, Pro 4배, Ultra ₩119,000/₩300,000 단계"
+      - Google AI 상단에 학생 1년 무료 Plus 프로모션과 종료 임박 안내가 표시됨
     caveats:
-      - Safari 앱샷의 브라우저 탭·계정 정보는 슬라이드 자산으로 사용하지 않음
-      - 사용자가 제공한 화면의 표시값만 참고했으며 공식 페이지를 이번 실행에서 별도로 다시 확인하지 않음
-      - 개인 신청 자격·정확한 마감일·세금·갱신 조건은 가입 시점의 화면과 약관을 확인해야 함
+      - 사용자가 제공한 세 장의 원본 PNG를 크롭·합성·수정하지 않고 각 화면 전체를 그대로 사용함
+      - 사용자가 이 원본 캡처 세 장을 공개본과 향후 개정본에 그대로 사용하는 것을 명시적으로 허용함
+      - 가격과 안내는 2026-09-25 캡처 시점의 표시값이며 이후 변경될 수 있음
+      - 개인 신청 자격·마감일·결제·갱신 조건은 실제 가입 시점의 화면과 약관 확인이 필요함
+      - 이번 개정은 사용자가 정리한 폴더의 새 원본으로 교체했으며 원본에 이미 없는 브라우저 바를 추가하지 않음.
   - id: U03
     type: user_provided_reference
     title: 사용자가 제공한 V01–V03 YouTube 영상 썸네일 3장
@@ -473,8 +472,66 @@ sources:
     checked_at: 2026-09-25
     verification_status: user_provided
     supports:
-      - 사용자가 세 PNG를 지정된 영상의 YouTube 썸네일이라고 확인함.
-      - 영상 썸네일과 실제 제품 화면·영상 프레임을 구분하는 한국어 캡션을 표시함.
+      - V01은 thumbnail 1.jpg, V02는 thimbnail 3.jpg, V03은 thumbnail 2.jpg를 내용 기준으로 연결함.
     caveats:
-      - 썸네일 원저작자와 라이선스·공개 재배포 권한은 확인하지 못함.
-      - 비공개 빌드에서만 사용하고 공개 배포에는 포함하지 않음.
+      - 사용자가 제공 원본의 발표·공개본·향후 개정본 사용을 허용함. 영상 본문 시청 검증과 저작권 소유 확인을 뜻하지 않음.
+  - id: U04
+    type: user_provided_reference
+    title: 사용자가 정리해 제공한 1회차 수업자료 이미지 원본 25개
+    publisher: 발표자 제공 원본
+    url: null
+    published_at: null
+    checked_at: 2026-09-25
+    verification_status: user_provided
+    supports:
+      - 실제 앱·학교 서비스·GitHub 화면의 관찰 가능한 구성
+      - 원본 사진을 거의 그대로 발표 자료에 배치하라는 사용자 지시
+    caveats:
+      - 개인 계정의 잔액·모델 목록·승인 상태를 전체 사용자 공통 정책으로 확대하지 않음.
+      - 원본 사진은 파일 바이트를 보존하고 종횡비를 유지함.
+      - 화면에 보이는 이름·프로필·작업 경로도 원본에 포함됨.
+  - id: U05
+    type: user_provided_reference
+    title: 인공지능개론_3_염홍기.pdf, 26~45쪽
+    publisher: 사용자 제공 외부 강의자료
+    url: null
+    published_at: null
+    checked_at: 2026-09-27
+    verification_status: user_provided
+    supports:
+      - LLM과 도구 실행, 에이전트 루프, 오케스트레이션, 하네스, Skill, MCP 설명 보강
+      - 32쪽의 Claude Code 권한 메뉴 예시 화면
+    caveats:
+      - 외부 강의자료의 주장과 용어를 현재 제품 정책의 공식 증거로 사용하지 않음.
+      - 화면 예시 한 곳만 로컬 검토본에 크롭해 사용하며 공개 사용 권리는 별도 확인.
+
+  - id: S31
+    type: external_reference
+    title: mindlogic-codex-setup 저장소 README
+    publisher: Phjrab
+    url: https://github.com/Phjrab/mindlogic-codex-setup
+    published_at: null
+    checked_at: 2026-09-27
+    verification_status: metadata_verified
+    access_status: GitHub 웹 페이지 확인
+    supports:
+      - Codex 앱 모델 메뉴에 Mindlogic 경로를 추가하고 선택한 모델에 따라 요청을 전송하는 저장소의 설명
+      - 개인 Mindlogic Gateway API 키와 사용 가능 잔액이 필요하다는 설치 전제
+    caveats:
+      - README의 검증 버전과 동작은 저장소 작성자의 설명이며 앱 업데이트 후 재확인이 필요함.
+      - 저장소 코드나 설치 명령은 이 강의 제작 과정에서 실행하지 않음.
+  - id: U06
+    type: user_provided_reference
+    title: CSU AI 접속·Codex 연결 저장소·Copilot 화면 4장
+    publisher: 발표자 제공 화면
+    url: null
+    published_at: null
+    checked_at: 2026-09-27
+    verification_status: user_provided
+    supports:
+      - 학교 포털의 CSU AI 메뉴 위치
+      - 발표자가 만든 GitHub 저장소와 Copilot의 모델 선택·사용량 화면
+    caveats:
+      - 학교 포털 원본의 학번 숫자만 모자이크한 크롭 사본을 로컬 발표자료에 사용함.
+      - 학교 포털 화면에는 여전히 이름과 접속 IP 등 개인 정보가 보여 공개용 자산으로 승인하지 않음.
+      - Copilot 모델 목록과 사용량은 캡처 시점의 계정 화면이며 모든 학생의 조건을 뜻하지 않음.

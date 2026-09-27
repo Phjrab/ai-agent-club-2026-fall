@@ -40,6 +40,7 @@
   "additionalSessions": [],
   "slideLanguage": "ko",
   "scriptLanguage": "ko",
+  "standaloneSpeakerScript": false,
   "canvas": {"width": 1920, "height": 1080},
   "fontFamily": "Pretendard",
   "basePath": "auto",
@@ -108,7 +109,7 @@ ai-agent-club-2026-fall/
 ├── reports/                 # 기본 gitignore; 로컬/CI 검수 증거
 ├── dist/private/            # gitignore; drafts and presenter view
 ├── dist/public/             # gitignore; approved distribution only
-├── exports/                 # gitignore; generated PDF/PPTX/DOCX
+├── exports/                 # gitignore; generated PDF/PPTX
 ├── .cache/                  # gitignore; assets and tool cache
 └── .private/                # gitignore; never publish
 ```
@@ -131,7 +132,7 @@ Codex가 자료를 확인하고 `deck.json`, `sources.yaml`, 차트 데이터, �
 
 ### 4.3 결정적 빌드가 생성할 파일
 
-HTML, 화면 이미지, PDF, PPTX, DOCX, 공개 읽기 버전, 출처 목록은 구조화 데이터에서 생성한다. 파생 발표 대본 MD/DOCX를 직접 수정해 또 하나의 정본을 만들지 않는다. 원고 수정 요청은 `deck.json`의 해당 slide ID notes 필드에 반영하고 다시 내보낸다.
+HTML, 화면 이미지, PDF, PPTX, 공개 읽기 버전, 출처 목록은 구조화 데이터에서 생성한다. 발표 메모는 `deck.json`의 slide ID notes 필드와 발표자 화면·PPTX 노트에 유지하며 별도 발표 대본 파일은 만들지 않는다.
 
 동일 콘텐츠의 의미·순서·슬라이드 수가 동일해야 한다. 파일 생성시각·ZIP 메타데이터까지 byte-for-byte 동일함을 초기 요구로 삼지는 않는다. 빌드 결과에는 source commit과 콘텐츠 digest를 기록한다.
 
@@ -150,7 +151,7 @@ Chart.js는 수치 그래프, KaTeX는 수식, Prism.js는 코드, Mermaid는 �
 - private 발표자 화면에서 현재 슬라이드, 다음 슬라이드, 원고, 타이머 확인. 학생용 HTML에는 private 원고를 숨김 CSS로만 넣지 않고 실제 제외.
 - 외부 네트워크 요청 없이 로컬 HTTP 재생. 초기 설치와 별개로, 설치 후 발표 재생에는 인터넷을 요구하지 않음.
 
-화려한 전환 효과와 커스텀 애니메이션 엔진은 비목표다. 표현에 필요한 단계 강조는 정적 또는 간단한 사용자 제어로 충분하다.
+화려한 전환 효과와 커스텀 애니메이션 엔진은 비목표다. 02 에디토리얼 테마의 정적 콜라주·종이색·얇은 선과, 읽기 시작을 돕는 짧은 등장 효과는 허용한다. export와 동작 줄이기 설정에서는 정지 상태로 보인다. 상세 적용 범위는 `docs/decisions/editorial-theme.md`를 따른다.
 
 ## 6. 콘텐츠·공개 상태와 승인
 
@@ -174,6 +175,8 @@ Chart.js는 수치 그래프, KaTeX는 수식, Prism.js는 코드, Mermaid는 �
 메인은 강의 소개, 대상, 수업 방식, 예정 일정, 회차 카드, 교육 설계, 개선 기록, 저장소 링크로 구성한다. “강의 목록”만이 아니라 사용자가 무엇을 기획하고 어떻게 검증·개선했는지 보여준다.
 
 회차 카드에는 회차, 제목, 실제 확정 날짜 또는 미정, 주요 학습 목표, 승인 상태에 따른 슬라이드·PDF·읽기자료 링크, 정보 확인일을 넣는다. 생성하지 않은 다운로드 링크를 먼저 만들지 않는다.
+
+회차별 `brief.md` frontmatter의 `date`와 `portfolio_goals`를 포트폴리오 카드에 사용한다. 공개 빌드는 승인된 모든 회차를 한 포트폴리오 목록에 담고, 비공개 초안은 제외한다. 공개 승인 해시가 불일치한 회차는 배포 검사를 실패시킨다.
 
 학기 회고는 기획 → 사용자 판단 → AI를 활용한 제작 → 실제 검토 → 수정의 기여를 구분한다. 참석자 수, 만족도, 학습 효과, 매주 실시 여부는 확인된 데이터가 있을 때만 표시한다. `reflection.md`는 처음에 빈 질문 틀로 만들며 수강생 피드백을 창작하지 않는다.
 
@@ -200,7 +203,7 @@ Chart.js는 수치 그래프, KaTeX는 수식, Prism.js는 코드, Mermaid는 �
 | `npm run validate` | schema·출처 참조·입력 해시·자산·정책 검사 |
 | `npm test` | 유닛·계약·실패 fixture 테스트 |
 | `npm run qa -- --lecture 01-agent-ai-intro` | 실제 브라우저·시각 검수 증거 생성 |
-| `npm run export -- --lecture 01-agent-ai-intro` | HTML 패키지·PDF·visual PPTX·DOCX 생성 및 export 검증 |
+| `npm run export -- --lecture 01-agent-ai-intro` | HTML 패키지·PDF·visual PPTX 생성 및 export 검증 |
 | `npm run lecture:new -- --slug 02-prompt-and-workflow --title "Prompt and Workflow"` | 새 brief·폴더 틀만 생성, AI 집필은 하지 않음 |
 | `npm run sources:check` | 출처 URL·확인일 점검; 내용의 진실을 자동 보증하지 않음 |
 | `npm run release:check` | 실제 공개 artifact와 Git 추적 파일·승인 상태 검사 |
@@ -209,11 +212,11 @@ Chart.js는 수치 그래프, KaTeX는 수식, Prism.js는 코드, Mermaid는 �
 
 ## 10. 내보내기 계약
 
-`exports/<term>/<slug>/<revision>/` 아래에 HTML 패키지, `slides.pdf`, `slides.visual.pptx`, `speaker-script.docx`, 산출물 manifest를 생성한다.
+`exports/<term>/<slug>/<revision>/` 아래에 HTML 패키지, `slides.pdf`, `slides.visual.pptx`, 산출물 manifest를 생성한다. 별도 발표 대본은 생성하지 않는다.
 
 PPTX 기본 모드는 HTML 슬라이드의 고해상도 이미지를 장마다 넣는 시각적 호환 방식이다. 가능하면 해당 슬라이드 노트를 함께 넣는다. 텍스트·Chart.js·DOM이 자동으로 편집 가능한 PowerPoint 개체가 되는 것은 아니다. 편집 가능한 PPTX는 별도 구현 범위로 구분한다.
 
-PDF는 한 슬라이드 한 페이지다. DOCX는 공부용 해설과 실제 읽는 발표 원고를 분리한다. 공개 사이트 다운로드에는 승인된 PDF만 기본 포함하고, 상세 발표 대본 다운로드는 기본 제외한다. 다만 public GitHub 저장소의 추적된 `deck.json`에 들어 있는 원고는 소스에서 읽을 수 있으므로, 사이트 transcript 설정을 원고의 비밀 보장으로 설명하지 않는다.
+PDF는 한 슬라이드 한 페이지다. 공개 사이트 다운로드에는 승인된 PDF만 기본 포함한다. `deck.json`의 발표 메모는 public GitHub 저장소의 소스에서 읽을 수 있으므로, 사이트 transcript 설정을 원고의 비밀 보장으로 설명하지 않는다.
 
 ## 11. Git 관리 대상
 
