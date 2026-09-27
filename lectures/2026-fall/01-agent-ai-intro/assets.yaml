@@ -1070,3 +1070,27 @@ assets:
     sha256: 70bf59a0418815d391501e94de4de69463d755e948a232a78a203388295bdfff
     originalFilename: vscode copilot usage.png
     sourceSet: user-added-2026-09-27
+
+  - id: mail-blurred
+    path: assets/user/mail-blurred.png
+    kind: user_provided_screenshot
+    acquisitionMethod: 2026-09-27 사용자가 제공한 mail.png에서 식별 정보 영역에 강한 블러를 적용한 공개용 사본.
+    creator: 사용자 제공 원본 · 발신자 메일 내용은 원 발신자 작성
+    sourceUrl: null
+    sourceIds:
+      - U07
+    checkedAt: 2026-09-27
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 이 사진의 블러 처리본을 1회차 발표자료에 넣고 공개 배포하도록 명시적으로 지시함. 제3자 내용의 별도 라이선스를 판정하지 않음.
+    licenseUrl: null
+    publicAllowed: true
+    containsPersonalData: true
+    alt: 이름, 이메일 주소, 저장소 식별자를 블러 처리한 공개 저장소 관련 메일 대화 화면
+    caption: 사용자 제공 메일 화면 · 식별 정보 블러 처리
+    modifications: 원본은 저장소에 넣지 않음. 메시지 헤더의 이름·이메일 주소, 인사말·서명, 본문 저장소 식별자 11개 영역에 강한 Gaussian 블러를 적용함.
+    width: 1291
+    height: 931
+    ratio: 1.3867
+    sha256: ce5ae039c9340a6f7fe0b2089b42744b9aae768697286a220f8e0a4bce9860f3
+    originalFilename: mail.png
+    sourceSet: user-added-2026-09-27

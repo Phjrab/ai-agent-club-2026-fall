@@ -535,3 +535,16 @@ sources:
       - 학교 포털 원본의 학번 숫자만 모자이크한 크롭 사본을 로컬 발표자료에 사용함.
       - 학교 포털 화면에는 여전히 이름과 접속 IP 등 개인 정보가 보여 공개용 자산으로 승인하지 않음.
       - Copilot 모델 목록과 사용량은 캡처 시점의 계정 화면이며 모든 학생의 조건을 뜻하지 않음.
+  - id: U07
+    type: user_provided_reference
+    title: 공개 저장소 관련 메일 대화 화면
+    publisher: 발표자 제공 화면
+    url: null
+    published_at: null
+    checked_at: 2026-09-27
+    verification_status: user_provided
+    supports:
+      - 발표자에게 공개 저장소에 관한 외부 메일이 도착한 한 사례
+    caveats:
+      - 메일 수신 사실은 저장소의 품질이나 발신자·제안의 신뢰성을 검증하지 않음.
+      - 공개본에는 이름·이메일 주소·저장소 식별자를 강하게 블러 처리한 사본만 사용함.
