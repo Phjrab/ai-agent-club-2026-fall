@@ -29,7 +29,7 @@
 | C08 | 경험과 해석 | 사용자 경험·설명 예시·공식 주장·추정을 구분 |
 | C09 | 발표 방식 | 의무 실습·과제·실시 실적·학생 피드백을 임의 추가하지 않음 |
 | C10 | 언어·용어 | 회차 언어와 glossary 일관성 유지 |
-| C11 | 시간 | 본편 목표 시간과 slide duration 합계가 일치; Q&A 별도 |
+| C11 | 시간 | 본편 목표 시간과 slide duration 합계가 일치; Q&A 별도; 참고 시간 초과는 `plannedOverrunSec`에 기록 |
 | C12 | 입력 최신성 | brief digest 변경 시 deck를 검토·재작성하기 전에는 실패 |
 
 모든 슬라이드가 외부 인용이 필요한 것은 아니다. 표지·목차·순수 안내는 `sourcePolicy: not_applicable`과 이유를 명시할 수 있다. 사용자 경험은 `sourcePolicy: personal_experience`와 사용자가 제공한 근거 범위를 명시한다. 허위 출처를 넣어 출처 유무 검사를 통과시키지 않는다.

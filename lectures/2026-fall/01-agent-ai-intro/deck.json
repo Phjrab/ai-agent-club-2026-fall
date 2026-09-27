@@ -4,17 +4,17 @@
   "slug": "01-agent-ai-intro",
   "term": "2026-fall",
   "title": "AI 서비스 선택부터 에이전트 활용까지",
-  "revision": "0.6.0",
-  "inputDigest": "82013a3687f88360416bca115500f22b915af2ab8354b6978bea6de86dbbcfb9",
-  "sourceRegistryDigest": "138d934366bab6e63987feabbedcdff7e9b3c2a92dad16b790f61643dbfec7e7",
+  "revision": "0.6.1",
+  "inputDigest": "0e8be2a5d8254a5866882c2d58a5cc930c1bd3b07d3b4c594866322df0af01d9",
+  "sourceRegistryDigest": "f18da1cd53ac4e2ac6c2ef8780d6b8810c3515c7119c215af9b387e458659539",
   "slideLanguage": "ko",
   "scriptLanguage": "ko",
   "contentState": "draft",
-  "plannedMainDurationSec": 3424,
-  "plannedSpeakerDurationSec": 2415,
+  "plannedMainDurationSec": 3724,
+  "plannedSpeakerDurationSec": 2715,
   "plannedVideoBudgetSec": 1009,
   "actualVideoDurationSec": 1009,
-  "estimatedFullDurationSec": 3424,
+  "estimatedFullDurationSec": 3724,
   "timeFitStatus": "within_session_plan",
   "questionsSec": 0,
   "videoBlock": {
@@ -98,6 +98,259 @@
         "transition": "다음은 회사·모델·앱 이름의 차이를 살펴보겠습니다."
       },
       "sectionLabel": "시작"
+    },
+    {
+      "id": "L01-A07",
+      "kind": "main",
+      "sectionId": "intro",
+      "layout": "process",
+      "title": "LLM은 어떻게 답을 만들까",
+      "takeaway": "앞 문맥에서 다음 토큰을 예측하고 이 과정을 반복",
+      "requirementIds": [
+        "REQ-LLM-AGENT"
+      ],
+      "durationSec": 60,
+      "sourcePolicy": "external",
+      "sourceReason": null,
+      "sourceIds": [
+        "U05"
+      ],
+      "blocks": [
+        {
+          "type": "process",
+          "steps": [
+            "질문과 앞 문맥을 입력받는다",
+            "다음 토큰(텍스트 단위)의 가능성을 계산한다",
+            "토큰을 이어 답변을 완성한다"
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "기억할 점",
+          "text": "자연스러운 문장도 사실·수치의 정확성을 보장하지 않는다."
+        }
+      ],
+      "speakerNotes": {
+        "say": "LLM은 대규모 언어 모델입니다. 질문과 앞 문맥을 바탕으로 다음 토큰의 가능성을 계산하고, 선택한 토큰을 이어 답을 만듭니다. 표현이 자연스럽더라도 사실과 수치는 별도로 확인해야 합니다.",
+        "pointTo": [
+          "문맥",
+          "다음 토큰",
+          "완성된 답변"
+        ],
+        "background": [
+          "사용자 제공 인공지능개론_3_염홍기.pdf 26~29쪽을 참고해 재구성. 원본 도표와 화면은 복제하지 않음."
+        ],
+        "pitfalls": [
+          "토큰을 항상 글자 한 개로 설명하지 않기"
+        ],
+        "transition": "이런 모델은 어떤 학습 단계를 거쳐 대화에 쓰일까요?"
+      },
+      "sectionLabel": "기본 개념"
+    },
+    {
+      "id": "L01-A11",
+      "kind": "main",
+      "sectionId": "intro",
+      "layout": "process",
+      "title": "사전 학습과 지시 조정",
+      "takeaway": "학습 단계와 지금 답하는 단계는 구분해서 본다",
+      "requirementIds": [
+        "REQ-LLM-AGENT"
+      ],
+      "durationSec": 60,
+      "sourcePolicy": "external",
+      "sourceReason": null,
+      "sourceIds": [
+        "U05"
+      ],
+      "blocks": [
+        {
+          "type": "process",
+          "steps": [
+            "사전 학습: 다음 토큰 예측으로 패턴 학습",
+            "지시 조정(SFT): 요청·응답 예시 학습",
+            "사람 피드백: 답변 평가를 조정에 반영"
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "추론 · 실제 사용 단계",
+          "text": "사용자가 질문할 때는 학습을 다시 시작하는 대신, 현재 문맥을 처리해 답한다."
+        }
+      ],
+      "speakerNotes": {
+        "say": "사전 학습에서는 많은 자료를 바탕으로 다음 토큰을 예측하며 언어 패턴을 익힙니다. 지시 조정, 즉 SFT에서는 요청과 좋은 응답의 예시를 사용합니다. 사람의 답변 평가를 활용하는 RLHF 같은 방식도 있습니다. 사용자의 질문에 답할 때는 이 학습을 매번 다시 하는 것이 아닙니다.",
+        "pointTo": [
+          "사전 학습",
+          "지시 조정",
+          "피드백 기반 조정"
+        ],
+        "background": [
+          "사용자 제공 인공지능개론_3_염홍기.pdf 26~29쪽을 참고해 재구성. 원본 도표와 화면은 복제하지 않음."
+        ],
+        "pitfalls": [
+          "피드백 기반 조정이 오류나 허위 답을 모두 제거한다고 말하지 않기"
+        ],
+        "transition": "이제 답변만으로 부족할 때 도구를 사용하는 예를 봅니다."
+      },
+      "sectionLabel": "기본 개념"
+    },
+    {
+      "id": "L01-A08",
+      "kind": "main",
+      "sectionId": "intro",
+      "layout": "process",
+      "title": "정확한 계산을 도구로 확인하기",
+      "takeaway": "모델의 제안 → 계산기 실행 → 결과 확인",
+      "requirementIds": [
+        "REQ-LLM-AGENT"
+      ],
+      "durationSec": 60,
+      "sourcePolicy": "external",
+      "sourceReason": null,
+      "sourceIds": [
+        "U05"
+      ],
+      "blocks": [
+        {
+          "type": "process",
+          "steps": [
+            "질문: 38 × 7 − 32 = ?",
+            "모델: 계산기 호출",
+            "계산기: 234 반환",
+            "사람·에이전트: 입력과 결과 확인"
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "역할 구분",
+          "text": "모델은 식과 도구 사용을 제안하고, 계산기는 실행 결과를 돌려준다."
+        }
+      ],
+      "speakerNotes": {
+        "say": "정확한 값이 중요하면 모델의 답을 바로 쓰지 말고 계산기를 호출할 수 있습니다. 예를 들어 38 곱하기 7 빼기 32는 234입니다. 계산식이 질문과 같은지, 반환된 수치가 맞는지 확인하는 단계까지 포함합니다.",
+        "pointTo": [
+          "질문",
+          "도구 호출",
+          "234",
+          "결과 확인"
+        ],
+        "background": [
+          "사용자 제공 인공지능개론_3_염홍기.pdf 26~29쪽을 참고해 재구성. 원본 도표와 화면은 복제하지 않음."
+        ],
+        "pitfalls": [
+          "모델이 계산을 전혀 하지 못한다고 단정하지 않기"
+        ],
+        "transition": "이 도구를 어디서 실행할 수 있는지는 제품의 작업 환경에 달려 있습니다."
+      },
+      "sectionLabel": "기본 개념"
+    },
+    {
+      "id": "L01-A09",
+      "kind": "main",
+      "sectionId": "intro",
+      "layout": "comparison",
+      "title": "모델·대화 앱·작업 환경",
+      "takeaway": "같은 AI라도 모델과 사용 화면, 도구 권한은 다르다",
+      "requirementIds": [
+        "REQ-LLM-AGENT"
+      ],
+      "durationSec": 60,
+      "sourcePolicy": "external",
+      "sourceReason": null,
+      "sourceIds": [
+        "U05"
+      ],
+      "blocks": [
+        {
+          "type": "comparison",
+          "items": [
+            {
+              "heading": "모델",
+              "text": "입력을 처리해 답을 생성 · GPT, Claude, Gemini"
+            },
+            {
+              "heading": "대화 앱",
+              "text": "질문하고 답을 보는 화면 · ChatGPT, Claude 앱"
+            },
+            {
+              "heading": "작업 환경",
+              "text": "허용된 파일·도구를 사용 · Codex, Claude Code, Antigravity"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "확인할 것",
+          "text": "실제로 가능한 작업은 제품, 계정, 도구 연결, 승인 설정에 따라 달라진다."
+        }
+      ],
+      "speakerNotes": {
+        "say": "모델은 답을 생성하는 중심 구성 요소입니다. 대화 앱은 사용자가 질문하는 화면이고, Codex와 Claude Code 같은 작업 환경은 허용된 파일과 도구를 사용할 수 있습니다. 실제 권한은 제품과 설정을 확인해야 합니다.",
+        "pointTo": [
+          "모델",
+          "대화 앱",
+          "작업 환경"
+        ],
+        "background": [
+          "사용자 제공 인공지능개론_3_염홍기.pdf 26~29쪽을 참고해 재구성. 원본 도표와 화면은 복제하지 않음."
+        ],
+        "pitfalls": [
+          "모든 대화 앱이나 작업 환경이 동일한 권한을 갖는다고 말하지 않기"
+        ],
+        "transition": "이제 작업 환경에서 목표를 어떻게 실행하고 확인하는지 봅니다."
+      },
+      "sectionLabel": "기본 개념"
+    },
+    {
+      "id": "L01-A10",
+      "kind": "main",
+      "sectionId": "intro",
+      "layout": "process",
+      "title": "에이전트의 기본 작업 순환",
+      "takeaway": "목표 → 계획 → 실행 → 확인, 필요하면 수정",
+      "requirementIds": [
+        "REQ-LLM-AGENT"
+      ],
+      "durationSec": 60,
+      "sourcePolicy": "external",
+      "sourceReason": null,
+      "sourceIds": [
+        "U05"
+      ],
+      "blocks": [
+        {
+          "type": "process",
+          "steps": [
+            "목표: 발표자료의 범위와 조건 정하기",
+            "계획: 자료·구성·검수 순서 정하기",
+            "실행: 허용된 파일과 도구 사용",
+            "확인: 화면 검수·수정·중단"
+          ]
+        },
+        {
+          "type": "callout",
+          "label": "발표자료 예시",
+          "text": "초안 작성 → 화면 확인 → 잘린 글자 수정 → 사람이 최종 승인"
+        }
+      ],
+      "speakerNotes": {
+        "say": "발표자료를 맡긴다면 사람이 범위와 승인 조건을 정합니다. 에이전트는 순서를 계획하고 파일과 도구로 작업합니다. 화면에서 잘린 글자를 발견하면 수정해 다시 확인합니다. 최종 사용 여부는 사람이 판단합니다.",
+        "pointTo": [
+          "목표",
+          "계획",
+          "실행",
+          "확인"
+        ],
+        "background": [
+          "사용자 제공 인공지능개론_3_염홍기.pdf 26~29쪽을 참고해 재구성. 원본 도표와 화면은 복제하지 않음."
+        ],
+        "pitfalls": [
+          "이 사례를 실제 완료한 작업 증거처럼 설명하지 않기"
+        ],
+        "transition": "이 기본 틀을 가지고 회사·모델·앱·요금제 이름을 살펴보겠습니다."
+      },
+      "sectionLabel": "기본 개념"
     },
     {
       "id": "L01-S02",
@@ -1782,5 +2035,6 @@
   ],
   "sessionDurationSec": 3600,
   "questionsMode": "flexible",
-  "flexibleBufferSec": 176
+  "flexibleBufferSec": 0,
+  "plannedOverrunSec": 124
 }
