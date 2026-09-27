@@ -1,5 +1,11 @@
 # 현재 인계 상태
 
+## 2026-09-27 · PR 병합과 Pages 게시 승인·사전 검사
+
+- 사용자가 PR #1의 현재 36장 변경을 병합하고 GitHub Pages에 게시하도록 명시적으로 승인했다. 이전 명시 승인 범위와 합쳐 현재 공개 콘텐츠 digest를 `publication.approval.json`에 기록했다.
+- `npm run validate`, `npm test`(15/15), `npm run build:public`, `npm run release:check`가 통과했다. 공개 게이트는 1회차, 124개 파일을 확인했다. 현재 브랜치에 승인 기록 변경을 커밋·push한 뒤 CI를 확인하고 PR을 병합한다. Pages 배포와 실제 공개 URL 응답까지 확인해야 완료다.
+- 사이트 artifact에서는 `.private/lecture-assets/`의 학교 포털 편집본과 외부 강의 캡처, PDF/PPTX를 제외한다.
+
 ## 2026-09-27 · PDF 이미지 여백과 마지막 주석 반영
 
 - 10쪽 Google AI 요금표의 좌우 빈 영역을 줄여 네 카드가 가운데에 오도록 표시 크롭을 조정했다. 13쪽 포털 캡처는 기준 화면으로 유지했고, 다른 화면 캡처는 프레임 안의 빈 여백을 줄였다. 12쪽 대화 요약과 18쪽 Copilot 채팅 창의 강조 테두리는 확대된 화면에 다시 맞췄다. 20쪽 GitHub Education은 승인 문구가 잘리지 않도록 원본 비율을 유지했다. 32쪽 휴대전화 프레임의 좌우 흰 여백을 줄였다.

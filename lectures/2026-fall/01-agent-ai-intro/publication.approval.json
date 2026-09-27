@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "status": "approved",
-  "approvedContentDigest": "64bc3c1019e6c0c9fd59edce1ea8956407f47aa0a90a48b9474c07b801d76ff9",
-  "approvedAt": "2026-09-25T11:33:36Z",
-  "approvalEvidence": "2026-09-25 사용자 명시 승인: v3 1회차 메인 반영과 GitHub Pages 공개를 허용함. 사용자가 제공한 ChatGPT·Claude·Google AI 구독 페이지 원본 캡처 세 장을 크롭·합성·수정 없이 공개본과 향후 개정본에 그대로 사용하는 것도 허용함. 공개 권리가 확인되지 않은 YouTube 썸네일은 공개 산출물에서 제외함.",
+  "approvedContentDigest": "cbe1d1127bcacc653f4dd3c69550cfb8c0606205e99bdd57f8dfc8c5d48adfb1",
+  "approvedAt": "2026-09-27T08:30:02Z",
+  "approvalEvidence": "2026-09-27 사용자 명시 승인: PR #1의 현재 36장 강의 변경을 main에 병합하고 GitHub Pages에 게시하도록 승인함. 직전 사용자 메시지는 공개 저장소 Phjrab/ai-agent-club-2026-fall의 lecture/01-agent-ai-pricing-screenshots 브랜치에 개인정보가 보일 수 있는 캡처 12개를 원본 그대로 업로드하도록 승인함. 따라서 이 승인 해시는 그 36장 현재 콘텐츠와 해당 12개 사용자 제공 캡처의 공개 범위에 적용함. .private/lecture-assets/의 학교 포털 편집본과 외부 강의 캡처, PDF/PPTX는 사이트 artifact에서 제외함.",
   "scope": {
     "site": true,
     "repositorySource": true,
