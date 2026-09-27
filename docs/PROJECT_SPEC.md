@@ -57,6 +57,8 @@
 
 공통 설정은 기본값이다. 강의별로 명시한 언어·분량·청중은 해당 강의에서 우선한다. 발표 일정 데이터는 비밀정보가 아니지만 참석자 이름·연락처·가능 요일 응답은 공개하지 않는다.
 
+회차 `brief.md`의 `duration_limit_mode`는 기본적으로 `strict`다. `guideline`인 회차는 `duration_minutes`를 참고 길이로 사용하고, 이를 넘는 계획도 허용한다. 이때 `deck.json`에는 유동 여유를 0초로 두고 `plannedOverrunSec`에 초과 초를 기록한다.
+
 ## 3. 최종 저장소 구조
 
 ```text

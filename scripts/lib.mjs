@@ -124,9 +124,14 @@ export function validateDeck(data) {
   if(deck.questionsMode==='flexible'&&deck.questionsSec!==0) e.push('유동 질의응답은 고정 questionsSec가 0이어야 합니다');
   if(deck.sessionDurationSec!==undefined) {
     if(!Number.isInteger(deck.sessionDurationSec)||deck.sessionDurationSec<0) e.push('sessionDurationSec 오류');
-    const buffer=deck.sessionDurationSec-estimated;
-    if(buffer<0) e.push(`수업 상한 초과: ${-buffer}초`);
+    const difference=deck.sessionDurationSec-estimated;
+    const guideline=briefMeta.duration_limit_mode==='guideline';
+    if(briefMeta.duration_limit_mode&&!['strict','guideline'].includes(briefMeta.duration_limit_mode)) e.push('duration_limit_mode 오류');
+    if(difference<0&&!guideline) e.push(`수업 상한 초과: ${-difference}초`);
+    const buffer=Math.max(0,difference),overrun=Math.max(0,-difference);
     if(deck.flexibleBufferSec!==buffer) e.push(`유동 여유 시간 불일치 (${buffer}초)`);
+    if(deck.plannedOverrunSec!==undefined&&deck.plannedOverrunSec!==overrun) e.push(`계획 초과 시간 불일치 (${overrun}초)`);
+    if(guideline&&deck.plannedOverrunSec===undefined) e.push('참고 시간 초과 기록 누락');
   }
   const needed=[...new Set([...brief.toString().matchAll(/\bREQ-[A-Z-]+\b/g)].map(x=>x[0]))];
   const covered=new Set(main.flatMap(s=>s.requirementIds||[]));
@@ -157,7 +162,7 @@ export function validateDeck(data) {
     if(JSON.stringify(v.playback_order)!==JSON.stringify(['V01','V02','V03'])) e.push('지정 영상 순서 불일치');
     if(v.videos?.reduce((n,x)=>n+(x.duration_seconds||0),0)!==v.actual_total_seconds) e.push('영상 길이 합계 불일치');
     if(v.budget_seconds!==v.actual_total_seconds||listed?.durationSec!==v.actual_total_seconds) e.push('영상 시간과 영상 슬라이드 duration 불일치');
-    const concept=(deck.slides||[]).findIndex(s=>(s.requirementIds||[]).includes('REQ-LLM-AGENT'));
+    const concept=(deck.slides||[]).findIndex(s=>s.sectionId==='concepts'&&(s.requirementIds||[]).includes('REQ-LLM-AGENT'));
     if(concept>=0&&(deck.slides||[]).indexOf(listed)>=concept) e.push('영상이 본격 개념 설명 뒤에 있습니다');
   }
   return e;

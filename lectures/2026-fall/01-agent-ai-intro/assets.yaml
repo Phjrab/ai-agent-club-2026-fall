@@ -958,8 +958,8 @@ assets:
     sourceIds:
       - U05
     checkedAt: 2026-09-27
-    rightsStatus: permission_unverified
-    rightsBasis: 사용자가 2026-09-27 이번 공개 Pages에 이 메뉴 크롭을 포함하도록 명시적으로 지시함. 원저작자의 재배포 허락은 별도로 확인되지 않음.
+    rightsStatus: user_authorized
+    rightsBasis: 사용자가 2026-09-27 외부 강의자료 예시 화면의 재배포 권리를 확인했다고 명시하고 이 수정본의 공개 배포를 지시함.
     licenseUrl: null
     publicAllowed: true
     containsPersonalData: false
