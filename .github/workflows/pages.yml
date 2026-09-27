@@ -42,11 +42,16 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-      - run: npm ci
+      - name: Install dependencies and Chromium
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
       - name: Require content approval and passing checks
         run: |
           npm run validate
           npm test
+      - name: Export approved PDF and PPTX
+        run: npm run export -- --lecture 01-agent-ai-intro
       - name: Build approved public files
         run: npm run build:public
       - name: Check publication scope and built files

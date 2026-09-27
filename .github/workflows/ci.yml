@@ -36,6 +36,12 @@ jobs:
         run: |
           npm run build
           npm run qa -- --lecture 01-agent-ai-intro
+      - name: Check approved public downloads
+        run: |
+          npm run export -- --lecture 01-agent-ai-intro
+          npm run build:public
+          npm run release:check
+          npm run qa:public
       - name: Save bounded QA evidence
         if: always()
         uses: actions/upload-artifact@v7.0.1

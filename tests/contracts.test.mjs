@@ -26,7 +26,7 @@ test('사용자 주석의 화면 순서와 실제 예시 자산이 반영된다'
  assert.equal(slides.some(s=>['L01-S08','L01-S13','L01-QA'].includes(s.id)),false);
  assert.equal(get('L01-S15').blocks[0].showIndexAndDuration,false);
  assert.deepEqual(get('L01-S25').blocks.filter(b=>b.type==='figure').map(b=>b.assetId),['remote-gpt-01','remote-gpt-02']);
- assert.deepEqual([get('L01-S27'),get('L01-A03')].map(s=>s.blocks.find(b=>b.role==='brand')?.assetId),['brand-github','brand-github']);
+ assert.equal(slides.some(s=>s.blocks.some(b=>b.assetId==='brand-github')),false);
 });
 test('중복 slide ID와 없는 출처는 실패한다',()=>{const e=mutate(x=>{x.deck.slides[1].id=x.deck.slides[0].id;x.deck.slides[4].sourceIds=['SRC-NOT-FOUND']});assert.ok(e.some(x=>x.includes('중복')));assert.ok(e.some(x=>x.includes('없는 source ID')))});
 test('오래된 brief 해시는 실패한다',()=>assert.ok(mutate(x=>x.deck.inputDigest='0'.repeat(64)).some(x=>x.includes('inputDigest'))));

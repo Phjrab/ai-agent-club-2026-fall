@@ -965,14 +965,6 @@
           "alt": "Visual Studio Code와 Copilot 채팅 영역",
           "caption": "Visual Studio Code와 Copilot 채팅 영역 · 사용자 제공 원본",
           "fit": "contain"
-        },
-        {
-          "type": "figure",
-          "assetId": "brand-github",
-          "alt": "GitHub 로고",
-          "caption": "GitHub 로고 · 투명 배경",
-          "fit": "contain",
-          "role": "brand"
         }
       ],
       "speakerNotes": {
@@ -1045,15 +1037,6 @@
           "alt": "사용자 GitHub Education 신청·승인 화면",
           "caption": "사용자 GitHub Education 신청·승인 화면 · 사용자 제공 원본",
           "fit": "contain"
-        },
-        {
-          "type": "figure",
-          "assetId": "brand-github",
-          "alt": "투명 배경 GitHub 로고",
-          "caption": "GitHub 로고 · 투명 배경",
-          "fit": "contain",
-          "role": "brand",
-          "label": "GitHub"
         }
       ],
       "sourcePolicy": "external",
@@ -1700,15 +1683,6 @@
           "alt": "파일 수정, diff 확인, 커밋, PR 검토를 하나의 순서로 연결한 설명용 도식",
           "caption": "설명용 개념도 · 실제 저장소 화면 캡처 아님",
           "fit": "contain"
-        },
-        {
-          "type": "figure",
-          "assetId": "brand-github",
-          "alt": "투명 배경 GitHub 로고",
-          "caption": "GitHub 로고 · 투명 배경",
-          "fit": "contain",
-          "role": "brand",
-          "label": "GitHub"
         }
       ],
       "speakerNotes": {
