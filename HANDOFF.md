@@ -4,7 +4,8 @@
 
 - 사용자 요청과 후속 수정에 따라 표지 뒤에 새 개념 화면 5장(L01-A07, A11, A08, A09, A10)을 추가했다. LLM의 다음 토큰 생성, 사전 학습·지시 조정·사람 피드백, 계산기 호출, 모델·대화 앱·작업 환경의 구분, 발표자료 제작을 예로 든 에이전트 작업 순환을 다룬다. 외부 강의자료의 그림·캡처는 복제하지 않고 현재 에디토리얼 레이아웃으로 새로 구성했다. 출처 연결은 U05다.
 - 기존 36장 slide 객체의 내용·메모·배정 시간은 Git 기준과 JSON 직렬화 비교에서 모두 일치했다. 새 5장에 각 60초를 배정해 계획 본편은 62:04다. 60분은 참고 길이이며 계획 초과 2:04를 기록한다. 실제 발표 속도는 검증하지 않았다.
-- `npm run validate`, 계약 테스트 15/15, 비공개·공개 브라우저 QA, `release:check`를 통과했다. 최종 PDF 41쪽, PPTX 41장·발표 메모 41개를 확인했다. 최신 로컬 결과는 `exports/2026-fall/01-agent-ai-intro/0.6.1/`이고 현재 콘텐츠 해시의 공개 승인이 기록돼 있다. 이 개정본의 GitHub 업로드·Pages 게시는 진행 중이다.
+- `npm run validate`, 계약 테스트 15/15, 비공개·공개 브라우저 QA, `release:check`를 통과했다. 최종 PDF 41쪽, PPTX 41장·발표 메모 41개를 확인했다. 최신 로컬 결과는 `exports/2026-fall/01-agent-ai-intro/0.6.1/`이고 현재 콘텐츠 해시의 공개 승인이 기록돼 있다.
+- [PR #3](https://github.com/Phjrab/ai-agent-club-2026-fall/pull/3)의 CI 두 건이 통과해 `main`에 병합했다. [Pages 배포](https://github.com/Phjrab/ai-agent-club-2026-fall/actions/runs/36310747174)가 성공했다. [공개 강의](https://phjrab.github.io/ai-agent-club-2026-fall/lectures/01-agent-ai-intro/)와 JSON·PDF·PPTX가 HTTP 200이며 배포된 파일은 각각 41장·41쪽·41장과 발표 메모 41개다. 원격 작업 브랜치는 `main`만 남았다.
 
 
 ## 2026-09-27 · 게시 완료
