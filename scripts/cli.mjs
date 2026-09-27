@@ -3,7 +3,7 @@ import path from 'node:path';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
 import {build} from 'esbuild';
-import {root,config,lectureDirs,loadLecture,briefMetadata,validateDeck,validateSources,isApproved,sanitizeDeck,escapeHtml,selectLecture,readJson,writeJson,assetSourceFile} from './lib.mjs';
+import {root,config,lectureDirs,loadLecture,briefMetadata,validateDeck,validateSources,isApproved,sanitizeDeck,escapeHtml,selectLecture,readJson,writeJson,assetSourceFile,contentDigest,sha} from './lib.mjs';
 
 const [cmd,...args]=process.argv.slice(2);
 const option=(name, fallback)=>{const i=args.indexOf(name);return i<0?fallback:args[i+1];};
@@ -33,7 +33,6 @@ async function buildSite(isPublic=false){
  const baseCss=fs.readFileSync(path.join(root,'src','site.css'),'utf8');
  const editorialCss=fs.readFileSync(path.join(root,'src','themes','editorial','theme.css'),'utf8');
  fs.writeFileSync(path.join(out,'assets','site.css'),`${baseCss}\n${editorialCss}\n`);
- copy(path.join(root,'src','themes','editorial','assets','collage.webp'),path.join(out,'assets','themes','editorial','collage.webp'));
  const katexDir=path.join(root,'node_modules','katex','dist');copy(path.join(katexDir,'katex.min.css'),path.join(out,'assets','katex.min.css'));
  fs.cpSync(path.join(katexDir,'fonts'),path.join(out,'assets','fonts'),{recursive:true});
  for(const entry of ['presentation','portfolio']) await build({entryPoints:[path.join(root,'src',`${entry}.js`)],bundle:true,minify:true,format:'esm',platform:'browser',outfile:path.join(out,'assets',`${entry}.js`),logLevel:'silent'});
@@ -56,16 +55,28 @@ async function buildSite(isPublic=false){
    writeJson(path.join(target,'presenter-deck.json'),{...d.deck,assets:assetManifest,sources:d.sources.sources});
    fs.writeFileSync(path.join(target,'presenter.html'),makePage(d.deck.title+' · 발표자',css,js,'<div id="presentation-app" data-presenter="true"></div>'));
   }
+  const downloads={};
+  if(isPublic&&(d.approval.scope?.pdf===true||d.approval.scope?.pptx===true)){
+   const exportDir=path.join(root,'exports',d.deck.term,slug,d.deck.revision);
+   const manifest=readJson(path.join(exportDir,'manifest.json'));
+   if(manifest.contentDigest!==contentDigest(d)||manifest.slideCount!==d.deck.slides.length)throw new Error(`${slug} 다운로드 승인 콘텐츠와 내보내기 불일치`);
+   for(const [scopeKey,name] of [['pdf','slides.pdf'],['pptx','slides.visual.pptx']]){
+    if(d.approval.scope[scopeKey]!==true)continue;
+    const file=path.join(exportDir,name),record=manifest.files?.find(x=>x.file===name);
+    if(!record||!fs.existsSync(file)||sha(fs.readFileSync(file))!==record.sha256)throw new Error(`${slug} ${name} 검증 실패`);
+    copy(file,path.join(target,'downloads',name));downloads[scopeKey]=`./lectures/${slug}/downloads/${name}`;
+   }
+  }
   const meta=briefMetadata(d.brief);
   const checked=(d.sources.sources||[]).map(s=>s.checked_at).filter(x=>typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x)).sort().at(-1)||null;
-  cards.push({slug,term:d.deck.term,title:d.deck.title,state:d.deck.contentState,date:typeof meta.date==='string'?meta.date:null,goals:Array.isArray(meta.portfolio_goals)?meta.portfolio_goals.filter(x=>typeof x==='string'&&x.trim()):[],sourceChecked:checked});
+  cards.push({slug,term:d.deck.term,title:d.deck.title,state:d.deck.contentState,date:typeof meta.date==='string'?meta.date:null,goals:Array.isArray(meta.portfolio_goals)?meta.portfolio_goals.filter(x=>typeof x==='string'&&x.trim()):[],sourceChecked:checked,downloads});
  }
  const payload={title:config.title,term:config.term,timezone:config.timezone,startDate:config.startDate,startTime:config.startTime,classroom:config.classroom,plannedSessionCount:config.plannedSessionCount,cards,public:isPublic,repositoryUrl:isPublic?`https://github.com/${config.githubOwner}/${config.repoName}`:null};
  writeJson(path.join(out,'portfolio.json'),payload);
  fs.writeFileSync(path.join(out,'index.html'),makePage(config.title,'./assets/site.css','./assets/portfolio.js','<div id="portfolio-app"></div>'));
  console.log(`${isPublic?'공개':'비공개'} 빌드: ${out} (${cards.length}회차)`);
 }
-function mime(file){return ({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.css':'text/css; charset=utf-8','.woff':'font/woff','.woff2':'font/woff2','.ttf':'font/ttf','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp'})[path.extname(file)]||'application/octet-stream';}
+function mime(file){return ({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.css':'text/css; charset=utf-8','.woff':'font/woff','.woff2':'font/woff2','.ttf':'font/ttf','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.pdf':'application/pdf','.pptx':'application/vnd.openxmlformats-officedocument.presentationml.presentation'})[path.extname(file)]||'application/octet-stream';}
 export function server(dir,port=4173){const base=path.resolve(root,dir);return http.createServer((req,res)=>{let u;try{u=decodeURIComponent(new URL(req.url,'http://localhost').pathname)}catch{res.writeHead(400).end();return} if(u.startsWith('/ai-agent-club-2026-fall/'))u=u.slice('/ai-agent-club-2026-fall'.length);let f=path.resolve(base,'.'+u);if(!f.startsWith(base+path.sep)&&f!==base){res.writeHead(403).end();return}if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');if(!fs.existsSync(f)){res.writeHead(404).end();return}res.setHeader('Content-Type',mime(f));fs.createReadStream(f).pipe(res)}).listen(port,()=>console.log(`http://127.0.0.1:${port}/`));}
 try {
  if(cmd==='setup:assets')setupAssets();
@@ -93,7 +104,7 @@ try {
  else if(cmd==='release:check') {
   if(config.publishSite!==true||config.publicReleaseApproved!==true)throw new Error('공개 플래그가 승인되지 않았습니다');
   if(config.publicTranscript!==false)throw new Error('공개 사이트 대본 제외 설정이 필요합니다');
-  const expected=[];
+  const expected=[],allowedDownloads=new Set();
   for(const d of lectureDirs()){
    if(!fs.existsSync(path.join(d,'deck.json')))continue;
    const x=loadLecture(d),a=x.approval;
@@ -101,6 +112,8 @@ try {
    if(!isApproved(x))throw new Error(`${x.deck.slug} 공개 승인 해시 불일치`);
    if(a.scope?.repositorySource!==true||a.scope?.includeSpeakerNotesInRepository!==true||!a.approvedAt||!a.approvalEvidence)throw new Error(`${x.deck.slug} 공개 저장소와 대본 범위 승인 누락`);
    expected.push(x.deck.slug);
+   if(a.scope?.pdf===true)allowedDownloads.add(`lectures/${x.deck.slug}/downloads/slides.pdf`);
+   if(a.scope?.pptx===true)allowedDownloads.add(`lectures/${x.deck.slug}/downloads/slides.visual.pptx`);
   }
   const out=path.join(root,'dist','public');
   const portfolio=readJson(path.join(out,'portfolio.json'));
@@ -113,7 +126,8 @@ try {
   }
   const files=[];const visit=dir=>{for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,entry.name);if(entry.isDirectory())visit(p);else files.push(path.relative(out,p));}};visit(out);
   if(files.some(f=>/^(?:\.private|reports|exports|private)\/|(?:presenter|speaker-script|\.env)/i.test(f)))throw new Error('공개 파일 목록에 비공개 산출물 포함');
-  if(files.some(f=>/\.(pdf|pptx|docx)$/i.test(f)))throw new Error('PDF/PPTX/DOCX는 이번 사이트 게시 범위가 아닙니다');
+  if(files.some(f=>/\.docx$/i.test(f)||/\.(pdf|pptx)$/i.test(f)&&!allowedDownloads.has(f)))throw new Error('승인되지 않은 문서가 공개 파일 목록에 포함되었습니다');
+  if([...allowedDownloads].some(f=>!files.includes(f)))throw new Error('승인된 PDF/PPTX 다운로드가 누락되었습니다');
   console.log(`공개 게이트 PASS: ${expected.length}회차, ${files.length}개 파일`);
  }
  else throw new Error('알 수 없는 명령. --help를 확인하세요.');

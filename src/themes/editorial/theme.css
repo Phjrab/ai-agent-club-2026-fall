@@ -76,8 +76,8 @@ body{background:var(--ed-paper);color:var(--ed-ink)}
 /* A reusable editorial index for every approved lecture in the term. */
 .portfolio.theme-editorial{max-width:1320px;padding:62px 42px 110px}
 .portfolio.theme-editorial header{position:relative;min-height:580px;padding:68px 50% 55px 42px;background:var(--ed-paper);border-top:3px solid var(--ed-ink);border-bottom:1px solid var(--ed-rule);overflow:hidden}
-.portfolio.theme-editorial header::before{content:'';position:absolute;right:0;top:0;bottom:0;width:46%;background:var(--ed-dark-panel) url('./themes/editorial/collage.webp') right center/cover no-repeat}
-.portfolio.theme-editorial header::after{content:'';position:absolute;right:46%;top:0;bottom:0;border-right:1px solid var(--ed-rule)}
+.portfolio.theme-editorial header::before{content:'';position:absolute;right:0;top:0;bottom:0;width:47%;background:var(--ed-dark-panel)}
+.portfolio.theme-editorial header::after{content:'';position:absolute;right:47%;top:0;bottom:0;border-right:1px solid var(--ed-rule)}
 .portfolio.theme-editorial .eyebrow{font-size:14px;color:var(--ed-secondary);letter-spacing:.16em}
 .portfolio.theme-editorial h1{font-size:clamp(52px,6vw,92px);line-height:1.08;max-width:720px;margin:35px 0 28px;font-weight:600}
 .portfolio.theme-editorial .lead{font-size:clamp(22px,2.3vw,29px);color:var(--ed-ink)}
@@ -85,11 +85,13 @@ body{background:var(--ed-paper);color:var(--ed-ink)}
 .portfolio.theme-editorial section{padding:70px 42px;border-bottom:1px solid var(--ed-rule)}
 .portfolio.theme-editorial h2{font-size:42px;font-weight:600}
 .portfolio.theme-editorial .cards{display:block;border-top:2px solid var(--ed-ink)}
-.portfolio.theme-editorial .card{position:relative;padding:28px 145px 30px 72px;border:0;border-bottom:1px solid var(--ed-rule);border-radius:0;background:transparent}
+.portfolio.theme-editorial .card{position:relative;padding:28px 30px 30px 72px;border:0;border-bottom:1px solid var(--ed-rule);border-radius:0;background:transparent}
 .portfolio.theme-editorial .card::before{content:counter(lecture,decimal-leading-zero);counter-increment:lecture;position:absolute;left:0;top:30px;font-size:29px;color:var(--ed-secondary);font-variant-numeric:tabular-nums}
 .portfolio.theme-editorial .cards{counter-reset:lecture}
 .portfolio.theme-editorial .card h3{font-size:30px;margin:8px 0}
 .portfolio.theme-editorial .card a{position:absolute;right:0;top:47px;color:var(--ed-ink);text-decoration:underline;text-underline-offset:5px}
+.portfolio.theme-editorial .card .card-links{position:static;display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:15px}
+.portfolio.theme-editorial .card .card-links a{position:static;white-space:nowrap}
 .portfolio.theme-editorial .tag{color:var(--ed-secondary);letter-spacing:.1em}
 .portfolio.theme-editorial .steps{gap:0;border-top:2px solid var(--ed-ink)}
 .portfolio.theme-editorial .steps article{border-top:0;border-right:1px solid var(--ed-rule);padding:22px 28px 0}
@@ -100,7 +102,7 @@ body{background:var(--ed-paper);color:var(--ed-ink)}
 @media(max-width:700px){
  .portfolio.theme-editorial{padding:20px 16px 60px}
  .portfolio.theme-editorial header{min-height:0;padding:30px 22px 240px}
- .portfolio.theme-editorial header::before{top:auto;left:0;right:0;bottom:0;width:100%;height:210px;background-position:right center}
+ .portfolio.theme-editorial header::before{top:auto;left:0;right:0;bottom:0;width:100%;height:210px}
  .portfolio.theme-editorial header::after{display:none}
  .portfolio.theme-editorial h1{font-size:52px}
  .portfolio.theme-editorial .meta{margin-top:30px}
@@ -108,8 +110,12 @@ body{background:var(--ed-paper);color:var(--ed-ink)}
  .portfolio.theme-editorial .card{padding:25px 0 28px 48px}
  .portfolio.theme-editorial .card::before{font-size:23px;top:26px}
  .portfolio.theme-editorial .card a{position:static;margin-top:8px}
+ .portfolio.theme-editorial .card .card-links{position:static;flex-wrap:wrap;margin-top:8px}
  .portfolio.theme-editorial .steps{display:block}
  .portfolio.theme-editorial .steps article{border-right:0;border-bottom:1px solid var(--ed-rule);padding:20px 0}
 }
 @media(prefers-reduced-motion:reduce){.theme-editorial .slide-body,.theme-editorial .slide-header{animation:none!important;transition:none!important}}
 body.export-mode .theme-editorial .slide-body,body.export-mode .theme-editorial .slide-header{animation:none!important;transition:none!important}
+.theme-editorial .slide[data-slide-id="L01-S09B"] .block-figure{border:0}
+.theme-editorial .slide[data-layout="copilot-details"] .block-figure{background:#27272a;border:0;box-shadow:none}
+.theme-editorial .slide[data-slide-id="L01-S29"] .block-figure{background:transparent;border:0;box-shadow:none}

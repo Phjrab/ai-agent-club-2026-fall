@@ -118,9 +118,9 @@ body.export-mode .deck-shell{width:1920px;height:1080px}body.export-mode .deck-t
 .slide[data-layout="screenshot"] .screenshot-brand-name{position:absolute;z-index:4;left:208px;top:47px;font-size:47px;line-height:1.1;color:#172238;letter-spacing:-.025em}
 .slide[data-slide-id="L01-S09"] .screenshot-logo{left:66px;top:4px;width:144px;height:144px}
 .slide[data-layout="screenshot"] .block-figure{height:calc(100% - 80px)}
-.slide[data-slide-id="L01-S09B"] .slide-body{top:130px;bottom:80px;height:auto}
+.slide[data-slide-id="L01-S09B"] .slide-body{top:120px;bottom:80px;left:210px;right:210px;height:auto;width:auto}
 .slide[data-slide-id="L01-S09B"] .block-figure{height:100%}
-.slide[data-slide-id="L01-S09B"] .block-figure img{position:absolute!important;left:-171px!important;top:-115px!important;width:2323px!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:contain!important}
+.slide[data-slide-id="L01-S09B"] .block-figure img{position:absolute!important;left:-341px!important;top:-108px!important;width:2180px!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:contain!important}
 .slide[data-slide-id="L01-S09B"] .block-figure figure{display:block}
 
 /* Let product screenshots fill their editorial frames. Crop only the unused
@@ -128,8 +128,9 @@ body.export-mode .deck-shell{width:1920px;height:1080px}body.export-mode .deck-t
 .slide[data-layout="screen"] .block-figure:not(.block-brand):not(.block-cli) img{object-fit:cover;object-position:center top}
 .slide[data-layout="screen"]:has(.block-cli) .block-figure:not(.block-brand):not(.block-cli) img{object-position:left center}
 .slide[data-slide-id="L01-A02"] .block-figure img{object-position:center center}
-.slide[data-slide-id="L01-A04"] .block-figure img,.slide[data-slide-id="L01-A03"] .block-figure img{object-fit:contain!important}
+.slide[data-slide-id="L01-A04"] .block-figure img{object-fit:contain!important}
 .slide[data-slide-id="L01-A04"] .block-figure img{object-position:center center!important}
+.slide[data-slide-id="L01-A03"] .block-figure img{object-fit:cover!important;object-position:center center!important}
 
 .slide[data-slide-id="L01-S06"] .slide-content{grid-template-columns:1.05fr 1fr 1fr;grid-template-rows:repeat(2,270px);gap:18px 24px;align-items:stretch}
 .slide[data-slide-id="L01-S06"] .slide-content>ul{grid-column:1;grid-row:1/3;font-size:31px;gap:24px;align-content:center}
@@ -150,18 +151,16 @@ body.export-mode .deck-shell{width:1920px;height:1080px}body.export-mode .deck-t
 .slide[data-slide-id="L01-S24"] .slide-content>.block-figure:first-child::after{content:"";position:absolute;left:77%;top:3%;width:12.5%;height:94%;border:7px solid #f26645;border-radius:12px;pointer-events:none}
 .slide[data-slide-id="L01-S24"] .slide-content>.block-figure:first-child::before{content:"Copilot 채팅 창";position:absolute;z-index:2;left:77%;top:0;padding:7px 18px;border-radius:8px;background:#f26645;color:#fff;font-size:30px;font-weight:700;white-space:nowrap}
 .slide[data-slide-id="L01-S10"] .asset-caption{display:none}
-.slide[data-slide-id="L01-S27"] .block-brand{position:absolute;right:0;top:-145px;width:320px;height:120px;display:flex;align-items:center;gap:12px}
-.slide[data-slide-id="L01-S27"] .block-brand figure{width:104px;height:104px;display:block;flex:none}
-.slide[data-slide-id="L01-S27"] .block-brand img{width:104px;height:104px;max-height:none;aspect-ratio:1;object-fit:contain}
 .slide[data-slide-id="L01-A02"] .block-figure::after{content:"";position:absolute;left:28.5%;top:46%;width:17%;height:4.5%;border:6px solid #f26645;border-radius:12px;box-shadow:0 0 0 4px #fff7}
 .slide[data-slide-id="L01-A02"] .block-figure::before{content:"대화 요약";position:absolute;z-index:2;left:29%;top:40%;padding:3px 12px;background:#f26645;color:#fff;border-radius:7px;font-size:28px;font-weight:700}
 .slide[data-slide-id="L01-S22"] .slide-content,.slide[data-slide-id="L01-S29"] .slide-content{grid-template-columns:1fr}
-.slide[data-slide-id="L01-S29"] .slide-content{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.slide[data-slide-id="L01-S29"] .slide-content{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:32px}
 .slide[data-slide-id="L01-S29"] .slide-content:has(> :only-child){grid-template-columns:1fr;justify-items:center}
 .slide[data-slide-id="L01-S29"] .slide-content:has(> :only-child) .block-figure{width:900px}
 .slide[data-slide-id="L01-S29"] .slide-content>ul{font-size:32px;line-height:1.3;gap:18px}
-.slide[data-slide-id="L01-S29"] .block-figure{height:500px;max-height:none;display:grid;place-items:center}
-.slide[data-slide-id="L01-S29"] .block-figure img{max-height:450px;aspect-ratio:auto;object-fit:contain}
+.slide[data-slide-id="L01-S29"] .block-figure{height:560px;max-height:none;padding:0;display:grid;place-items:center}
+.slide[data-slide-id="L01-S29"] .block-figure figure{width:100%;height:100%;display:grid;grid-template-rows:minmax(0,1fr) auto;justify-items:center;gap:10px}
+.slide[data-slide-id="L01-S29"] .block-figure img{width:100%;height:500px;max-height:none;aspect-ratio:auto;object-fit:contain}
 .slide[data-slide-id="L01-S29"] .asset-caption{font-size:22px}
 
 /* Supporting examples added after the CSU and Copilot overview slides. */
@@ -185,3 +184,11 @@ body.export-mode .deck-shell{width:1920px;height:1080px}body.export-mode .deck-t
 .slide[data-slide-id="L01-A02"] .block-figure::before{left:20%;top:61%}
 .slide[data-slide-id="L01-S24"] .slide-content>.block-figure:first-child::after{left:84%;top:3%;width:15%;height:94%}
 .slide[data-slide-id="L01-S24"] .slide-content>.block-figure:first-child::before{left:84%;top:0}
+
+/* Keep supplied UI readable while removing unused frame space. */
+.slide[data-layout="copilot-details"] .block-figure{padding:0;overflow:hidden}
+.slide[data-layout="copilot-details"] .block-figure figure{height:100%;width:100%}
+.slide[data-layout="copilot-details"] .block-figure:first-child img{object-fit:cover}
+.slide[data-layout="copilot-details"] .block-figure:last-child img{object-fit:contain}
+.slide[data-slide-id="L01-S15"] .video-thumb{width:calc(100% + 40px);max-width:none;margin:-28px -20px 4px}
+.slide[data-slide-id="L01-S15"] .video-thumb img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}

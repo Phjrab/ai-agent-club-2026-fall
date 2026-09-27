@@ -111,9 +111,9 @@ GitHub Pages project base path를 모사한 `/ai-agent-club-2026-fall/` 아래�
 공개 build 전에 다음을 모두 확인한다.
 
 - 승인 hash가 현재 콘텐츠와 일치한다.
-- private 노트, `.private`, 원본 첨부자료, 학생 정보, 이메일·전화번호, API 키, `.env`, 인증 파일이 없다.
+- 승인 범위 밖의 private 노트, `.private` 파일, 학생 정보, 이메일·전화번호, API 키, `.env`, 인증 파일이 없다. 명시적으로 공개 승인된 캡처·문서는 승인 기록 및 자산 메타데이터와 대조한다.
 - 공개 artifact에 불필요한 source map·내부 경로·비공개 강의 JSON이 없다.
-- assets manifest에서 재배포 불명·검토 대기인 자산이 제외됐다.
+- assets manifest에서 재배포 불명·검토 대기인 자산은 기본적으로 제외하며, 사용자가 공개를 명시한 예외는 권리 확인 상태를 숨기지 않고 기록한다.
 - 미승인 강의가 목록·검색 index·thumbnail·sitemap·PDF·HTML cache에 남지 않았다.
 - `dist/public`만 deploy artifact로 사용하고, 저장소 전체 또는 `dist/private`를 업로드하지 않는다.
 - 원고 공개가 false일 때 HTML script/JSON/숨겨진 DOM에도 원고가 없다.
