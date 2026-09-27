@@ -1,0 +1,115 @@
+/* MONO STAGE 02: visual layer only. The slide canvas and semantic blocks stay in the engine. */
+:root {
+  --ed-paper:#F3F0E7;--ed-paper-clean:#FCFBF8;--ed-ink:#151512;
+  --ed-secondary:#56564F;--ed-rule:#C8C5B9;--ed-panel:#E6E2D7;
+  --ed-dark-panel:#191916;--ed-reversed-ink:#F6F3E9;
+  --ink:var(--ed-ink);--muted:var(--ed-secondary);--line:var(--ed-rule);
+  --paper:var(--ed-paper-clean);--panel:var(--ed-panel);--accent:#23231F;
+  background:var(--ed-paper);
+}
+body{background:var(--ed-paper);color:var(--ed-ink)}
+.theme-editorial.deck-shell{background:var(--ed-dark-panel)}
+.theme-editorial .deck-toolbar{height:64px;background:var(--ed-dark-panel);border-bottom:1px solid #494943;color:var(--ed-reversed-ink);font-size:15px;letter-spacing:.04em}
+.theme-editorial .deck-toolbar button{background:transparent;color:inherit;border:1px solid #77776f;border-radius:2px;min-width:64px}
+.theme-editorial .deck-toolbar button:hover,.theme-editorial .deck-toolbar button:focus-visible{background:var(--ed-paper);color:var(--ed-ink)}
+.theme-editorial .slide{background:var(--ed-paper-clean);color:var(--ed-ink)}
+.theme-editorial .slide-header{position:relative;z-index:1}
+.theme-editorial .slide-kicker{font-size:24px;letter-spacing:.12em;text-transform:uppercase;color:var(--ed-secondary);padding-left:24px;position:relative}
+.theme-editorial .slide-kicker::before{content:'';position:absolute;left:0;top:13px;width:9px;height:9px;background:var(--ed-ink)}
+.theme-editorial .slide-title{letter-spacing:-.045em;font-weight:700}
+.theme-editorial .slide-footer{color:var(--ed-secondary);border-top:2px solid var(--ed-ink);font-variant-numeric:tabular-nums;z-index:2}
+.theme-editorial .slide-footer::before{content:'AI AGENT CLUB  /  2026 FALL';margin-right:auto;font-size:21px;letter-spacing:.11em}
+.theme-editorial .slide[data-layout="screenshot"] .slide-footer::before{display:none}
+.theme-editorial .slide-body{position:relative;z-index:1}
+.theme-editorial .slide-takeaway{letter-spacing:-.04em}
+/* A solid ink field keeps the cover's asymmetric editorial composition. */
+.theme-editorial .slide-cover{background:var(--ed-paper);isolation:isolate}
+.theme-editorial .slide-cover::before{content:'';position:absolute;z-index:0;top:0;right:0;bottom:0;width:47%;background:var(--ed-dark-panel)}
+.theme-editorial .slide-cover::after{content:'';position:absolute;z-index:0;left:53%;top:0;bottom:0;border-left:1px solid var(--ed-rule)}
+.theme-editorial .slide-cover .slide-header{height:515px;width:53%;display:flex;align-items:flex-end;padding-right:46px}
+.theme-editorial .slide-cover .slide-title{font-size:88px;line-height:1.14;font-weight:600;max-width:100%;text-wrap:balance}
+.theme-editorial .slide-cover .slide-body{width:51%;height:380px;padding-top:30px;justify-content:flex-start;gap:34px}
+.theme-editorial .slide-cover .slide-takeaway{font-size:43px;line-height:1.32;color:var(--ed-secondary);font-weight:600}
+.theme-editorial .slide-cover .slide-content{font-size:34px;line-height:1.4;max-width:850px}
+.theme-editorial .slide-cover .slide-footer{border-color:var(--ed-ink);color:var(--ed-reversed-ink)}
+.theme-editorial .slide-cover .slide-footer::before{color:var(--ed-secondary)}
+/* Different information patterns share rules and type, without repeated rounded UI cards. */
+.theme-editorial .block-card,.theme-editorial .block-step,.theme-editorial .block-callout,.theme-editorial .block-video-card{border-radius:2px;box-shadow:none}
+.theme-editorial .block-grid{gap:0;border-top:2px solid var(--ed-ink);border-bottom:1px solid var(--ed-rule)}
+.theme-editorial .block-card{border:0;border-right:1px solid var(--ed-rule);background:transparent;padding:28px 34px 30px}
+.theme-editorial .block-card:last-child{border-right:0}
+.theme-editorial .block-card strong{font-size:42px;letter-spacing:-.035em}
+.theme-editorial .block-grid[data-count="3"] .block-card{font-size:31px;padding:25px 27px}
+.theme-editorial .block-grid[data-count="3"] .block-card strong{font-size:37px}
+.theme-editorial .block-process{gap:0;border-top:2px solid var(--ed-ink);border-bottom:1px solid var(--ed-rule)}
+.theme-editorial .block-step{border:0;border-right:1px solid var(--ed-rule);background:transparent;padding:29px 30px 33px}
+.theme-editorial .block-step:last-child{border-right:0}
+.theme-editorial .block-step em{font-size:46px;line-height:1;color:var(--ed-ink);font-weight:600;margin-bottom:22px;font-variant-numeric:tabular-nums}
+.theme-editorial .block-table{border-top:3px solid var(--ed-ink);border-bottom:2px solid var(--ed-ink)}
+.theme-editorial .block-table th{background:var(--ed-panel)}
+.theme-editorial .block-table th,.theme-editorial .block-table td{border-color:var(--ed-rule)}
+.theme-editorial .block-callout{border-left:4px solid var(--ed-ink);background:var(--ed-panel)}
+.theme-editorial .block-callout .label{color:var(--ed-ink);letter-spacing:.05em}
+.theme-editorial .block-figure:not(.block-brand):not(.block-logo):not(.block-choice-brand):not(.block-mini-brand):not(.block-cli):not(.block-phone){background:#fff;border:1px solid var(--ed-rule);border-radius:2px;box-shadow:8px 11px 0 rgb(21 21 18 / 7%)}
+.theme-editorial .block-figure img{filter:none}
+.theme-editorial .asset-caption{color:var(--ed-secondary)}
+.theme-editorial .block-code{background:var(--ed-dark-panel);color:var(--ed-reversed-ink);border-radius:2px}
+.theme-editorial .block-video-card{background:var(--ed-paper-clean);border:1px solid var(--ed-rule)}
+.theme-editorial .block-video-card a{color:var(--ed-ink);text-decoration:underline;text-underline-offset:5px}
+.theme-editorial .block-video-card a:focus-visible,.theme-editorial .portfolio a:focus-visible{outline:3px solid var(--ed-ink);outline-offset:4px}
+.theme-editorial .video-thumb img{border-radius:0}
+.theme-editorial .figure-marker{background:var(--ed-ink)}
+.theme-editorial .slide[data-editorial-layout="statement"] .slide-content>ul{list-style:none;padding:0;border-top:2px solid var(--ed-ink)}
+.theme-editorial .slide[data-editorial-layout="statement"] .slide-content>ul li{border-bottom:1px solid var(--ed-rule);padding:12px 18px 16px}
+.theme-editorial .slide[data-editorial-layout="statement"] .slide-takeaway{max-width:1300px}
+.theme-editorial .slide[data-slide-id="L01-S06"] .block-mini-brand{border-radius:2px;background:var(--ed-paper-clean);border-color:var(--ed-rule)}
+.theme-editorial .slide[data-slide-id="L01-S30"] .slide-content{width:100%;position:relative}
+.theme-editorial .slide[data-slide-id="L01-S30"] .slide-takeaway{max-width:100%}
+.theme-editorial .slide[data-layout="remote-focus"] .block-phone{width:302px;height:620px;justify-self:center;background:#fff;border:2px solid #fff;border-radius:24px;padding:8px;box-shadow:0 0 0 1px var(--ed-rule);overflow:hidden}
+.theme-editorial .slide[data-layout="remote-focus"] .block-phone img{height:600px}
+.theme-editorial .slide[data-editorial-layout="code"] .block-callout:first-child{background:var(--ed-dark-panel);color:var(--ed-reversed-ink);border-color:var(--ed-dark-panel)}
+.theme-editorial .slide[data-editorial-layout="code"] .block-callout:first-child .label{color:var(--ed-reversed-ink)}
+/* Original screenshots keep their exact image geometry and logos. */
+.theme-editorial .slide[data-layout="screenshot"] .block-figure{box-shadow:none!important}
+.theme-editorial #toc{background:var(--ed-paper-clean);border-radius:2px}
+.theme-editorial #toc button{background:transparent;border-color:var(--ed-rule)}
+/* A reusable editorial index for every approved lecture in the term. */
+.portfolio.theme-editorial{max-width:1320px;padding:62px 42px 110px}
+.portfolio.theme-editorial header{position:relative;min-height:580px;padding:68px 50% 55px 42px;background:var(--ed-paper);border-top:3px solid var(--ed-ink);border-bottom:1px solid var(--ed-rule);overflow:hidden}
+.portfolio.theme-editorial header::before{content:'';position:absolute;right:0;top:0;bottom:0;width:46%;background:var(--ed-dark-panel) url('./themes/editorial/collage.webp') right center/cover no-repeat}
+.portfolio.theme-editorial header::after{content:'';position:absolute;right:46%;top:0;bottom:0;border-right:1px solid var(--ed-rule)}
+.portfolio.theme-editorial .eyebrow{font-size:14px;color:var(--ed-secondary);letter-spacing:.16em}
+.portfolio.theme-editorial h1{font-size:clamp(52px,6vw,92px);line-height:1.08;max-width:720px;margin:35px 0 28px;font-weight:600}
+.portfolio.theme-editorial .lead{font-size:clamp(22px,2.3vw,29px);color:var(--ed-ink)}
+.portfolio.theme-editorial .meta{font-size:15px;border-top:1px solid var(--ed-rule);padding-top:24px;margin-top:50px;max-width:640px;gap:12px 26px}
+.portfolio.theme-editorial section{padding:70px 42px;border-bottom:1px solid var(--ed-rule)}
+.portfolio.theme-editorial h2{font-size:42px;font-weight:600}
+.portfolio.theme-editorial .cards{display:block;border-top:2px solid var(--ed-ink)}
+.portfolio.theme-editorial .card{position:relative;padding:28px 145px 30px 72px;border:0;border-bottom:1px solid var(--ed-rule);border-radius:0;background:transparent}
+.portfolio.theme-editorial .card::before{content:counter(lecture,decimal-leading-zero);counter-increment:lecture;position:absolute;left:0;top:30px;font-size:29px;color:var(--ed-secondary);font-variant-numeric:tabular-nums}
+.portfolio.theme-editorial .cards{counter-reset:lecture}
+.portfolio.theme-editorial .card h3{font-size:30px;margin:8px 0}
+.portfolio.theme-editorial .card a{position:absolute;right:0;top:47px;color:var(--ed-ink);text-decoration:underline;text-underline-offset:5px}
+.portfolio.theme-editorial .tag{color:var(--ed-secondary);letter-spacing:.1em}
+.portfolio.theme-editorial .steps{gap:0;border-top:2px solid var(--ed-ink)}
+.portfolio.theme-editorial .steps article{border-top:0;border-right:1px solid var(--ed-rule);padding:22px 28px 0}
+.portfolio.theme-editorial .steps article:first-child{padding-left:0}
+.portfolio.theme-editorial .steps article:last-child{border-right:0}
+.portfolio.theme-editorial footer{padding:40px 42px}
+.portfolio.theme-editorial a{color:var(--ed-ink)}
+@media(max-width:700px){
+ .portfolio.theme-editorial{padding:20px 16px 60px}
+ .portfolio.theme-editorial header{min-height:0;padding:30px 22px 240px}
+ .portfolio.theme-editorial header::before{top:auto;left:0;right:0;bottom:0;width:100%;height:210px;background-position:right center}
+ .portfolio.theme-editorial header::after{display:none}
+ .portfolio.theme-editorial h1{font-size:52px}
+ .portfolio.theme-editorial .meta{margin-top:30px}
+ .portfolio.theme-editorial section{padding:50px 16px}
+ .portfolio.theme-editorial .card{padding:25px 0 28px 48px}
+ .portfolio.theme-editorial .card::before{font-size:23px;top:26px}
+ .portfolio.theme-editorial .card a{position:static;margin-top:8px}
+ .portfolio.theme-editorial .steps{display:block}
+ .portfolio.theme-editorial .steps article{border-right:0;border-bottom:1px solid var(--ed-rule);padding:20px 0}
+}
+@media(prefers-reduced-motion:reduce){.theme-editorial .slide-body,.theme-editorial .slide-header{animation:none!important;transition:none!important}}
+body.export-mode .theme-editorial .slide-body,body.export-mode .theme-editorial .slide-header{animation:none!important;transition:none!important}

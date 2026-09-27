@@ -12,11 +12,11 @@
 AGENTS.md와 docs/PRESENTATION_AGENT.md를 읽고,
 lectures/2026-fall/02-prompt-and-workflow/brief.md를 기준으로 이번 강의 자료를 제작해줘.
 기존 발표 엔진과 디자인을 재사용하고, 이 강의에 필요한 최신 공식 자료만 확인해줘.
-brief.md → deck.json/출처/데이터 → 한국어 원고 → HTML/PDF/visual PPTX/DOCX → 실제 QA까지 수행해줘.
+brief.md → deck.json/출처/데이터와 슬라이드별 한국어 발표 메모 → HTML/PDF/visual PPTX → 실제 QA까지 수행해줘. 별도 발표 대본 파일은 만들지 마.
 이전 강의의 사실·날짜·승인 상태는 건드리지 말고, 이번 강의는 draft로 유지해줘.
 필수 내용 커버리지, 예상 발표 시간, 확인이 필요한 정보, 생성 파일과 QA 증거를 보고해줘.
-현재 저장소가 private이면 안전한 변경만 lecture 브랜치에 commit·push하고 PR을 만들어줘. 공개와 merge는 하지 마.
-현재 저장소가 public이면 이번 draft의 소스 공개 승인이 없는 상태로 branch/PR에도 올리지 말고 로컬 결과와 필요한 승인 범위를 보고해줘.
+초안을 로컬에서 보여주고 내가 요청하는 수정을 모두 반영해줘. 내가 수정 완료를 확인하거나 업로드를 지시하기 전에는 저장소 가시성과 관계없이 push·PR·merge·Pages 게시를 하지 마.
+업로드 지시를 받으면 요청한 범위의 파일과 공개 범위를 확인해 GitHub에 반영해줘. GitHub 소스 업로드와 Pages 게시를 구분해줘.
 ```
 
 `02-prompt-and-workflow`는 예시 slug다. 실제로 만든 강의 경로를 사용한다. `npm run lecture:new`는 폴더·입력 틀만 만들며 자체적으로 강의 내용을 집필하지 않는다.
@@ -34,6 +34,7 @@ AGENTS.md와 현재 Git 상태를 확인하고 01-agent-ai-intro 강의에서 �
 강의 내용이 바뀌면 기존 공개 승인 해시를 무효화해줘.
 수정 장과 같은 레이아웃 대표 장을 다시 렌더링하고, export를 재생성해 QA 결과와 diff를 보여줘.
 기존 확정 release는 덮어쓰지 말고 새 revision으로 남겨줘.
+수정 결과를 로컬에서 보여줘. 내가 수정 완료를 확인하거나 업로드를 지시하기 전에는 push·PR·merge·Pages 게시를 하지 마.
 ```
 
 ## 3. 폰트·디자인 규칙 변경

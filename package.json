@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "chart.js": "4.5.1",
-    "docx": "9.6.1",
     "esbuild": "0.25.10",
     "katex": "0.16.22",
     "mermaid": "11.12.0",

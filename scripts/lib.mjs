@@ -10,6 +10,10 @@ export const readJson = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 export const writeJson = (file, value) => { fs.mkdirSync(path.dirname(file), {recursive:true}); fs.writeFileSync(file, JSON.stringify(value,null,2)+'\n'); };
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const safeSlug = s => /^[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*$/.test(s);
+export function briefMetadata(brief) {
+  const frontmatter=String(brief).match(/^---\s*\n([\s\S]*?)\n---(?:\n|$)/);
+  return frontmatter?YAML.parse(frontmatter[1])||{}:{};
+}
 export function lectureDirs() {
   const base=path.join(root,'lectures');
   if (!fs.existsSync(base)) return [];
@@ -71,14 +75,14 @@ export function validateDeck(data) {
   const assetById=new Map((assets.assets||[]).map(a=>[a.id,a]));
   const assetIds=new Set(assetById.keys());
   const usedAssets=new Map();
-  const allowed=new Set(['cover','statement','bullets','comparison','process','table','figure-focus','text-figure','case-study','summary','qa','code-prompt','chart','math','diagram','screenshot']);
+  const allowed=new Set(['cover','statement','bullets','comparison','process','table','figure-focus','text-figure','case-study','summary','qa','code-prompt','chart','math','diagram','screenshot','screen','usage-combined','school-dual','remote-focus','diagram-main','loop-focus','harness-focus','repo-intro','copilot-details']);
   for(const s of deck.slides||[]) {
     if(!s.id || ids.has(s.id)) e.push(`중복/누락 slide ID: ${s.id}`); ids.add(s.id);
     if(!allowed.has(s.layout)) e.push(`미등록 layout: ${s.id}`);
     if(s.layout==='screenshot'&&(s.blocks?.length!==1||s.blocks[0]?.type!=='figure')) e.push(`screenshot layout은 figure 블록 하나만 허용: ${s.id}`);
     if(!['main','appendix','qa'].includes(s.kind)) e.push(`kind 오류: ${s.id}`);
     if(!Number.isInteger(s.durationSec)||s.durationSec<0) e.push(`duration 오류: ${s.id}`);
-    if(!s.title || !s.takeaway || !Array.isArray(s.blocks) || s.blocks.length===0) e.push(`콘텐츠 누락: ${s.id}`);
+    if(!s.title || (!s.takeaway && !s.blocks?.some(b=>b.type==='video-list')) || !Array.isArray(s.blocks) || s.blocks.length===0) e.push(`콘텐츠 누락: ${s.id}`);
     if(s.kind==='main' && (!s.speakerNotes?.say || !s.speakerNotes?.transition)) e.push(`원고 누락: ${s.id}`);
     if(s.sourcePolicy==='external' && !s.sourceIds?.length) e.push(`외부 출처 누락: ${s.id}`);
     for(const id of s.sourceIds||[]) if(!sourceIds.has(id)) e.push(`없는 source ID: ${s.id}/${id}`);
@@ -100,7 +104,7 @@ export function validateDeck(data) {
   const main=deck.slides?.filter(s=>s.kind==='main')||[];
   const qa=deck.slides?.filter(s=>s.kind==='qa')||[];
   const mainSeconds=main.reduce((n,s)=>n+s.durationSec,0), qaSeconds=qa.reduce((n,s)=>n+s.durationSec,0);
-  const frontmatter=brief.toString().match(/^---\s*\n([\s\S]*?)\n---/), briefMeta=frontmatter?YAML.parse(frontmatter[1])||{}:{};
+  const briefMeta=briefMetadata(brief);
   if(briefMeta.slide_language&&deck.slideLanguage!==briefMeta.slide_language) e.push('slideLanguage와 brief 설정 불일치');
   if(briefMeta.script_language&&deck.scriptLanguage!==briefMeta.script_language) e.push('scriptLanguage와 brief 설정 불일치');
   if(Number.isInteger(briefMeta.duration_minutes)&&deck.sessionDurationSec!==briefMeta.duration_minutes*60) e.push('sessionDurationSec와 brief 수업 시간 불일치');
@@ -161,7 +165,7 @@ export function validateDeck(data) {
 export function sanitizeDeck(deck, assets=[], {includePrivateAssets=false}={}) {
   const safeAssets=assets.filter(a=>includePrivateAssets||a.publicAllowed).map(({id,path,alt,caption,kind,width,height,sha256})=>({id,path,alt,caption,kind,width,height,sha256}));
   const safeAssetIds=new Set(safeAssets.map(a=>a.id));
-  const slides=deck.slides.map(({speakerNotes,...s})=>({...s,blocks:(s.blocks||[]).map(block=>{
+  const slides=deck.slides.map(({speakerNotes,...s})=>({...s,blocks:(s.blocks||[]).filter(block=>block.type!=='figure'||safeAssetIds.has(block.assetId)).map(block=>{
     if(block.type!=='video-list')return block;
     let omitted=false;
     const items=(block.items||[]).map(item=>{

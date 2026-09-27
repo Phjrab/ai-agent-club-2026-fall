@@ -3,7 +3,7 @@ import path from 'node:path';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
 import {build} from 'esbuild';
-import {root,config,lectureDirs,loadLecture,validateDeck,validateSources,isApproved,sanitizeDeck,escapeHtml,selectLecture,readJson,writeJson,assetSourceFile} from './lib.mjs';
+import {root,config,lectureDirs,loadLecture,briefMetadata,validateDeck,validateSources,isApproved,sanitizeDeck,escapeHtml,selectLecture,readJson,writeJson,assetSourceFile} from './lib.mjs';
 
 const [cmd,...args]=process.argv.slice(2);
 const option=(name, fallback)=>{const i=args.indexOf(name);return i<0?fallback:args[i+1];};
@@ -28,8 +28,12 @@ async function buildSite(isPublic=false){
   for(const [name,file] of [['Chart.js','chart.js/LICENSE.md'],['KaTeX','katex/LICENSE'],['Mermaid','mermaid/LICENSE'],['Prism.js','prismjs/LICENSE']])
    copy(path.join(root,'node_modules',file),path.join(out,'licenses',`${name}.txt`));
   copy(path.join(root,'docs','LICENSE_POLICY.md'),path.join(out,'licenses','PROJECT_POLICY.md'));
+  copy(path.join(root,'docs','licenses','SuperTinyIcons-MIT.txt'),path.join(out,'licenses','SuperTinyIcons-MIT.txt'));
  }
- copy(path.join(root,'src','site.css'),path.join(out,'assets','site.css'));
+ const baseCss=fs.readFileSync(path.join(root,'src','site.css'),'utf8');
+ const editorialCss=fs.readFileSync(path.join(root,'src','themes','editorial','theme.css'),'utf8');
+ fs.writeFileSync(path.join(out,'assets','site.css'),`${baseCss}\n${editorialCss}\n`);
+ copy(path.join(root,'src','themes','editorial','assets','collage.webp'),path.join(out,'assets','themes','editorial','collage.webp'));
  const katexDir=path.join(root,'node_modules','katex','dist');copy(path.join(katexDir,'katex.min.css'),path.join(out,'assets','katex.min.css'));
  fs.cpSync(path.join(katexDir,'fonts'),path.join(out,'assets','fonts'),{recursive:true});
  for(const entry of ['presentation','portfolio']) await build({entryPoints:[path.join(root,'src',`${entry}.js`)],bundle:true,minify:true,format:'esm',platform:'browser',outfile:path.join(out,'assets',`${entry}.js`),logLevel:'silent'});
@@ -52,14 +56,16 @@ async function buildSite(isPublic=false){
    writeJson(path.join(target,'presenter-deck.json'),{...d.deck,assets:assetManifest,sources:d.sources.sources});
    fs.writeFileSync(path.join(target,'presenter.html'),makePage(d.deck.title+' · 발표자',css,js,'<div id="presentation-app" data-presenter="true"></div>'));
   }
-  cards.push({slug,title:d.deck.title,state:d.deck.contentState,date:'2026-10-01',goals:['AI 선택 기준','Agent 작업과 검증','GitHub 포트폴리오'],sourceChecked:'2026-09-25'});
+  const meta=briefMetadata(d.brief);
+  const checked=(d.sources.sources||[]).map(s=>s.checked_at).filter(x=>typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x)).sort().at(-1)||null;
+  cards.push({slug,term:d.deck.term,title:d.deck.title,state:d.deck.contentState,date:typeof meta.date==='string'?meta.date:null,goals:Array.isArray(meta.portfolio_goals)?meta.portfolio_goals.filter(x=>typeof x==='string'&&x.trim()):[],sourceChecked:checked});
  }
- const payload={title:config.title,term:config.term,startDate:config.startDate,startTime:config.startTime,classroom:config.classroom,plannedSessionCount:config.plannedSessionCount,cards,public:isPublic,repositoryUrl:isPublic?`https://github.com/${config.githubOwner}/${config.repoName}`:null};
+ const payload={title:config.title,term:config.term,timezone:config.timezone,startDate:config.startDate,startTime:config.startTime,classroom:config.classroom,plannedSessionCount:config.plannedSessionCount,cards,public:isPublic,repositoryUrl:isPublic?`https://github.com/${config.githubOwner}/${config.repoName}`:null};
  writeJson(path.join(out,'portfolio.json'),payload);
  fs.writeFileSync(path.join(out,'index.html'),makePage(config.title,'./assets/site.css','./assets/portfolio.js','<div id="portfolio-app"></div>'));
  console.log(`${isPublic?'공개':'비공개'} 빌드: ${out} (${cards.length}회차)`);
 }
-function mime(file){return ({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.css':'text/css; charset=utf-8','.woff':'font/woff','.woff2':'font/woff2','.ttf':'font/ttf','.svg':'image/svg+xml','.png':'image/png'})[path.extname(file)]||'application/octet-stream';}
+function mime(file){return ({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.css':'text/css; charset=utf-8','.woff':'font/woff','.woff2':'font/woff2','.ttf':'font/ttf','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp'})[path.extname(file)]||'application/octet-stream';}
 export function server(dir,port=4173){const base=path.resolve(root,dir);return http.createServer((req,res)=>{let u;try{u=decodeURIComponent(new URL(req.url,'http://localhost').pathname)}catch{res.writeHead(400).end();return} if(u.startsWith('/ai-agent-club-2026-fall/'))u=u.slice('/ai-agent-club-2026-fall'.length);let f=path.resolve(base,'.'+u);if(!f.startsWith(base+path.sep)&&f!==base){res.writeHead(403).end();return}if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');if(!fs.existsSync(f)){res.writeHead(404).end();return}res.setHeader('Content-Type',mime(f));fs.createReadStream(f).pipe(res)}).listen(port,()=>console.log(`http://127.0.0.1:${port}/`));}
 try {
  if(cmd==='setup:assets')setupAssets();
@@ -71,7 +77,7 @@ try {
  else if(cmd==='lecture:new'){
   const slug=option('--slug'),title=option('--title');if(!slug||!title)throw new Error('--slug와 --title이 필요합니다');
   const target=path.join(root,'lectures',config.term,slug);if(fs.existsSync(target))throw new Error('동일 강의 폴더가 이미 있습니다');
-  fs.mkdirSync(target,{recursive:true});fs.writeFileSync(path.join(target,'brief.md'),`---\nslug: ${slug}\nterm: ${config.term}\ntitle: "${title.replaceAll('\"','')}"\nduration_minutes: ${config.durationMinutes}\nlecture_minutes: ${config.lectureMinutes}\nquestions_minutes: ${config.questionsMinutes}\nquestions_mode: ${config.questionsMode}\nslide_language: ${config.slideLanguage}\nscript_language: ${config.scriptLanguage}\ncontent_state: planned\nevent_state: unknown\n---\n\n# ${title}\n\n## 목표\n\n## 필수 내용\n\n## 확인할 자료\n\n## 한국어 작성 기준\n슬라이드와 발표 원고는 기본적으로 한국어로 작성한다. 제품명·코드·경로·URL·실제 화면 문구는 원문을 보존하고 필요한 한국어 설명을 덧붙인다.\n`);console.log(target);
+  fs.mkdirSync(target,{recursive:true});fs.writeFileSync(path.join(target,'brief.md'),`---\nslug: ${slug}\nterm: ${config.term}\ntitle: "${title.replaceAll('\"','')}"\nportfolio_goals: []\ndate: null\nduration_minutes: ${config.durationMinutes}\nlecture_minutes: ${config.lectureMinutes}\nquestions_minutes: ${config.questionsMinutes}\nquestions_mode: ${config.questionsMode}\nslide_language: ${config.slideLanguage}\nscript_language: ${config.scriptLanguage}\ncontent_state: planned\nevent_state: unknown\n---\n\n# ${title}\n\n## 목표\n\n## 필수 내용\n\n## 확인할 자료\n\n## 한국어 작성 기준\n슬라이드와 발표 메모는 기본적으로 한국어로 작성한다. 제품명·코드·경로·URL·실제 화면 문구는 원문을 보존하고 필요한 한국어 설명을 덧붙인다. 별도 발표 대본 파일은 만들지 않는다.\n`);console.log(target);
  }
  else if(cmd==='sources:check') {
   let count=0,errors=[];
@@ -91,6 +97,7 @@ try {
   for(const d of lectureDirs()){
    if(!fs.existsSync(path.join(d,'deck.json')))continue;
    const x=loadLecture(d),a=x.approval;
+   if(a.status!=='approved')continue;
    if(!isApproved(x))throw new Error(`${x.deck.slug} 공개 승인 해시 불일치`);
    if(a.scope?.repositorySource!==true||a.scope?.includeSpeakerNotesInRepository!==true||!a.approvedAt||!a.approvalEvidence)throw new Error(`${x.deck.slug} 공개 저장소와 대본 범위 승인 누락`);
    expected.push(x.deck.slug);

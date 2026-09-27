@@ -12,7 +12,15 @@ try{
   await context.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(`${url}/ai-agent-club-2026-fall/`);
-  await page.waitForFunction(()=>document.querySelectorAll('.card').length===1);
+  await page.waitForSelector('.portfolio header');
+  const cardCount=await page.locator('.card').count();
+  if(cardCount===1&&(await page.locator('.card .tag').textContent())==='공개 전 검토 중'){
+   check('unapproved lecture excluded',await page.locator('.card a').count()===0);
+   check('editorial asset',(await page.request.get(`${url}/ai-agent-club-2026-fall/assets/themes/editorial/collage.webp`)).ok());
+   check('presenter excluded',(await page.request.get(`${url}/ai-agent-club-2026-fall/lectures/${slug}/presenter.html`)).status()===404);
+   await page.setViewportSize({width:390,height:844});check('mobile portfolio',await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));
+   check('browser errors',errors.length===0,errors.join(' | '));await context.close();return;
+  }
   check('portfolio card',await page.locator('.card a').count()===1);
   check('public draft label',(await page.locator('.card .tag').textContent())==='공개 초안');
   await page.locator('.card a').click();
@@ -23,8 +31,9 @@ try{
   check('pricing screenshot order',screenshotSlides.map(s=>s.blocks?.find(b=>b.type==='figure')?.assetId).join(',')==='pricing-chatgpt,pricing-claude,pricing-google',screenshotSlides.map(s=>s.id).join(' → '));
   for(const s of screenshotSlides){
    await page.evaluate(id=>window.presentation.goTo(id),s.id);
-   const frame=await page.evaluate(()=>{const slide=document.querySelector('.slide'),img=slide.querySelector('.block-figure img'),a=img?.getBoundingClientRect(),b=slide.getBoundingClientRect();return {images:slide.querySelectorAll('.block-figure img').length,naturalWidth:img?.naturalWidth,naturalHeight:img?.naturalHeight,objectFit:img?getComputedStyle(img).objectFit:null,fullFrame:a&&Math.abs(a.left-b.left)<1&&Math.abs(a.top-b.top)<1&&Math.abs(a.width-b.width)<1&&Math.abs(a.height-b.height)<1}});
-   check(`original screenshot ${s.id}`,frame.images===1&&frame.naturalWidth===1920&&frame.naturalHeight===1080&&frame.objectFit==='contain'&&frame.fullFrame,JSON.stringify(frame));
+   const asset=publicDeck.assets.find(a=>a.id===s.blocks.find(b=>b.type==='figure').assetId);
+   const frame=await page.evaluate(()=>{const slide=document.querySelector('.slide'),img=slide.querySelector('.block-figure img'),a=img?.getBoundingClientRect(),b=slide.getBoundingClientRect();return {images:slide.querySelectorAll('.block-figure img').length,naturalWidth:img?.naturalWidth,naturalHeight:img?.naturalHeight,objectFit:img?getComputedStyle(img).objectFit:null,fullFrame:a&&Math.abs(a.left-b.left)<1&&Math.abs(a.top-b.top)<1&&Math.abs(a.width-b.width)<1&&Math.abs(a.height-b.height)<1,insetFrame:a&&a.left>=b.left+40&&a.top>=b.top+40&&a.right<=b.right-40&&a.bottom<=b.bottom-40}});
+   check(`original screenshot ${s.id}`,frame.images===1&&frame.naturalWidth===asset.width&&frame.naturalHeight===asset.height&&frame.objectFit==='contain'&&(s.screenshotInset?frame.insetFrame:frame.fullFrame),JSON.stringify(frame));
   }
   check('font',await page.evaluate(()=>document.fonts.check('400 40px Pretendard')));
   await page.goto(`${url}/ai-agent-club-2026-fall/lectures/${slug}/index.html#slide=L01-S15`);
