@@ -4,7 +4,8 @@
 
 - 사용자 지시에 따라 `duration_limit_mode: guideline`을 설정하고, 60분 초과를 오류 대신 `plannedOverrunSec`에 기록하도록 검증 규칙을 바꿨다. 새 개념 5장에 각 60초를 배정해 본편 41장, 계획 시간 62:04, 참고 길이 초과 2:04다. 기존 36장의 내용·메모·시간은 유지했다.
 - 사용자는 외부 강의자료 예시 화면의 재배포 권리 확인과 현재 수정본의 GitHub·Pages 배포를 명시했다. 자산 권리 메타데이터와 현재 콘텐츠의 공개 승인 해시를 갱신했다.
-- `npm run validate`, 테스트 15/15, 비공개·공개 브라우저 QA, `release:check`(1회차·126개 파일)를 통과했다. PDF 41쪽, PPTX 41장·발표 메모 41개를 확인했다. 원격 반영과 실제 Pages 응답은 후속 기록에서 확인한다.
+- `npm run validate`, 테스트 15/15, 비공개·공개 브라우저 QA, `release:check`(1회차·126개 파일)를 통과했다. PDF 41쪽, PPTX 41장·발표 메모 41개를 확인했다. `sources:check`는 메타데이터 40건을 통과했고, 공식 출처 본문 확인에 관한 기존 경고는 남아 있다.
+- [PR #3](https://github.com/Phjrab/ai-agent-club-2026-fall/pull/3)의 CI 두 건이 통과한 뒤 `main`에 병합했다. [Pages 실행 36310747174](https://github.com/Phjrab/ai-agent-club-2026-fall/actions/runs/36310747174)이 성공했다. 실제 공개 홈·강의·JSON·PDF·PPTX는 모두 HTTP 200이고, JSON에는 41장과 계획 초과 124초가 기록됐다. 내려받은 PDF는 41쪽, PPTX는 41장·메모 41개다. 원격 브랜치는 `main`만 남았다.
 
 ## 2026-09-27 · 외부 강의자료 26~29쪽으로 기본 개념 도입부 보강
 
