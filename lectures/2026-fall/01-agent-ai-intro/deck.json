@@ -4,17 +4,17 @@
   "slug": "01-agent-ai-intro",
   "term": "2026-fall",
   "title": "AI 서비스 선택부터 에이전트 활용까지",
-  "revision": "0.6.3",
-  "inputDigest": "95ac4999167353b1a249ccdf9fb967f22c4904151c65a01d16acf9aa2c237a83",
-  "sourceRegistryDigest": "0965bbd29cbe164b2f33fe3e75ec9f81e0a3c11a185a3a2c4134ed34d6035e71",
+  "revision": "0.6.4",
+  "inputDigest": "6b0cba91a4bbeacb1a8c22a8282a3b24e5adfe8443c1eeb14c85ebaa6e8976b8",
+  "sourceRegistryDigest": "3b2e8a0441d8d00422450cdea42bb2cacf286042eec4b72554e2005e4164ce5a",
   "slideLanguage": "ko",
   "scriptLanguage": "ko",
   "contentState": "draft",
-  "plannedMainDurationSec": 3784,
-  "plannedSpeakerDurationSec": 2775,
+  "plannedMainDurationSec": 3964,
+  "plannedSpeakerDurationSec": 2955,
   "plannedVideoBudgetSec": 1009,
   "actualVideoDurationSec": 1009,
-  "estimatedFullDurationSec": 3784,
+  "estimatedFullDurationSec": 3964,
   "timeFitStatus": "over_guideline",
   "questionsSec": 0,
   "videoBlock": {
@@ -741,6 +741,223 @@
       },
       "sectionLabel": "선택 기준",
       "hideFooterSource": true
+    },
+    {
+      "kind": "main",
+      "sectionId": "names",
+      "layout": "table",
+      "requirementIds": [
+        "REQ-COMPANIES",
+        "REQ-PLANS"
+      ],
+      "durationSec": 60,
+      "sourcePolicy": "external",
+      "sourceReason": null,
+      "sectionLabel": "모델과 API 비용",
+      "id": "L01-A13",
+      "title": "OpenAI API 대표 모델",
+      "takeaway": "API 가격표 · USD / 100만 토큰 · 2026-09-28 확인",
+      "sourceIds": [
+        "S01",
+        "S32"
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "모델",
+            "주요 용도",
+            "입력",
+            "출력"
+          ],
+          "rows": [
+            [
+              "GPT-6 Astra",
+              "고난도 추론·코딩",
+              "$10.00",
+              "$50.00"
+            ],
+            [
+              "GPT-6 Sol",
+              "복잡한 코딩·에이전트",
+              "$2.00",
+              "$10.00"
+            ],
+            [
+              "GPT-6 Luna",
+              "반복·대량 작업",
+              "$0.10",
+              "$0.50"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "짧은 컨텍스트·Standard 기준. 캐시·긴 컨텍스트·도구 비용과 ChatGPT 구독료는 별도."
+        }
+      ],
+      "speakerNotes": {
+        "say": "공식 OpenAI API 모델 목록과 표준 가격표에서 세 가지 대표 모델을 골랐습니다. GPT-6 Astra는 어려운 추론과 코딩, Sol은 복잡한 코딩과 에이전트 작업, Luna는 비용에 민감한 반복 작업을 위한 모델입니다. 표의 달러 금액은 짧은 컨텍스트의 입력과 출력 각각 100만 토큰당 Standard 처리 요금입니다. 같은 요청이라도 입력 길이와 출력 길이에 따라 비용이 달라집니다. 캐시, 긴 컨텍스트, 도구 사용 요금은 제외했고 ChatGPT 개인 구독료와도 다른 과금입니다. 실제 계정에서 선택할 수 있는 모델은 별도로 확인해야 합니다.",
+        "pointTo": [
+          "모델별 입력·출력 단가",
+          "Astra·Sol·Luna의 작업 범위"
+        ],
+        "background": [
+          "2026-09-28 공식 모델 카탈로그와 API 가격표 본문 확인. 각 행은 해당 회사의 대표 모델 예시이며 전체 모델 목록이 아님."
+        ],
+        "pitfalls": [
+          "API 요금을 ChatGPT Plus 월 구독료로 설명하지 않기",
+          "이 세 모델만 사용 가능하다고 말하지 않기"
+        ],
+        "transition": "Anthropic의 대표 Claude 모델도 같은 단위로 보겠습니다."
+      }
+    },
+    {
+      "kind": "main",
+      "sectionId": "names",
+      "layout": "table",
+      "requirementIds": [
+        "REQ-COMPANIES",
+        "REQ-PLANS"
+      ],
+      "durationSec": 60,
+      "sourcePolicy": "external",
+      "sourceReason": null,
+      "sectionLabel": "모델과 API 비용",
+      "id": "L01-A14",
+      "title": "Anthropic Claude API 대표 모델",
+      "takeaway": "API 가격표 · USD / 100만 토큰 · 2026-09-28 확인",
+      "sourceIds": [
+        "S05",
+        "S33"
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "모델",
+            "주요 용도",
+            "입력",
+            "출력"
+          ],
+          "rows": [
+            [
+              "Claude Fable 5.1",
+              "고난도 추론·긴 에이전트 작업",
+              "$10.00",
+              "$50.00"
+            ],
+            [
+              "Claude Opus 5.5",
+              "긴 코딩·지식 작업",
+              "$4.00",
+              "$20.00"
+            ],
+            [
+              "Claude Sonnet 5",
+              "속도·성능 균형",
+              "$2.00",
+              "$10.00"
+            ],
+            [
+              "Claude Haiku 4.5",
+              "빠른 반복 작업",
+              "$1.00",
+              "$5.00"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "기본 토큰 요금. 캐시·Batch·긴 컨텍스트 비용과 Claude 앱 구독료는 별도."
+        }
+      ],
+      "speakerNotes": {
+        "say": "Anthropic 공식 모델 개요와 Claude Platform 가격표의 기본 토큰 요금입니다. Fable 5.1은 고난도 추론과 긴 에이전트 작업, Opus 5.5는 장시간 코딩과 지식 작업, Sonnet 5는 속도와 지능의 균형, Haiku 4.5는 빠른 반복 작업을 중심으로 소개됩니다. 입력과 출력은 각각 100만 토큰당 미국 달러입니다. 프롬프트 캐싱, Batch, 긴 컨텍스트나 다른 클라우드 제공자를 통한 이용은 가격이 달라질 수 있습니다. Claude 앱의 Pro 구독과 API 청구는 별개입니다.",
+        "pointTo": [
+          "네 모델의 입력·출력 단가",
+          "작업 범위와 가격의 차이"
+        ],
+        "background": [
+          "2026-09-28 공식 모델 카탈로그와 API 가격표 본문 확인. 각 행은 해당 회사의 대표 모델 예시이며 전체 모델 목록이 아님."
+        ],
+        "pitfalls": [
+          "같은 토큰 수가 모든 모델에서 같은 작업량이라고 단정하지 않기",
+          "API 요금을 Claude Pro 월 구독료로 설명하지 않기"
+        ],
+        "transition": "Google의 Gemini API 모델과 조건부 가격도 살펴보겠습니다."
+      }
+    },
+    {
+      "kind": "main",
+      "sectionId": "names",
+      "layout": "table",
+      "requirementIds": [
+        "REQ-COMPANIES",
+        "REQ-PLANS"
+      ],
+      "durationSec": 60,
+      "sourcePolicy": "external",
+      "sourceReason": null,
+      "sectionLabel": "모델과 API 비용",
+      "id": "L01-A15",
+      "title": "Google Gemini API 대표 모델",
+      "takeaway": "API 가격표 · USD / 100만 토큰 · 2026-09-28 확인",
+      "sourceIds": [
+        "S08",
+        "S34"
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "모델",
+            "주요 용도",
+            "입력",
+            "출력"
+          ],
+          "rows": [
+            [
+              "Gemini 3.1 Pro Preview",
+              "복잡한 문제·에이전트",
+              "$2.00*",
+              "$12.00*"
+            ],
+            [
+              "Gemini 3.8 Flash",
+              "코딩·에이전트",
+              "$0.75†",
+              "$3.75†"
+            ],
+            [
+              "Gemini 3.5 Flash-Lite",
+              "대량·간단한 처리",
+              "$0.30",
+              "$2.50"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "* Pro: 프롬프트 20만 토큰 이하. † Flash: 2026-12-31까지. 유료 Standard 기준."
+        }
+      ],
+      "speakerNotes": {
+        "say": "Google 공식 Gemini API 모델 목록과 유료 Standard 가격표에서 대표 모델 세 개를 골랐습니다. Pro 3.1은 Preview이며 표의 2달러와 12달러는 프롬프트가 20만 토큰 이하일 때입니다. 초과하면 입력 4달러, 출력 18달러입니다. 3.8 Flash의 0.75달러와 3.75달러는 2026년 12월 31일까지 표시된 가격이며, 공식 표에는 2027년 1월 1일부터 1.50달러와 7.50달러로 적혀 있습니다. 3.5 Flash-Lite는 입력 0.30달러, 출력 2.50달러입니다. 모두 100만 토큰당 유료 Standard 요금이고 출력에는 thinking 토큰이 포함됩니다. 일부 모델의 무료 티어에는 사용량 제한이 있습니다. 캐시와 검색 도구 비용, Gemini 앱 및 Google AI 구독료는 별도입니다.",
+        "pointTo": [
+          "Pro의 20만 토큰 경계",
+          "Flash의 기간 한정 가격",
+          "무료·유료 티어 구분"
+        ],
+        "background": [
+          "2026-09-28 공식 모델 카탈로그와 API 가격표 본문 확인. 각 행은 해당 회사의 대표 모델 예시이며 전체 모델 목록이 아님."
+        ],
+        "pitfalls": [
+          "무료 티어가 모든 모델에 적용된다고 말하지 않기",
+          "Google AI 개인 구독료와 API 단가를 섞지 않기"
+        ],
+        "transition": "이제 앱 구독 요금 화면은 API 가격과 구분해 보겠습니다."
+      }
     },
     {
       "id": "L01-S09",
@@ -2078,5 +2295,5 @@
   "sessionDurationSec": 3600,
   "questionsMode": "flexible",
   "flexibleBufferSec": 0,
-  "plannedOverrunSec": 184
+  "plannedOverrunSec": 364
 }

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "status": "approved",
-  "approvedContentDigest": "e0c93f29ea9a87affc5d1455a2fb64d283c9f5a523086294ec02b330545005ae",
-  "approvedAt": "2026-09-28T00:12:14Z",
-  "approvalEvidence": "2026-09-28 사용자가 41쪽의 지정 화면 문구만 삭제하고 재배포하도록 지시함. 기존 공개 승인에 따른 블러 처리 메일 이미지와 PDF·PPTX 공개 범위는 유지함.",
+  "approvedContentDigest": "927f4f33162b6da261a04f9d0abf08a6db2a10b1f440293f4c849794fcc7e33e",
+  "approvedAt": "2026-09-28T14:01:13Z",
+  "approvalEvidence": "2026-09-28 사용자가 공식 문서에 근거한 OpenAI·Anthropic·Google API 모델·가격표 세 장을 제작하도록 요청하고 완성된 0.6.4 수정본의 배포를 명시적으로 지시함. 이전에 승인된 이미지·발표 메모·PDF·PPTX 공개 범위는 유지함.",
   "scope": {
     "site": true,
     "repositorySource": true,

@@ -6,8 +6,8 @@ sources:
     publisher: OpenAI
     url: https://developers.openai.com/api/docs/models
     published_at: null
-    checked_at: 2026-09-25
-    verification_status: needs_verification
+    checked_at: 2026-09-28
+    verification_status: content_verified
     access_status: HTTP 200
     supports:
       - 모델 이름·공식 용도; 소비자 요금제 제공 여부는 별도
@@ -58,8 +58,8 @@ sources:
     publisher: Anthropic
     url: https://platform.claude.com/docs/en/models/overview
     published_at: null
-    checked_at: 2026-09-25
-    verification_status: needs_verification
+    checked_at: 2026-09-28
+    verification_status: content_verified
     access_status: HTTP 200
     supports:
       - 모델 계열·버전·공식 설명
@@ -97,8 +97,8 @@ sources:
     publisher: Google
     url: https://ai.google.dev/gemini-api/docs/models
     published_at: null
-    checked_at: 2026-09-25
-    verification_status: needs_verification
+    checked_at: 2026-09-28
+    verification_status: content_verified
     access_status: HTTP 200
     supports:
       - 모델 이름·상태; 앱 제공 목록과 구분
@@ -548,3 +548,46 @@ sources:
     caveats:
       - 메일 수신 사실은 저장소의 품질이나 발신자·제안의 신뢰성을 검증하지 않음.
       - 공개본에는 이름·이메일 주소·저장소 식별자를 강하게 블러 처리한 사본만 사용함.
+  - id: S32
+    type: official_or_reference
+    title: OpenAI API pricing
+    publisher: OpenAI
+    url: https://developers.openai.com/api/docs/pricing
+    published_at: null
+    checked_at: 2026-09-28
+    verification_status: content_verified
+    access_status: HTTP 200 · 공식 가격표 본문 확인
+    supports:
+      - GPT-6 Astra·Sol·Luna의 Standard 짧은 컨텍스트 입력·출력 100만 토큰당 USD 단가
+    caveats:
+      - 캐시·긴 컨텍스트·Fast·Batch·지역·도구 요금은 표에 포함하지 않음.
+      - ChatGPT 앱 구독료와 API 사용 요금은 별개임.
+  - id: S33
+    type: official_or_reference
+    title: Claude Platform model pricing
+    publisher: Anthropic
+    url: https://platform.claude.com/docs/en/about-claude/pricing
+    published_at: null
+    checked_at: 2026-09-28
+    verification_status: content_verified
+    access_status: HTTP 200 · 공식 가격표 본문 확인
+    supports:
+      - Claude Fable 5.1·Opus 5.5·Sonnet 5·Haiku 4.5의 기본 입력·출력 100만 토큰당 USD 단가
+    caveats:
+      - 캐시·Batch·긴 컨텍스트·클라우드 제공자별 요금은 표에 포함하지 않음.
+      - Claude 앱 구독료와 API 사용 요금은 별개임.
+  - id: S34
+    type: official_or_reference
+    title: Gemini Developer API pricing
+    publisher: Google
+    url: https://ai.google.dev/gemini-api/docs/pricing
+    published_at: null
+    checked_at: 2026-09-28
+    verification_status: content_verified
+    access_status: HTTP 200 · 공식 가격표 본문 확인
+    supports:
+      - Gemini 3.8 Flash·3.5 Flash-Lite·3.1 Pro Preview의 유료 Standard 입력·출력 100만 토큰당 USD 단가
+      - Gemini 3.8 Flash의 2026-12-31까지 가격과 3.1 Pro Preview의 20만 토큰 경계
+    caveats:
+      - 무료 티어의 사용량 제한, 캐시·검색 도구·Batch 비용은 표에 포함하지 않음.
+      - Gemini 앱·Google AI 구독료와 API 사용 요금은 별개임.
