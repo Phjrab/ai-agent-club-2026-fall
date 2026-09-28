@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "status": "approved",
-  "approvedContentDigest": "074fcb15a21fa1a29c89cc8402e1480e6210359ea338843c2b703dda97c3157f",
-  "approvedAt": "2026-09-27T10:58:19.472Z",
-  "approvalEvidence": "2026-09-27 사용자가 mail.png를 새 41쪽으로 넣고 GitHub와 Pages까지 공개 배포하도록 지시함. 후속 지시로 이름·이메일 주소·저장소 식별자 블러 처리를 승인함. 원본은 저장소에 올리지 않고 블러 처리본만 공개하며, 이전에 승인된 PDF·PPTX 공개 범위를 유지함.",
+  "approvedContentDigest": "e0c93f29ea9a87affc5d1455a2fb64d283c9f5a523086294ec02b330545005ae",
+  "approvedAt": "2026-09-28T00:12:14Z",
+  "approvalEvidence": "2026-09-28 사용자가 41쪽의 지정 화면 문구만 삭제하고 재배포하도록 지시함. 기존 공개 승인에 따른 블러 처리 메일 이미지와 PDF·PPTX 공개 범위는 유지함.",
   "scope": {
     "site": true,
     "repositorySource": true,

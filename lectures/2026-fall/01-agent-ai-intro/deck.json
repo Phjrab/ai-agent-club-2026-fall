@@ -4,7 +4,7 @@
   "slug": "01-agent-ai-intro",
   "term": "2026-fall",
   "title": "AI 서비스 선택부터 에이전트 활용까지",
-  "revision": "0.6.2",
+  "revision": "0.6.3",
   "inputDigest": "95ac4999167353b1a249ccdf9fb967f22c4904151c65a01d16acf9aa2c237a83",
   "sourceRegistryDigest": "0965bbd29cbe164b2f33fe3e75ec9f81e0a3c11a185a3a2c4134ed34d6035e71",
   "slideLanguage": "ko",
@@ -2014,10 +2014,6 @@
           "alt": "이름, 이메일 주소, 저장소 식별자를 흐리게 처리한 공개 저장소 관련 메일 대화 화면",
           "caption": "사용자 제공 메일 화면 · 식별 정보 블러 처리",
           "fit": "cover"
-        },
-        {
-          "type": "callout",
-          "text": "외부 연락은 한 사례입니다. 제안의 내용과 발신자는 별도로 확인합니다."
         }
       ],
       "speakerNotes": {
