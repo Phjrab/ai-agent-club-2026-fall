@@ -591,3 +591,19 @@ sources:
     caveats:
       - 무료 티어의 사용량 제한, 캐시·검색 도구·Batch 비용은 표에 포함하지 않음.
       - Gemini 앱·Google AI 구독료와 API 사용 요금은 별개임.
+  - id: S35
+    type: official_or_reference
+    title: Best practices for prompt engineering with the OpenAI API
+    publisher: OpenAI Help Center
+    url: https://help.openai.com/ko-kr/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api
+    published_at: null
+    checked_at: 2026-09-29
+    verification_status: content_verified
+    access_status: Safari에서 한국어 번역 본문·9개 경험칙·매개변수 섹션 확인; 터미널 HTTP 403
+    supports:
+      - 최신 모델, 지침과 자료 구분, 구체성, 출력 형식 예시, 제로샷·퓨샷·파인튜닝 순서
+      - 정확한 출력 길이, 긍정 지침, 코드 선행 단어, 프롬프트 초안 생성 기능
+      - 모델·temperature·max_completion_tokens·stop 매개변수 설명
+    caveats:
+      - 한국어 페이지는 기계 번역이며 예시는 전자공학 학생용으로 별도 재구성함.
+      - 모델별 매개변수 지원과 UI 제공 여부는 해당 시점의 API 문서를 확인해야 함.
