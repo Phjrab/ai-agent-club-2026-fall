@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "status": "approved",
-  "approvedContentDigest": "927f4f33162b6da261a04f9d0abf08a6db2a10b1f440293f4c849794fcc7e33e",
-  "approvedAt": "2026-09-28T14:01:13Z",
-  "approvalEvidence": "2026-09-28 사용자가 공식 문서에 근거한 OpenAI·Anthropic·Google API 모델·가격표 세 장을 제작하도록 요청하고 완성된 0.6.4 수정본의 배포를 명시적으로 지시함. 이전에 승인된 이미지·발표 메모·PDF·PPTX 공개 범위는 유지함.",
+  "approvedContentDigest": "486336bb1a21c955f575b76209b502e23ce41bae1f74fc877c24ebf22874cf55",
+  "approvedAt": "2026-09-29T13:42:10.046Z",
+  "approvalEvidence": "2026-09-29 사용자가 로컬 검토본 0.6.6의 GitHub 및 Pages 배포를 명시적으로 지시함. 이전에 승인된 공개 이미지·발표 메모·PDF·PPTX 범위는 유지함.",
   "scope": {
     "site": true,
     "repositorySource": true,
